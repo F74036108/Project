@@ -14,13 +14,13 @@ public class Submarine extends Vehicle implements Runnable{
 	//自動移動
 	public void run(){
 		while(true){
-			setX(get_X()+5);
+			setX(get_X()+10);
 			//setX(x);
 			//this.x+=10;
 			if(get_X()>=1100) setX(-100);
 			//s.resetLocation();
 			try {
-				Thread.sleep(30);
+				Thread.sleep(300);
 		
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
