@@ -8,6 +8,7 @@ public class SubmarineMain extends JFrame {
 	private static Ship ship;
 	private static Controller ctrl;
 	private static Controller ctrlPlaneBomb;
+	static Submarine[] sub;
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
@@ -20,7 +21,8 @@ public class SubmarineMain extends JFrame {
 		setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 
 		addKeyListener(new KeyInput(this));
-		ctrl = new Controller(this,1);
+		// ctrl = new Controller(this, sub);
+		ctrl = new Controller(this, 1);
 		ctrlPlaneBomb = new Controller(this, 2);
 	}
 
@@ -34,22 +36,25 @@ public class SubmarineMain extends JFrame {
 			ship.setX(ship.get_X() - 5);// Left shift
 
 		} else if (key == KeyEvent.VK_SPACE) {
-			// ctrl.add_Bomb(new Bomb(ship.get_X()+80,ship.get_Y()+80,ctrl));
-			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, ctrl);
-			// ctrl.run();
-			// addBomb(new Bomb(200,120));
-			// this.repaint();
-			// addBomb(frame,new Bomb(ship.get_X(),ship.get_Y()));
-			System.out.println("!!!!");
-			/*
-			 * Bomb b=new Bomb(ship.get_X()+80,ship.get_Y()+80); this.add(b);
-			 * Thread thread = new Thread(b); thread.start();
-			 */
+
+			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+		} else if (key == KeyEvent.VK_0) {
+			remove(ctrl.b.get(1));
+			remove(sub[1]);
+			ctrl.b.remove(1);
+			addSubmarine(1);
 		}
 	}
 
-	public void keyReleased(KeyEvent e) {
 
+	public void addSubmarine(int i) {
+		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
+		sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random() * 10);
+		// constructor 初始位置
+		this.add(sub[i]);
+		// 以Thread同時跑潛艇
+		Thread thread = new Thread(sub[i]);
+		thread.start();
 	}
 
 	public static void main(String[] args) {
@@ -61,12 +66,15 @@ public class SubmarineMain extends JFrame {
 		frame.add(ship);
 		frame.setVisible(true);
 
-		int[] arrRand = { 20, 200, 80, 320, 150, 100, 180, 250 };// for 不同深度
+		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
 
+		// Thread thr=new Thread(new BombCrash((SubmarineMain)frame, ctrl,
+		// sub));
+		// thr.start();
 		// 創 NUM_OF_SUBMARINES個潛艇
-		Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
+		sub = new Submarine[NUM_OF_SUBMARINES];
 		for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
-			sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], (Math.random()+1) * 4);
+			sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random() * 10);
 			// constructor 初始位置
 			frame.add(sub[i]);
 			// 以Thread同時跑潛艇
@@ -75,7 +83,7 @@ public class SubmarineMain extends JFrame {
 
 			// 固定間格時間 create thread
 			try {
-				Thread.sleep(100);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -84,7 +92,7 @@ public class SubmarineMain extends JFrame {
 		}
 		Plane[] plane = new Plane[NUM_OF_PLANES];
 		for (int i = 0; i < NUM_OF_PLANES; i++) {
-			plane[i] = new Plane(1300+i*50,+i*30, (Math.random()+0.5), ctrlPlaneBomb);
+			plane[i] = new Plane(1200, 20, Math.random() * 10, (SubmarineMain) frame, ctrlPlaneBomb);
 			frame.add(plane[i]);
 			Thread thread = new Thread(plane[i]);
 			thread.start();

@@ -2,15 +2,18 @@ import java.util.LinkedList;
 
 public class Controller {
 
-	private LinkedList<Bomb> b = new LinkedList<Bomb>();
-	
+	protected LinkedList<Bomb> b = new LinkedList<Bomb>();
+
 	Bomb bomb;
 	Bomb tempBomb;
 	SubmarineMain game;
+
 	int type;
-	
+
 	public Controller(SubmarineMain game, int type) {
+
 		this.game = game;
+
 		this.type = type;
 	}
 
@@ -30,6 +33,8 @@ public class Controller {
 				game.remove(tempBomb);
 				b.remove(i);
 			}
+
 		}
 	}
+
 }
