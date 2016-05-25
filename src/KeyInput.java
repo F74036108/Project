@@ -4,8 +4,7 @@ public class KeyInput extends KeyAdapter {
 	
 	public KeyInput(SubmarineMain game){
 		this.game = game;
-	}
-	
+	}	
 	public void keyPressed(KeyEvent e){
 		game.keyPressed(e);
 	}

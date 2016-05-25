@@ -17,14 +17,10 @@ public class Controller {
 		game.add(block);
 		Thread thread = new Thread(block);
 		thread.start();
-		// if(block.getY()>=700){thread.interrupt();remove(block);game.remove(block);System.out.println("!!@@@");}
 
 	}
 
 	public void remove() {
-		// b.remove(block);
-		// thread.interrupt();
-		// remove(block);
 
 		for (int i = 0; i < b.size(); i++) {
 			tempBomb = b.get(i);
@@ -33,9 +29,5 @@ public class Controller {
 				b.remove(i);
 			}
 		}
-
-		// game.remove(block);
-		// System.out.println("!!@@@");
 	}
-
 }

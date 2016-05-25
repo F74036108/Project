@@ -22,14 +22,11 @@ public class Bomb extends Vehicle implements Runnable {
 			setY(get_Y() + 2);
 			if (get_Y() > 700) {
 
-				// setY(700);
-				// this.interrupt();
-
+				// remove BOMBs out of bounds
 				ctrl.remove();
 				break;
 
 			}
-			// s.resetLocation();
 			try {
 				Thread.sleep(20);
 
