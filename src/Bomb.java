@@ -5,7 +5,13 @@ public class Bomb extends Vehicle implements Runnable {
 	Bomb tempBomb;
 
 	public Bomb(double x, double y, Controller ctrl) {
-		ImageIcon icon = new ImageIcon(".\\image\\bomb.png");// SET image
+		ImageIcon icon;
+		if(ctrl.type==1)
+			icon = new ImageIcon(".\\image\\bomb.png");// SET image
+		else {
+			icon = new ImageIcon(".\\image\\bb.png");
+			System.out.println("!!!!!!!");
+		}
 		setIcon(icon);
 		this.x = x;
 		this.y = y;
@@ -14,7 +20,7 @@ public class Bomb extends Vehicle implements Runnable {
 		ctrl.add_Bomb(this);
 
 		setLocation((int) x, (int) y);
-		setSize(59, 83);
+		setSize(50,50);
 	}
 
 	public void run() {

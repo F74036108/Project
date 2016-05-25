@@ -7,11 +7,11 @@ public class SubmarineMain extends JFrame {
 	Image img;
 	private static Ship ship;
 	private static Controller ctrl;
+	private static Controller ctrlPlaneBomb;
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
-
-	private static final int NUM_OF_PLANES = 6;
+	private static final int NUM_OF_PLANES = 4;
 
 	public SubmarineMain() {
 
@@ -20,8 +20,8 @@ public class SubmarineMain extends JFrame {
 		setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 
 		addKeyListener(new KeyInput(this));
-		ctrl = new Controller(this);
-
+		ctrl = new Controller(this,1);
+		ctrlPlaneBomb = new Controller(this, 2);
 	}
 
 	// 鍵盤控制
@@ -66,7 +66,7 @@ public class SubmarineMain extends JFrame {
 		// 創 NUM_OF_SUBMARINES個潛艇
 		Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
 		for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
-			sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random() * 10);
+			sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], (Math.random()+1) * 4);
 			// constructor 初始位置
 			frame.add(sub[i]);
 			// 以Thread同時跑潛艇
@@ -75,7 +75,7 @@ public class SubmarineMain extends JFrame {
 
 			// 固定間格時間 create thread
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -84,7 +84,7 @@ public class SubmarineMain extends JFrame {
 		}
 		Plane[] plane = new Plane[NUM_OF_PLANES];
 		for (int i = 0; i < NUM_OF_PLANES; i++) {
-			plane[i] = new Plane(1200, 20, Math.random() * 10);
+			plane[i] = new Plane(1300+i*50, -10+i*30, (Math.random()), ctrlPlaneBomb);
 			frame.add(plane[i]);
 			Thread thread = new Thread(plane[i]);
 			thread.start();

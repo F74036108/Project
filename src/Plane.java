@@ -1,9 +1,11 @@
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable{
-	public Plane(double x, double y, double speed){
+	private Controller ctrl;
+	public Plane(double x, double y, double speed, Controller ctrl){
 	    ImageIcon icon = new ImageIcon(".\\image\\plane.png");//SET image
 	    setIcon(icon);
+	    this.ctrl = ctrl;
 	    this.speed = speed;
 	    this.x = x;
 	    this.y=y;
@@ -12,16 +14,22 @@ public class Plane extends Vehicle implements Runnable{
 	} 
 	//自動移動
 	public void run(){
+		int count=0;
 		while(true){
-			System.out.println("!!");
 			setX(get_X()-1*speed);
 			setY(get_Y()+(Math.random()*2-1));
-			//setX(x);
-			//this.x+=10;
-			if(get_X()<=-100) setX(1200);
+			//按照機率放出炸彈
+			if((int)(Math.random()*300)==1){
+				new Bomb(get_X(), get_Y()+70, ctrl);
+			}
+			
+			if(get_X()<=-100){
+				setX(1300);
+				speed = Math.random();
+			}
 			//s.resetLocation();
 			try {
-				Thread.sleep(30);
+				Thread.sleep(5);
 		
 			} catch (InterruptedException e) {
 				e.printStackTrace();
