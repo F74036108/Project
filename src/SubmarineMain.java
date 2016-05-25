@@ -84,7 +84,7 @@ public class SubmarineMain extends JFrame {
 		}
 		Plane[] plane = new Plane[NUM_OF_PLANES];
 		for (int i = 0; i < NUM_OF_PLANES; i++) {
-			plane[i] = new Plane(1300+i*50, -10+i*30, (Math.random()), ctrlPlaneBomb);
+			plane[i] = new Plane(1300+i*50,+i*30, (Math.random()+0.5), ctrlPlaneBomb);
 			frame.add(plane[i]);
 			Thread thread = new Thread(plane[i]);
 			thread.start();
