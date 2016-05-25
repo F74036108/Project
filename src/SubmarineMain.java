@@ -43,12 +43,13 @@ public class SubmarineMain extends JFrame {
 		int[] arrRand={20,200,80,320,150 ,100,180,250};//for 不同深度
 		//創 NUM_OF_SUBMARINES個潛艇
 		Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
+		Thread[] thread = new Thread[NUM_OF_SUBMARINES];
 		for(int i=0;i<NUM_OF_SUBMARINES;i++){
 			sub[i]=new Submarine(-120,300+arrRand[i]);//constructor 初始位置
 			frame.add(sub[i]);
 			//以Thread同時跑潛艇	
-			Thread thread = new Thread(sub[i]);
-			thread.start();
+			thread[i] = new Thread(sub[i]);
+			thread[i].start();
 			//固定間格時間 create thread
 			try {
 				Thread.sleep(5000);
