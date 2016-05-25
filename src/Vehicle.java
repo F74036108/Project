@@ -3,6 +3,7 @@ public class Vehicle extends JLabel{
 
 	protected double x;
 	protected double y;
+	protected double speed;
 	
 	//重設LABEL位置
 	public void resetLocation(){
