@@ -24,13 +24,14 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	public SubmarineMain() {
 
-		// 開始頁面
+		/* 開始頁面-------------------------------------------------------------- */
 		Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
 		frame2.setSize(WIDTH, HEIGHT);
 		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 		frame2.setVisible(true);
+		/*------------------------------------------------------------------------*/
 		while (true) {
-
+			// Check START signal every 2 seconds
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
@@ -38,7 +39,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				e.printStackTrace();
 			}
 
-			//Action after click START
+			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
 
 				frame2.setVisible(false);
@@ -82,9 +83,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB
 			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
-
 		}
-
 	}
 
 	public void addSubmarine(int i) {
