@@ -28,20 +28,34 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
 		frame2.setSize(WIDTH, HEIGHT);
 		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+		JLabel startButton = new JLabel();
+		ImageIcon icon = new ImageIcon(".\\image\\START.png");// LOAD image									
+		startButton.setIcon(icon);
+		startButton.setLocation(WIDTH / 2 -180 , 350);
+		startButton.setSize(350,60);
+		frame2.add(startButton);
 		frame2.setVisible(true);
 		/*------------------------------------------------------------------------*/
 		while (true) {
 			// Check START signal every 2 seconds
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
-
+				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD image
+				startButton.setIcon(icon2);
+				frame2.setVisible(true);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				frame2.setVisible(false);
 
 				setSize(WIDTH, HEIGHT);

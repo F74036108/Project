@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,12 +12,20 @@ public class Frontpage extends JFrame{
 	public static enum State{Start,Front};
 	public static State state;
 	
-	Rectangle startButton = new Rectangle(SubmarineMain.get_width() / 2 -50 , 175 ,100,50);
+//	Rectangle startButton = new Rectangle(SubmarineMain.get_width() / 2 -50 , 175 ,100,50);
 	public Frontpage(int height,int width){
 		this.WIDTH = width;
 		this.HEIGHT = height;
-	    this.addMouseListener(new MouseInput(this));
+		/*JLabel startButton = new JLabel();
+		ImageIcon icon = new ImageIcon(".\\image\\START.png");// LOAD image									
+		startButton.setIcon(icon);
+		startButton.setLocation(SubmarineMain.get_width() / 2 -50 , 175);
+		startButton.setSize(600,500);
+		this.add(startButton);
+		.setVisible(true);*/
+		this.addMouseListener(new MouseInput(this));
 	    state = State.Front;
+	    
 	}
 	public void action(){
 	}
@@ -22,8 +33,10 @@ public class Frontpage extends JFrame{
 	public void paint(Graphics g){
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D)g;
-		g2d.draw(startButton);
-		g2d.drawString("Start",SubmarineMain.get_width() / 2 -12, 175 +30);
+		Font fnt0 = new Font("arial", Font.BOLD, 80);
+		g.setFont(fnt0);
+		g.setColor(Color.white);
+		g2d.drawString("Submarine WAR",SubmarineMain.get_width() / 2 -290, 200);
 		
 	}
 	public void set_start_state(){

@@ -1,6 +1,7 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class MouseInput implements MouseListener {
@@ -15,8 +16,8 @@ public class MouseInput implements MouseListener {
 		// TODO Auto-generated method stub
 		int mx = e.getX();
 		int my = e.getY();
-		if (mx >= SubmarineMain.get_width() / 2 - 50 && mx <= SubmarineMain.get_width() / 2 + 50) {
-			if (my >= 175 && my <= 225) {
+		if (mx >= SubmarineMain.get_width() / 2 - 180 && mx <= SubmarineMain.get_width() / 2 + 170) {
+			if (my >= 350 && my <= 450) {
 				game.set_start_state();
 			}
 		}
