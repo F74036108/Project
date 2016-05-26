@@ -3,9 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SubmarineMain extends JFrame {
+public class SubmarineMain extends JFrame implements MouseMotionListener{
 	Image img;
-	private static Ship ship;
+	private Ship ship = new Ship(420, 170);;
 	private static Controller ctrl;
 	private static Controller ctrlPlaneBomb;
 	static Submarine[] sub;
@@ -14,16 +14,46 @@ public class SubmarineMain extends JFrame {
 	private static final int NUM_OF_SUBMARINES = 8;
 	private static final int NUM_OF_PLANES = 4;
 
+	 
+	private JLabel dragLabel = new JLabel(new ImageIcon(".\\image\\oct.gif"));
+	private int mouseX = 500;
+	private int mouseY = 500;
+	
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+	    mouseX = e.getX();
+	    mouseY = e.getY();
+	    dragLabel.setBounds(mouseX, mouseY, 166, 131);
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		
+		mouseX = e.getX();
+	    mouseY = e.getY();
+	    dragLabel.setLocation(mouseX, mouseY);
+	}
+	
 	public SubmarineMain() {
 
 		setSize(WIDTH, HEIGHT);
 		// 載入背景圖片
 		setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 
+		this.add(ship);
+		
 		addKeyListener(new KeyInput(this));
 		// ctrl = new Controller(this, sub);
 		ctrl = new Controller(this, 1);
 		ctrlPlaneBomb = new Controller(this, 2);
+		
+		this.add(dragLabel);
+	    //panel.setBackground(Color.WHITE);
+	    //panel.add(dragLabel);
+	    dragLabel.setForeground(Color.RED);
+	    dragLabel.setBounds(mouseX, mouseY, 166, 131);
+	    this.addMouseMotionListener(this);
 	}
 
 	// 鍵盤控制
@@ -61,9 +91,11 @@ public class SubmarineMain extends JFrame {
 		JFrame frame = new SubmarineMain();
 		frame.setLayout(null);
 
+		
+		
 		// 主艦
-		ship = new Ship(420, 170);// constructor 初始位置
-		frame.add(ship);
+		//ship = new Ship(420, 170);// constructor 初始位置
+		
 		frame.setVisible(true);
 
 		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度

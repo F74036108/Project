@@ -48,8 +48,9 @@ public class Bomb extends Vehicle implements Runnable {
 						if (diffX > -40 && diffX <= 120 && diffY > 1 && diffY < 25) {
 							// handle 爆炸後
 							// remove LABEL
-							game.remove(tempBomb);
 							game.remove(game.sub[j]);
+							game.remove(tempBomb);
+							
 							// remove linked list BOMB
 							ctrl.b.remove(i);
 							// Create new Submarine
