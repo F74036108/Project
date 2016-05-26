@@ -61,7 +61,7 @@ public class Bomb extends Vehicle implements Runnable {
 			} else if (get_Y() > 700) {
 
 				// remove BOMBs out of bounds
-				ctrl.remove();
+				//ctrl.remove();
 				break;
 
 			}
