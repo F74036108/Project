@@ -11,7 +11,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private Controller ctrl = new Controller(this, 1);;
 	private Controller ctrlPlaneBomb = new Controller(this, 2);;
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
-	Plane[] plane = new Plane[NUM_OF_PLANES];
+	private Plane[] plane = new Plane[NUM_OF_PLANES];
 
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
@@ -111,7 +111,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1200, 20, Math.random() * 10, (SubmarineMain) this, ctrlPlaneBomb);
+		plane[i] = new Plane(1200, 20, Math.random() * 10, this, ctrlPlaneBomb);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();
