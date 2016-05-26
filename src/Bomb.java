@@ -87,7 +87,7 @@ public class Bomb extends Vehicle implements Runnable {
 						game.sub[j].get_X();
 						double diffX = tempBomb.get_X() - game.sub[j].get_X();
 						double diffY = tempBomb.get_Y() - game.sub[j].get_Y();
-						if (diffX > -60 && diffX <= 120 && diffY > 1 && diffY < 25) {
+						if (diffX > -60 && diffX <= 120 && diffY > 10 && diffY < 25) {
 							// 爆炸setLocation
 							explode.setLocation((int) tempBomb.get_X() - 130, (int) tempBomb.get_Y() - 120);
 							// handle 爆炸後
@@ -97,6 +97,7 @@ public class Bomb extends Vehicle implements Runnable {
 
 							// remove linked list BOMB
 							ctrl.b.remove(i);
+							i--;
 							// Create new Submarine
 							game.addSubmarine(j);
 

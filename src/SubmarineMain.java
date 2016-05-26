@@ -97,7 +97,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1200, 20, Math.random() * 10, (SubmarineMain) this, ctrlPlaneBomb);
+		plane[i] = new Plane(1200, 20, Math.random() * 10, this, ctrlPlaneBomb);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();
