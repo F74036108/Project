@@ -5,8 +5,9 @@ import java.awt.event.*;
 
 public class SubmarineMain extends JFrame implements MouseMotionListener{
 	Image img;
-	private Ship ship = new Ship(420, 170);;
+	private Ship ship = new Ship(420, 170);
 	private static Controller ctrl;
+	private static Frontpage front;
 	private static Controller ctrlPlaneBomb;
 	static Submarine[] sub;
 	private static final int WIDTH = 1000;
@@ -18,6 +19,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 	private JLabel dragLabel = new JLabel(new ImageIcon(".\\image\\oct.gif"));
 	private int mouseX = 500;
 	private int mouseY = 500;
+	
+
 	
 
 	@Override
@@ -33,6 +36,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 		mouseX = e.getX();
 	    mouseY = e.getY();
 	    dragLabel.setLocation(mouseX, mouseY);
+	}
+	
+	public static int get_width(){
+		return WIDTH;
 	}
 	
 	public SubmarineMain() {
@@ -58,6 +65,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 
 	// 鍵盤控制
 	public void keyPressed(KeyEvent e) {
+	//	if( == State.Start){
 		int key = e.getKeyCode();
 
 		if (key == KeyEvent.VK_RIGHT) {
@@ -74,6 +82,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 			ctrl.b.remove(1);
 			addSubmarine(1);
 		}
+//	}
 	}
 
 
@@ -88,17 +97,22 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new SubmarineMain();
-		frame.setLayout(null);
-
-		
-		
-		// 主艦
-		//ship = new Ship(420, 170);// constructor 初始位置
-		
-		frame.setVisible(true);
-
-		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
+		front = new Frontpage(HEIGHT,WIDTH);
+		Frontpage frame2 = new Frontpage(HEIGHT,WIDTH);
+		frame2.setSize(WIDTH, HEIGHT);
+		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+		frame2.setVisible(true);
+		while(true){
+			System.out.println("00"+frame2.get_state());
+		if(frame2.get_state() == Frontpage.State.Start){
+			System.out.println("000585");
+			frame2.setVisible(false);
+			JFrame frame = new SubmarineMain();
+			frame.setLayout(null);
+			// 主艦
+			//ship = new Ship(420, 170);// constructor 初始位置
+			frame.setVisible(true);
+			int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
 
 		// Thread thr=new Thread(new BombCrash((SubmarineMain)frame, ctrl,
 		// sub));
@@ -136,7 +150,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener{
 				e.printStackTrace();
 			}
 		}
-
+		break;
 	}
-
+	}
+	}
 }
