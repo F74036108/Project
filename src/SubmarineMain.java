@@ -39,7 +39,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		while (true) {
 			// Check START signal every 2 seconds
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -50,12 +50,35 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				startButton.setIcon(icon2);
 				frame2.setVisible(true);
 				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ImageIcon icon3 = new ImageIcon(".\\image\\LOAD1.png");// LOAD image
+				startButton.setIcon(icon3);
+				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+				ImageIcon icon4 = new ImageIcon(".\\image\\LOAD2.png");// LOAD image
+				startButton.setIcon(icon4);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ImageIcon icon5 = new ImageIcon(".\\image\\LOAD3.png");// LOAD image
+				startButton.setIcon(icon5);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				frame2.setVisible(false);
 
 				setSize(WIDTH, HEIGHT);
