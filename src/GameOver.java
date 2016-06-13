@@ -10,7 +10,9 @@ import java.awt.Graphics2D;
 
 public class GameOver extends JFrame{
 	
-		public GameOver(int x ,int y){
+	    SubmarineMain game;
+		public GameOver(int x ,int y,SubmarineMain game ){
+			this.game = game;
 			this.setSize(x, y);
 			this.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 			JLabel gameover = new JLabel();
@@ -37,7 +39,7 @@ public class GameOver extends JFrame{
 			restart.addActionListener(mblistener);
 			restart.setLocation(x/2-300,y/2+150);
 			restart.setSize(234,58);
-			exit_listener exitlistener = new exit_listener(this);
+			ExitListener exitlistener = new ExitListener(this);
 			exitbtn.addActionListener(exitlistener);
 			exitbtn.setLocation(x/2+54,y/2+150);
 			exitbtn.setSize(234,58);
@@ -51,10 +53,9 @@ public class GameOver extends JFrame{
 		
 		public void pressed(){
 			this.setVisible(false);
-			this.dispose();
-			SubmarineMain game = new SubmarineMain();
-			game.setLayout(null);
+			game.resetAll();
 			game.setVisible(true);
+			this.dispose();
 		}
 		public void exit(){
 			this.setVisible(false);

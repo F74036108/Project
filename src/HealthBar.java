@@ -2,7 +2,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class HealthBar extends JLabel{
-	
+	private int health=100;
 	SubmarineMain game;
 	ImageIcon icon1 = new ImageIcon(".\\image\\100.png");
 	ImageIcon icon2 = new ImageIcon(".\\image\\90.png");
@@ -21,8 +21,18 @@ public class HealthBar extends JLabel{
 		setLocation(0,0);
 		setSize(400, 22);
 	}
-	
-	public void setHealthbar(int health){
+	public void minusHealth(){
+		health -= 10;
+		setHealthBar();
+	}
+	public int getHealth(){
+		return health;
+	}
+	public void reset(){
+		health = 100;
+		setHealthBar();
+	}
+	private void setHealthBar(){
 		if(health == 100){
 			this.setIcon(icon1);
 		}

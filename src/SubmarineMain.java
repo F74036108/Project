@@ -7,7 +7,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	Image img;
 
 	private Ship ship = new Ship(420, 170);// 主艦
-	private HealthBar healthbar = new HealthBar();
+	private HealthBar healthBar = new HealthBar();
 	private Controller ctrl = new Controller(this, 1);;
 	private Controller ctrlPlaneBomb = new Controller(this, 2);;
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
@@ -17,7 +17,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
 	private static final int NUM_OF_PLANES = 4;
-	private static int Health = 10;
 
 	public static int get_width() {
 		return WIDTH;
@@ -90,7 +89,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				// 主艦
 				this.add(ship);
 				//血條
-				this.add(healthbar);
+				this.add(healthBar);
 				// 創 NUM_OF_SUBMARINES個潛艇
 				for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
 					addSubmarine(i);
@@ -128,12 +127,18 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 	
 	public void sub_health(){
-		Health -= 10;
-		healthbar.setHealthbar(Health);
-		if(Health == 0){
-			GameOver gameover = new GameOver(WIDTH,HEIGHT);
+		healthBar.minusHealth();
+		//healthbar.setHealthbar(health);
+		if(healthBar.getHealth() == 0){
 			this.setVisible(false);
-			this.dispose();
+			GameOver gameover = new GameOver(WIDTH,HEIGHT,this);
+			gameover.setVisible(true);
+			//Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
+			//frame2.setSize(WIDTH, HEIGHT);
+			//frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+			//frame2.setVisible(true);
+			//this.setVisible(false);
+			//this.dispose();
 		}
 	}
 
@@ -152,6 +157,20 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();
+	}
+	public void resetAll(){
+		//FOR RESTART  reset all components & datas
+		ship.setX(420); ship.setY(170);
+		for(int i=0;i<NUM_OF_SUBMARINES;i++){
+			this.remove(sub[i]);
+			addSubmarine(i);
+		}
+		for(int i=0;i<NUM_OF_PLANES;i++){
+			this.remove(plane[i]);
+			addPlane(i);
+		}
+		healthBar.reset();
+		
 	}
 
 	/*********************************************************************************/

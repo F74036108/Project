@@ -1,10 +1,12 @@
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class exit_listener implements ActionListener{
+public class ExitListener implements ActionListener{
 	
 	GameOver gameover;
-	public exit_listener(GameOver gameover){
+	public ExitListener(GameOver gameover){
 		this.gameover = gameover;
 	}
 	public void actionPerformed(ActionEvent e){

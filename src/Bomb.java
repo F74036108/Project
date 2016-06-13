@@ -79,6 +79,7 @@ public class Bomb extends Vehicle implements Runnable {
 					}
 				}
 			} else if (get_Y() <= 700 && (ctrl.type == 2)) {
+				/*
 				for (int i = 0; i < ctrl.b.size(); i++) {
 					if (ctrl.b.get(i) == null)
 						continue;
@@ -116,7 +117,7 @@ public class Bomb extends Vehicle implements Runnable {
 
 						}
 					}
-				}
+				}*/
 
 			} else if (get_Y() > 700) {
 
