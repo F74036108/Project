@@ -2,12 +2,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Image img;
 
 	private Ship ship = new Ship(420, 170);// 主艦
+	private HealthBar healthbar = new HealthBar();
 	private Controller ctrl = new Controller(this, 1);;
 	private Controller ctrlPlaneBomb = new Controller(this, 2);;
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
@@ -17,6 +17,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
 	private static final int NUM_OF_PLANES = 4;
+	private static int Health = 100;
 
 	public static int get_width() {
 		return WIDTH;
@@ -80,14 +81,13 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				frame2.setVisible(false);
-
 				setSize(WIDTH, HEIGHT);
 				// 載入背景圖片
 				setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
-
 				// 主艦
 				this.add(ship);
-
+				//血條
+				this.add(healthbar);
 				// 創 NUM_OF_SUBMARINES個潛艇
 				for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
 					addSubmarine(i);
@@ -103,7 +103,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				dragOctopus.setBounds(mouseX, mouseY, 166, 131);
 				addMouseMotionListener(this);
 				break;
-
 			}
 		}
 
@@ -120,6 +119,16 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB
 			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+		}
+	}
+	
+	public void sub_health(){
+		Health -= 10;
+		healthbar.setHealthbar(Health);
+		if(Health == 0){
+			GameOver gameover = new GameOver(WIDTH,HEIGHT);
+			this.setVisible(false);
+			this.dispose();
 		}
 	}
 

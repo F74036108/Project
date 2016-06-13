@@ -6,6 +6,7 @@ public class Bomb extends Vehicle implements Runnable {
 	Submarine[] sub;
 	SubmarineMain game;
 
+
 	JLabel explode;
 
 	public Bomb(double x, double y, SubmarineMain game, Controller ctrl) {
@@ -64,6 +65,8 @@ public class Bomb extends Vehicle implements Runnable {
 
 							// 爆炸
 							game.add(explode);
+							game.sub_health();
+							
 							try {
 								Thread.sleep(1000);
 							} catch (InterruptedException e) {

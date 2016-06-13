@@ -45,5 +45,5 @@ public class Frontpage extends JFrame{
 	public State get_state(){
 		return state;
 	}
-		
+
 }

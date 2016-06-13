@@ -5,6 +5,7 @@ public class Plane extends Vehicle implements Runnable {
 	private Controller ctrl;
 	private SubmarineMain game;
 
+
 	public Plane(double x, double y, double speed, SubmarineMain game, Controller ctrl) {
 		ImageIcon icon = new ImageIcon(".\\image\\plane.png");// SET image
 		setIcon(icon);
