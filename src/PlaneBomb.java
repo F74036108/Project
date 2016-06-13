@@ -26,6 +26,7 @@ public class PlaneBomb extends JLabel implements Runnable{
 			double diffY = y - game.ship.get_Y();   
 			if (diffX > -60 && diffX <= 120 && diffY > 10 && diffY < 25) {
 				System.out.println("touch!!");
+				game.sub_health();
 				game.remove(this);
 				break;
 			}
