@@ -25,13 +25,15 @@ public class Controller {
 
 	}
 
-	public void remove() {
+	public void remove(Bomb tt) {
 
 		for (int i = 0; i < b.size(); i++) {
 			tempBomb = b.get(i);
-			if (tempBomb.getY() > 700) {
+			if (tempBomb.equals(tt)) {
 				game.remove(tempBomb);
 				b.remove(i);
+				tempBomb=null;
+				break;
 			}
 
 		}

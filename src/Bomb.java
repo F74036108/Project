@@ -35,37 +35,38 @@ public class Bomb extends Vehicle implements Runnable {
 	}
 
 	public void run() {
-		while (true) {
+	LOOP:	while (true) {
 			setY(get_Y() + 2);
 			if (get_Y() <= 700 && (ctrl.type == 1)) { // check 炸彈碰到潛艇
 
-				for (int i = 0; i < ctrl.b.size(); i++) {
-					if (ctrl.b.get(i) == null)
-						continue;
-					tempBomb = ctrl.b.get(i);
+				//for (int i = 0; i < ctrl.b.size(); i++) {
+					//if (ctrl.b.get(i) == null)
+					//	continue;
+					//tempBomb = ctrl.b.get(i);
 					for (int j = 0; j < game.sub.length; j++) {
 						if (game.sub[j] == null)
 							continue;
-						tempBomb.get_X();
-						game.sub[j].get_X();
-						double diffX = tempBomb.get_X() - game.sub[j].get_X();
-						double diffY = tempBomb.get_Y() - game.sub[j].get_Y();
+						//tempBomb.get_X();
+						//game.sub[j].get_X();
+						double diffX = this.get_X() - game.sub[j].get_X();
+						double diffY = this.get_Y() - game.sub[j].get_Y();
 						if (diffX > -60 && diffX <= 120 && diffY > 5 && diffY < 25) {
 							// 爆炸setLocation
-							explode.setLocation((int) tempBomb.get_X() - 130, (int) tempBomb.get_Y() - 120);
+							explode.setLocation((int) this.get_X() - 130, (int) this.get_Y() - 120);
 							// handle 爆炸後
 							// remove LABEL
 							game.remove(game.sub[j]);
-							game.remove(tempBomb);
+							game.sub[j]=null;
+							game.remove(this);
 
 							// remove linked list BOMB
-							ctrl.b.remove(i);
+							//ctrl.b.remove(i);
 							// Create new Submarine
 							game.addSubmarine(j);
 
 							// 爆炸
 							game.add(explode);
-							game.sub_health();
+							game.getScore();
 							
 							try {
 								Thread.sleep(1000);
@@ -74,56 +75,59 @@ public class Bomb extends Vehicle implements Runnable {
 								e.printStackTrace();
 							}
 							game.remove(explode);
+							
+							//setY(700);
+							ctrl.remove(this);
+							break LOOP;
 
 						}
+					}
+				//}
+			} else if (get_Y() <= 700 && (ctrl.type == 2)) {
+				for (int j = 0; j < game.sub.length; j++) {
+					if (game.sub[j] == null)
+						continue;
+					//tempBomb.get_X();
+					//game.sub[j].get_X();
+					double diffX = this.get_X() - game.sub[j].get_X();
+					double diffY = this.get_Y() - game.sub[j].get_Y();
+					if (diffX > -60 && diffX <= 120 && diffY > 5 && diffY < 25) {
+						// 爆炸setLocation
+						explode.setLocation((int) this.get_X() - 130, (int) this.get_Y() - 120);
+						// handle 爆炸後
+						// remove LABEL
+						game.remove(game.sub[j]);
+						game.sub[j]=null;
+						game.remove(this);
+
+						// remove linked list BOMB
+						//ctrl.b.remove(i);
+						// Create new Submarine
+						game.addSubmarine(j);
+
+						// 爆炸
+						game.add(explode);
+						//game.sub_health();
+						
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						game.remove(explode);
+						
+						//setY(700);
+						ctrl.remove(this);
+						break LOOP;
+
 					}
 				}
-			} else if (get_Y() <= 700 && (ctrl.type == 2)) {
-				/*
-				for (int i = 0; i < ctrl.b.size(); i++) {
-					if (ctrl.b.get(i) == null)
-						continue;
-					tempBomb = ctrl.b.get(i);
-					for (int j = 0; j < game.sub.length; j++) {
-						if (game.sub[j] == null)
-							continue;
-						tempBomb.get_X();
-						game.sub[j].get_X();
-						double diffX = tempBomb.get_X() - game.sub[j].get_X();
-						double diffY = tempBomb.get_Y() - game.sub[j].get_Y();
-						if (diffX > -60 && diffX <= 120 && diffY > 10 && diffY < 25) {
-							// 爆炸setLocation
-							explode.setLocation((int) tempBomb.get_X() - 130, (int) tempBomb.get_Y() - 120);
-							// handle 爆炸後
-							// remove LABEL
-							game.remove(game.sub[j]);
-							game.remove(tempBomb);
-
-							// remove linked list BOMB
-							ctrl.b.remove(i);
-							//i--;
-							// Create new Submarine
-							game.addSubmarine(j);
-
-							// 爆炸
-							game.add(explode);
-							try {
-								Thread.sleep(1000);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							game.remove(explode);
-
-						}
-					}
-				}*/
 
 			} else if (get_Y() > 700) {
 
-				// remove BOMBs out of bounds
-				// ctrl.remove();
-				break;
+				ctrl.remove(this);
+				break LOOP;
 
 			}
 			try {

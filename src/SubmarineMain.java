@@ -125,7 +125,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
 		}
 	}
-	
+	public void getScore(){
+		score.addScore();
+	}
 	public void sub_health(){
 		healthBar.minusHealth();
 		//healthbar.setHealthbar(health);

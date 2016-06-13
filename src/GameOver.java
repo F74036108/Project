@@ -54,11 +54,19 @@ public class GameOver extends JFrame{
 		public void pressed(){
 			this.setVisible(false);
 			game.resetAll();
+			try {
+				Thread.sleep(200);
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			game.setVisible(true);
 			this.dispose();
 		}
 		public void exit(){
 			this.setVisible(false);
 			this.dispose();
+			System.exit(0);
 		}
 }
