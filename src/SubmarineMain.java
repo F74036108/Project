@@ -12,7 +12,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private Controller ctrlPlaneBomb = new Controller(this, 2);;
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
-
+	private Score score = new Score();
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
@@ -99,6 +99,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				for (int i = 0; i < NUM_OF_PLANES; i++) {
 					addPlane(i);
 				}
+				//計分
+				this.add(score);
 				// KeyListener (class KeyInput)
 				addKeyListener(new KeyInput(this));
 				// 置入Octopus
