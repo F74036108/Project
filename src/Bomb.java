@@ -100,7 +100,7 @@ public class Bomb extends Vehicle implements Runnable {
 
 							// remove linked list BOMB
 							ctrl.b.remove(i);
-							i--;
+							//i--;
 							// Create new Submarine
 							game.addSubmarine(j);
 
