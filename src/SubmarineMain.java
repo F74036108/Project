@@ -6,7 +6,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Image img;
 
-	private Ship ship = new Ship(420, 170);// 主艦
+	Ship ship = new Ship(420, 170);// 主艦
 	private HealthBar healthBar = new HealthBar();
 	private Controller ctrl = new Controller(this, 1);;
 	private Controller ctrlPlaneBomb = new Controller(this, 2);;

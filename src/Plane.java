@@ -2,20 +2,20 @@
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable {
-	private Controller ctrl;
 	private SubmarineMain game;
-
+	PlaneBomb bomb;
 
 	public Plane(double x, double y, double speed, SubmarineMain game, Controller ctrl) {
 		ImageIcon icon = new ImageIcon(".\\image\\plane.png");// SET image
 		setIcon(icon);
-		this.ctrl = ctrl;
+//		this.ctrl = ctrl;
 		this.speed = speed;
 		this.game = game;
 		this.x = x;
 		this.y = y;
 		setLocation((int) x, (int) y);
 		setSize(200, 200);
+		bomb = new PlaneBomb(game);
 	}
 
 	// 自動移動
@@ -25,8 +25,10 @@ public class Plane extends Vehicle implements Runnable {
 			setX(get_X() - 1 * speed);
 			setY(get_Y() + (Math.random() * 2 - 1.05));
 			// 按照機率放出炸彈
-			if ((int) (Math.random() * 2000) == 1) {
-				new Bomb(get_X(), get_Y() + 70, game, ctrl);
+			if ((int) (Math.random() * 3000) == 1.0 && get_X()<1000) {
+
+				bomb.addBomb((int)get_X(), (int)get_Y()+100);
+				System.out.println("!!");
 			}
 
 			if (get_X() <= -100) {
