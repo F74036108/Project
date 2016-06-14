@@ -132,6 +132,12 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB
 			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+			long now = System.currentTimeMillis();
+			if(now - lastShoot > threshold){
+				new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+				lastShoot = now;
+			}
+			 // 500msec = half second
 		}
 	}
 	public void getScore(){
