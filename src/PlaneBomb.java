@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class PlaneBomb extends JLabel implements Runnable{
 	private int x,y;
-	private ImageIcon icon = new ImageIcon(".\\image\\bb.png");
+	private ImageIcon icon = new ImageIcon(".\\image\\planebomb.png");
 	private static SubmarineMain game;
 	private static boolean exist;
 	
@@ -19,7 +19,7 @@ public class PlaneBomb extends JLabel implements Runnable{
 	}
 	public void run() {
 		while(true){
-			setLocation(x, y+=2);
+			setLocation(x--, y+=2);
 			double diffX = x - game.ship.get_X();   
 			double diffY = y - game.ship.get_Y();   
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)) {
