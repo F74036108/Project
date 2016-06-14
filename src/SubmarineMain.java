@@ -180,6 +180,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		}
 		healthBar.reset();
 		PlaneBomb.resetPlaneBomb();
+		score.reset_score();
 		
 	}
 
