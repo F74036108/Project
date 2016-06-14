@@ -3,17 +3,15 @@
  * 
  ********************/
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class SubmarineMain extends JFrame implements MouseMotionListener {
-
-	Image img;
 
 	Ship ship = new Ship(420, 170);// 主艦
 	private HealthBar healthBar = new HealthBar();
 	private Controller ctrl = new Controller(this);//Bomb Management
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
+	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score(this);
 	private static final int WIDTH = 1000;
@@ -110,6 +108,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				dragOctopus.setBounds(mouseX, mouseY, 166, 131);
 				addMouseMotionListener(this);
 				
+				//截圖
+				this.add(screenShot);
+				
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
 			}
@@ -158,7 +159,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1200, 20, Math.random() * 10, this);
+		plane[i] = new Plane(1000+i*300, 10, 1, this);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();

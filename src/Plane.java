@@ -7,7 +7,6 @@ public class Plane extends Vehicle implements Runnable {
 	public Plane(double x, double y, double speed, SubmarineMain game) {
 		ImageIcon icon = new ImageIcon(".\\image\\plane.png");// SET image
 		setIcon(icon);
-
 		this.speed = speed;
 		this.game = game;
 		this.x = x;
@@ -22,12 +21,10 @@ public class Plane extends Vehicle implements Runnable {
 		int count = 0;
 		while (true) {
 			setX(get_X() - 1 * speed);
-			setY(get_Y() + (Math.random() * 2 - 1.05));
+			setY(get_Y() + (Math.random()-0.51));
 			// 按照機率放出炸彈
 			if ((int) (Math.random() * 500) == 1.0 && get_X()<1000) {
-
 				bomb.addBomb((int)get_X(), (int)get_Y()+100);
-				System.out.println("!!");
 			}
 
 			if (get_X() <= -100) {
