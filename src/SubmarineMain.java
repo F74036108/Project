@@ -157,7 +157,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	public void add_health() {
 		healthBar.refillhealth();
-		if(healthBar.get_health() > 50){
+		if (healthBar.get_health() > 50) {
 			ship.reset_broke();
 		}
 		ImageIcon icon = new ImageIcon(".\\image\\+10.png");
@@ -189,7 +189,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setVisible(true);
 		}
-		if(healthBar.getHealth() <= 50){
+		if (healthBar.getHealth() <= 50) {
 			ship.change_picture();
 		}
 	}

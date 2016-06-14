@@ -50,10 +50,8 @@ public class Bomb extends Vehicle implements Runnable {
 					double diffX = this.get_X() - game.sub[j].get_X();
 					double diffY = this.get_Y() - game.sub[j].get_Y();
 					if (diffX > -60 && diffX <= 120 && diffY > 5 && diffY < 25) {
-						// 爆炸setLocation
-
 						// handle 爆炸後
-						// remove LABEL
+						// remove 被炸掉的submarine
 						game.remove(game.sub[j]);
 						game.sub[j].setCrash();
 						game.sub[j] = null;
@@ -61,7 +59,7 @@ public class Bomb extends Vehicle implements Runnable {
 						// Create new Sub
 						game.addSubmarine(j);
 
-						// 爆炸
+						// 爆炸動畫
 						ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
 						explode = new JLabel(icon2);
 						explode.setSize(325, 275);
