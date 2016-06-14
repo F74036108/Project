@@ -148,7 +148,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		ImageIcon icon = new ImageIcon(".\\image\\+10.png");
 		JLabel picture = new JLabel();
 		picture.setIcon(icon);
-		picture.setLocation(WIDTH/2-150,HEIGHT/2-100);
+		picture.setLocation(WIDTH/2-150,HEIGHT/2-30);
 		picture.setSize(278,238);
 		if(healthBar.getHealth() < 100){
 			this.add(picture);
