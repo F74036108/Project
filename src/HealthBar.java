@@ -35,7 +35,7 @@ public class HealthBar extends JLabel{
 		}
 		else
 		{
-			health += 10;
+			health += 50;
 		}
 		setHealthBar();
 	}

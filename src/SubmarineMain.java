@@ -148,6 +148,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 	public void add_health(){
 		healthBar.refillhealth();
+		if(healthBar.get_health() > 50){
+			ship.reset_broke();
+		}
 		ImageIcon icon = new ImageIcon(".\\image\\+10.png");
 		JLabel picture = new JLabel();
 		picture.setIcon(icon);
@@ -165,6 +168,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		}
 			picture.setVisible(false);
 		}
+		this.remove(picture);
 	}
 	public void sub_health(int a){
 		healthBar.minusHealth(a);
@@ -216,6 +220,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		healthBar.reset();
 		PlaneBomb.resetPlaneBomb();
 		score.reset_score();
+		ship.reset_broke();
 		
 	}
 

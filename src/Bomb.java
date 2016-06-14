@@ -32,7 +32,7 @@ public class Bomb extends Vehicle implements Runnable {
 		explode2.setSize(450, 255);
 		ImageIcon icon4 = new ImageIcon(".\\image\\explore.gif");
 		explo_anmi = new JLabel(icon4);
-		explo_anmi.setSize(480,270);
+		explo_anmi.setSize(1000,700);
 		
 
 	}
@@ -102,19 +102,18 @@ LOOP:	while (true) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						game.remove(explode2);
 						//動畫
-						explo_anmi.setLocation(game.getWidth()/2-200,game.getWidth()/2-200);
+						explo_anmi.setLocation(0,0);
 						game.add(explo_anmi);
 						try {
-							Thread.sleep(1500);
+							Thread.sleep(2100);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						//扣health
 						game.sub_health(40);
-						
-						game.remove(explode2);
 						game.remove(explo_anmi);
 						
 						
