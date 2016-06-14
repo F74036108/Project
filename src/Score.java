@@ -16,4 +16,8 @@ public class Score extends JLabel{
 		
 		this.setText("Score:"+score);
 	}
+	public void reset_score(){
+		score = 0;
+		setText("Score:00");
+	}
 }
