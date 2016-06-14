@@ -119,16 +119,24 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	// 鍵盤控制
+	long lastShoot = System.currentTimeMillis();
+	final long threshold = 800;
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
+		
 		if (key == KeyEvent.VK_RIGHT) {
 			ship.setX(ship.get_X() + 5);// Right shift
 		} else if (key == KeyEvent.VK_LEFT) {
 			ship.setX(ship.get_X() - 5);// Left shift
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB
-			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+			long now = System.currentTimeMillis();
+			if(now - lastShoot > threshold){
+				new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+				lastShoot = now;
+			}
+			 // 500msec = half second
 		}
 	}
 	public void getScore(){
