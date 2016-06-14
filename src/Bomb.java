@@ -32,7 +32,7 @@ public class Bomb extends Vehicle implements Runnable {
 	}
 	public void run() {
 LOOP:	while (true) {
-			setY(get_Y() + 2);
+			setY(get_Y() + 1);
 			if (get_Y() <= 700) { // check 炸彈碰到潛艇
 					for (int j = 0; j < game.sub.length; j++) {
 						if (game.sub[j] == null)
@@ -57,7 +57,7 @@ LOOP:	while (true) {
 							// 爆炸
 							game.add(explode);			
 							try {
-								Thread.sleep(1000);
+								Thread.sleep(500);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -76,7 +76,7 @@ LOOP:	while (true) {
 
 			}
 			try {
-				Thread.sleep(20);
+				Thread.sleep(5);
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

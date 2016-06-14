@@ -16,7 +16,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private Score score = new Score(this);
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
-	private static final int NUM_OF_SUBMARINES = 8;
+	private static final int NUM_OF_SUBMARINES = 6;
 	private static final int NUM_OF_PLANES = 3;
 
 	public static int get_width() {
@@ -150,7 +150,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	public void addSubmarine(int i) {
 		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
-		sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random() * 10);
+		sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random()*5+1);
 		// constructor 初始位置
 		this.add(sub[i]);
 		// 以Thread同時跑潛艇

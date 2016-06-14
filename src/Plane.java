@@ -20,18 +20,17 @@ public class Plane extends Vehicle implements Runnable {
 	public void run() {
 		int count = 0;
 		while (true) {
-			setX(get_X() - 1 * speed);
+			setX(get_X() - speed);
 			setY(get_Y() + (Math.random()-0.51));
 			// 按照機率放出炸彈
-			if ((int) (Math.random() * 500) == 1.0 && get_X()<1000) {
+			if ((int) (Math.random() * 2000) == 1.0 && get_X()<1000) {
 				bomb.addBomb((int)get_X(), (int)get_Y()+100);
 			}
 
 			if (get_X() <= -100) {
-				setX(1300);
-				speed = Math.random() + 1;
+				setX(1000);
 				if (get_Y() <= -50)
-					setY(100);
+					setY(50);
 			}
 			try {
 				Thread.sleep(5);

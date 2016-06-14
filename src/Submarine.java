@@ -15,9 +15,9 @@ public class Submarine extends Vehicle implements Runnable{
 	public void run(){
 		while(true){
 			setX(get_X()+1*speed);
-			if(get_X()>=1100) setX(-100);
+			if(get_X()>=1200) setX(-200);
 			try {
-				Thread.sleep(100);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

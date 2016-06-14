@@ -22,6 +22,7 @@ public class ScreenShot extends JButton implements ActionListener {
 		setContentAreaFilled(false);
 		setBorder(null);
 		addActionListener(this);
+		setFocusable(false);
 	}
 
 	public void pressed() {
@@ -38,7 +39,6 @@ public class ScreenShot extends JButton implements ActionListener {
 				BufferedImage.TYPE_INT_RGB);
 		component.paint(image.getGraphics());
 		return image;
-
 	}
 
 	public static void saveScreenShot(Component component, String filename) throws IOException {

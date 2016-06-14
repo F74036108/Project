@@ -10,7 +10,7 @@ public class Score extends JLabel {
 	public Score(SubmarineMain game) {
 		this.game = game;
 		setLocation(800, 0);
-		setSize(150, 150);
+		setSize(300, 150);
 		setText("Score:00");
 		setFont(new Font("Arial Black", Font.PLAIN, 30));
 		setForeground(Color.YELLOW);
