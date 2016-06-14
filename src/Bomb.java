@@ -9,7 +9,7 @@ public class Bomb extends Vehicle implements Runnable {
 	SubmarineMain game;
 	JLabel explode;
 	JLabel explode2;
-
+	JLabel explo_anmi;
 	
 	public Bomb(double x, double y, SubmarineMain game) {
 
@@ -30,6 +30,10 @@ public class Bomb extends Vehicle implements Runnable {
 		ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
 		explode2 = new JLabel(icon3);
 		explode2.setSize(450, 255);
+		ImageIcon icon4 = new ImageIcon(".\\image\\explore.gif");
+		explo_anmi = new JLabel(icon4);
+		explo_anmi.setSize(480,270);
+		
 
 	}
 	public void addBomb(int x, int y){
@@ -101,10 +105,20 @@ LOOP:	while (true) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						//動畫
+						explo_anmi.setLocation(game.getWidth()/2-200,game.getWidth()/2-200);
+						game.add(explo_anmi);
+						try {
+							Thread.sleep(1500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						//扣health
 						game.sub_health(40);
 						
 						game.remove(explode2);
+						game.remove(explo_anmi);
 						
 						
 						break LOOP;
