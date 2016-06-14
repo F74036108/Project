@@ -1,17 +1,21 @@
+/********************
+ * Main Game Window
+ * 
+ ********************/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Image img;
 
 	Ship ship = new Ship(420, 170);// 主艦
 	private HealthBar healthBar = new HealthBar();
-	private Controller ctrl = new Controller(this);;
-	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
+	private Controller ctrl = new Controller(this);//Bomb Management
+	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
-	private ScreenShot screenShot = new ScreenShot(this);
-	private Score score = new Score();
+	private Score score = new Score(this);
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
@@ -106,9 +110,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				dragOctopus.setBounds(mouseX, mouseY, 166, 131);
 				addMouseMotionListener(this);
 				
-				//截圖
-				this.add(screenShot);
-				
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
 			}
@@ -116,7 +117,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	}
 
-	
 	// 鍵盤控制
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -133,23 +133,17 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public void getScore(){
 		score.addScore();
 	}
-	
 	public void add_health(){
 		healthBar.refillhealth();
 	}
 	public void sub_health(){
 		healthBar.minusHealth();
-		//healthbar.setHealthbar(health);
+		
+		//GameOver Signal
 		if(healthBar.getHealth() == 0){
 			this.setVisible(false);
 			GameOver gameover = new GameOver(WIDTH,HEIGHT,this);
 			gameover.setVisible(true);
-			//Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
-			//frame2.setSize(WIDTH, HEIGHT);
-			//frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
-			//frame2.setVisible(true);
-			//this.setVisible(false);
-			//this.dispose();
 		}
 	}
 
@@ -164,7 +158,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1000+i*350, 0, 1, this);
+		plane[i] = new Plane(1200, 20, Math.random() * 10, this);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();
