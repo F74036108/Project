@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,12 +7,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
 	private HealthBar healthBar = new HealthBar();
-	private Controller ctrl = new Controller(this, 1);;
-	private Controller ctrlPlaneBomb = new Controller(this, 2);;
+	private Controller ctrl = new Controller(this);;
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
-	private Score score = new Score();
 	private ScreenShot screenShot = new ScreenShot(this);
+	private Score score = new Score();
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
@@ -135,6 +133,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public void getScore(){
 		score.addScore();
 	}
+	
+	public void add_health(){
+		healthBar.refillhealth();
+	}
 	public void sub_health(){
 		healthBar.minusHealth();
 		//healthbar.setHealthbar(health);
@@ -162,7 +164,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1000+i*350, 0, 1, this, ctrlPlaneBomb);
+		plane[i] = new Plane(1000+i*350, 0, 1, this);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();

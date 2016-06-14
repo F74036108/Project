@@ -3,7 +3,7 @@ import javax.swing.JLabel;
 
 public class HealthBar extends JLabel{
 	private int health=100;
-	SubmarineMain game;
+	//SubmarineMain game;
 	ImageIcon icon1 = new ImageIcon(".\\image\\100.png");
 	ImageIcon icon2 = new ImageIcon(".\\image\\90.png");
 	ImageIcon icon3 = new ImageIcon(".\\image\\80.png");
@@ -23,6 +23,10 @@ public class HealthBar extends JLabel{
 	}
 	public void minusHealth(){
 		health -= 10;
+		setHealthBar();
+	}
+	public void refillhealth(){
+		health += 10;
 		setHealthBar();
 	}
 	public int getHealth(){

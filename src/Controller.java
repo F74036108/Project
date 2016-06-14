@@ -10,11 +10,9 @@ public class Controller {
 
 	int type;
 
-	public Controller(SubmarineMain game, int type) {
+	public Controller(SubmarineMain game) {
 
 		this.game = game;
-
-		this.type = type;
 	}
 
 	public void add_Bomb(Bomb block) {
