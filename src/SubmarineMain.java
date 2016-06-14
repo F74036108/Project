@@ -136,6 +136,23 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 	public void add_health(){
 		healthBar.refillhealth();
+		ImageIcon icon = new ImageIcon(".\\image\\+10.png");
+		JLabel picture = new JLabel();
+		picture.setIcon(icon);
+		picture.setLocation(WIDTH/2-150,HEIGHT/2-100);
+		picture.setSize(278,238);
+		if(healthBar.getHealth() < 100){
+			this.add(picture);
+			picture.setVisible(true);
+		try {
+			Thread.sleep(2000);
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			picture.setVisible(false);
+		}
 	}
 	public void sub_health(){
 		healthBar.minusHealth();
@@ -143,8 +160,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		//GameOver Signal
 		if(healthBar.getHealth() == 0){
 			this.setVisible(false);
-			GameOver gameover = new GameOver(WIDTH,HEIGHT,this);
-			gameover.setVisible(true);
+			GameOver gameOver = new GameOver(WIDTH,HEIGHT,this);
+			gameOver.setVisible(true);
 		}
 	}
 

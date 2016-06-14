@@ -3,6 +3,7 @@ import javax.swing.JLabel;
 
 public class HealthBar extends JLabel{
 	private int health=100;
+	private int max_health = 100;
 	//SubmarineMain game;
 	ImageIcon icon1 = new ImageIcon(".\\image\\100.png");
 	ImageIcon icon2 = new ImageIcon(".\\image\\90.png");
@@ -25,8 +26,17 @@ public class HealthBar extends JLabel{
 		health -= 10;
 		setHealthBar();
 	}
+	public int get_health(){
+		return health;
+	}
 	public void refillhealth(){
-		health += 10;
+		if(health+10 >= max_health){
+			health = max_health;
+		}
+		else
+		{
+			health += 10;
+		}
 		setHealthBar();
 	}
 	public int getHealth(){

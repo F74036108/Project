@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class GameOver extends JFrame{
-	
+	//use in sub_health in main
 	    SubmarineMain game;
 		public GameOver(int x ,int y,SubmarineMain game ){
 			this.game = game;
