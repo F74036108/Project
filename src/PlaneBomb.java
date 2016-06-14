@@ -19,16 +19,16 @@ public class PlaneBomb extends JLabel implements Runnable{
 	}
 	public void run() {
 		while(true){
-			setLocation(x, y++);
+			setLocation(x, y+=2);
 			double diffX = x - game.ship.get_X();   
 			double diffY = y - game.ship.get_Y();   
-			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)||y>700) {
+			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)) {
 				System.out.println("touch!!");
 				game.sub_health();
 				game.remove(this);
 				break;
 			}
-			if(!exist){
+			if(!exist||y>250){
 				game.remove(this);
 				break;
 			}

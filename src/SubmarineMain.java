@@ -13,6 +13,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];;
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score();
+	private ScreenShot screenShot = new ScreenShot(this);
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
@@ -107,6 +108,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				dragOctopus.setBounds(mouseX, mouseY, 166, 131);
 				addMouseMotionListener(this);
 				
+				//截圖
+				this.add(screenShot);
+				
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
 			}
@@ -114,6 +118,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	}
 
+	
 	// 鍵盤控制
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -157,7 +162,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addPlane(int i) {
-		plane[i] = new Plane(1200, 20, Math.random() * 10, this, ctrlPlaneBomb);
+		plane[i] = new Plane(1000+i*350, 0, 1, this, ctrlPlaneBomb);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
 		thread.start();
