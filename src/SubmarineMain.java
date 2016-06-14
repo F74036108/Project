@@ -16,7 +16,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 8;
-	private static final int NUM_OF_PLANES = 4;
+	private static final int NUM_OF_PLANES = 3;
 
 	public static int get_width() {
 		return WIDTH;
@@ -24,7 +24,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public static int get_height() {
 		return HEIGHT;
 	}
-
+ 
 	public SubmarineMain() {
 
 		/* 開始頁面-------------------------------------------------------------- */

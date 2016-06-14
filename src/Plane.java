@@ -25,7 +25,7 @@ public class Plane extends Vehicle implements Runnable {
 			setX(get_X() - 1 * speed);
 			setY(get_Y() + (Math.random() * 2 - 1.05));
 			// 按照機率放出炸彈
-			if ((int) (Math.random() * 3000) == 1.0 && get_X()<1000) {
+			if ((int) (Math.random() * 500) == 1.0 && get_X()<1000) {
 
 				bomb.addBomb((int)get_X(), (int)get_Y()+100);
 				System.out.println("!!");
