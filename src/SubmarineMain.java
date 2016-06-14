@@ -149,8 +149,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addSubmarine(int i) {
-		int[] arrRand = { 40, 210, 80, 320, 150, 100, 180, 250 };// for 不同深度
-		sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random()*7 -3.5);
+		int[] arrRand = { 140, 210, 80, 320, 175, 115, 180, 250 };// for 不同深度
+		sub[i] = new Submarine(-120 - i * 100, 300 + arrRand[i], Math.random()*10 -5.05);
 		// constructor 初始位置
 		this.add(sub[i]);
 		// 以Thread同時跑潛艇
