@@ -9,7 +9,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
 	private HealthBar healthBar = new HealthBar();
-	private Controller ctrl = new Controller(this);//Bomb Management
+	private Bomb bomb = new Bomb(0,0,this);
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
@@ -131,10 +131,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			ship.setX(ship.get_X() - 5);// Left shift
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB
-			new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+			//new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
 			long now = System.currentTimeMillis();
 			if(now - lastShoot > threshold){
-				new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
+				bomb.addBomb((int)ship.get_X() + 80, (int)ship.get_Y() + 80);
 				lastShoot = now;
 			}
 			 // 500msec = half second

@@ -2,7 +2,9 @@ import javax.swing.*;
 
 public class Submarine extends Vehicle implements Runnable{
 
+	private boolean crash;
 	public Submarine(double x, double y, double speed){
+		
 		ImageIcon icon;
 		if(speed>0){
 			icon = new ImageIcon(".\\image\\submarine2.png");//SET image
@@ -20,6 +22,8 @@ public class Submarine extends Vehicle implements Runnable{
 	//自動移動
 	public void run(){
 		while(true){
+			if(crash==true)
+				break;
 			setX(get_X()+1*speed);
 			if(get_X()>=1200&&speed>=0) setX(-200);
 			if(get_X()<=-200&&speed<0) setX(1200);
@@ -29,7 +33,11 @@ public class Submarine extends Vehicle implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		}
+	}
+	public void setCrash(){
+		crash=true;
 	}
 
 
