@@ -9,5 +9,9 @@ public class Ship extends Vehicle {
 		setLocation((int) x, (int) y);
 		setSize(189, 129);
 	}
+	public void change_picture(){
+		ImageIcon icon2 = new ImageIcon(".\\image\\broken-ship.gif");
+		setIcon(icon2);
+	}
 
 }

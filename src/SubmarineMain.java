@@ -175,6 +175,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			GameOver gameOver = new GameOver(WIDTH,HEIGHT,this);
 			gameOver.setVisible(true);
 		}
+		if(healthBar.getHealth() <= 50){
+			ship.change_picture();
+		}
 	}
 
 	public void addSubmarine(int i) {
