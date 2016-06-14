@@ -66,6 +66,7 @@ public class GameOver extends JFrame{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			game.setEnabled(true);
 			game.setVisible(true);
 			this.dispose();
 		}

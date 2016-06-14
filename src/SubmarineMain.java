@@ -128,7 +128,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		
 		if (key == KeyEvent.VK_RIGHT) {
 			ship.setX(ship.get_X() + 5);// Right shift
 		} else if (key == KeyEvent.VK_LEFT) {
@@ -169,10 +168,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 	public void sub_health(int a){
 		healthBar.minusHealth(a);
-		
 		//GameOver Signal
 		if(healthBar.getHealth() <= 0){
 			this.setVisible(false);
+			this.setEnabled(false);
 			GameOver gameOver = new GameOver(WIDTH,HEIGHT,this);
 			gameOver.setVisible(true);
 		}
