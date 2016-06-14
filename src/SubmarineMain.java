@@ -11,6 +11,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private HealthBar healthBar = new HealthBar();
 	private Bomb bomb = new Bomb(0,0,this);
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
+	ToxicSeaBomb seaBomb;
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score(this);
@@ -99,6 +100,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				for (int i = 0; i < NUM_OF_PLANES; i++) {
 					addPlane(i);
 				}
+				
+				addToxicBomb();
+				
 				//計分
 				this.add(score);
 				// KeyListener (class KeyInput)
@@ -163,11 +167,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			picture.setVisible(false);
 		}
 	}
-	public void sub_health(){
-		healthBar.minusHealth();
+	public void sub_health(int a){
+		healthBar.minusHealth(a);
 		
 		//GameOver Signal
-		if(healthBar.getHealth() == 0){
+		if(healthBar.getHealth() <= 0){
 			this.setVisible(false);
 			GameOver gameOver = new GameOver(WIDTH,HEIGHT,this);
 			gameOver.setVisible(true);
@@ -188,6 +192,12 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		plane[i] = new Plane(1000+i*300, 10, 1, this);
 		this.add(plane[i]);
 		Thread thread = new Thread(plane[i]);
+		thread.start();
+	}
+	public void addToxicBomb(){
+		seaBomb = new ToxicSeaBomb(-200, 400 + Math.random()*200,Math.random()*10 -5.25, this);
+		this.add(seaBomb);
+		Thread thread = new Thread(seaBomb);
 		thread.start();
 	}
 	public void resetAll(){

@@ -22,8 +22,8 @@ public class HealthBar extends JLabel{
 		setLocation(0,0);
 		setSize(400, 22);
 	}
-	public void minusHealth(){
-		health -= 10;
+	public void minusHealth(int a){
+		health -= a;
 		setHealthBar();
 	}
 	public int get_health(){
@@ -77,7 +77,7 @@ public class HealthBar extends JLabel{
 		else if(health == 10){
 			this.setIcon(icon10);
 		}
-		else if(health == 0){
+		else if(health <= 0){
 			this.setIcon(icon11);
 		}
 	}
