@@ -8,6 +8,7 @@ public class Bomb extends Vehicle implements Runnable {
 	Bomb tempBomb;
 	SubmarineMain game;
 	JLabel explode;
+	JLabel explode2;
 
 	
 	public Bomb(double x, double y, SubmarineMain game) {
@@ -25,6 +26,10 @@ public class Bomb extends Vehicle implements Runnable {
 		ImageIcon icon2 = new ImageIcon(".\\image\\explosion.gif");
 		explode = new JLabel(icon2);
 		explode.setSize(313, 308);
+		//EXPLOSION2
+		ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
+		explode2 = new JLabel(icon3);
+		explode2.setSize(450, 255);
 
 	}
 	public void addBomb(int x, int y){
@@ -73,6 +78,39 @@ LOOP:	while (true) {
 
 						}
 					}
+					//Check 碰到toxic bomb
+					double diffX = this.get_X() - game.seaBomb.get_X();
+					double diffY = this.get_Y() - game.seaBomb.get_Y();
+					if (diffX > -60 && diffX <= 110 && diffY > 5 && diffY < 25) {
+						// 爆炸setLocation
+						explode2.setLocation((int) this.get_X() - 160, (int) this.get_Y() - 120);
+						// handle 爆炸後
+						// remove LABEL
+						game.remove(game.seaBomb);
+						game.seaBomb.setCrash();
+						game.remove(this);
+
+						//Create new Sub
+						game.addToxicBomb();
+						
+						// 爆炸
+						game.add(explode2);			
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						//扣health
+						game.sub_health(40);
+						
+						game.remove(explode2);
+						
+						
+						break LOOP;
+
+					}
+				
 			} else if (get_Y() > 700) {
 				game.remove(this);
 				break LOOP;
