@@ -4,13 +4,15 @@ public class PlaneBomb extends JLabel implements Runnable{
 	private int x,y;
 	private ImageIcon icon = new ImageIcon(".\\image\\bb.png");
 	private static SubmarineMain game;
-
+	private static boolean exist;
+	
 	public PlaneBomb(SubmarineMain game){
 		PlaneBomb.game=game;
 	}
 	public PlaneBomb(int x, int y){
 		this.x=x;
 		this.y=y;
+		exist=true;
 		setIcon(icon);
 		setLocation((int) x, (int) y);
 		setSize(30, 51);
@@ -23,6 +25,10 @@ public class PlaneBomb extends JLabel implements Runnable{
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)||y>700) {
 				System.out.println("touch!!");
 				game.sub_health();
+				game.remove(this);
+				break;
+			}
+			if(!exist){
 				game.remove(this);
 				break;
 			}
@@ -39,5 +45,8 @@ public class PlaneBomb extends JLabel implements Runnable{
 		game.add(bomb);
 		Thread thread = new Thread(bomb);
 		thread.start();
+	}
+	public static void resetPlaneBomb() {
+		exist = false;
 	}
 }

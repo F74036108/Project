@@ -106,6 +106,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				add(dragOctopus);
 				dragOctopus.setBounds(mouseX, mouseY, 166, 131);
 				addMouseMotionListener(this);
+				
+				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
 			}
 		}
@@ -172,6 +174,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			addPlane(i);
 		}
 		healthBar.reset();
+		PlaneBomb.resetPlaneBomb();
 		
 	}
 
