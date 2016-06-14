@@ -14,7 +14,6 @@ public class Bomb extends Vehicle implements Runnable {
 	JLabel explo_anmi;
 
 	public Bomb(double x, double y, SubmarineMain game) {
-
 		this.game = game;
 		this.x = x;
 		this.y = y;
@@ -24,14 +23,13 @@ public class Bomb extends Vehicle implements Runnable {
 		// SET BOMB image
 		ImageIcon icon = new ImageIcon(".\\image\\bomb.png");
 		setIcon(icon);
-		// EXPLOSION
 		// EXPLOSION2
 		ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
 		explode2 = new JLabel(icon3);
 		explode2.setSize(450, 255);
 		ImageIcon icon4 = new ImageIcon(".\\image\\explore.gif");
 		explo_anmi = new JLabel(icon4);
-		explo_anmi.setSize(480, 270);
+		explo_anmi.setSize(1000, 700);
 
 	}
 
@@ -52,18 +50,18 @@ public class Bomb extends Vehicle implements Runnable {
 					double diffX = this.get_X() - game.sub[j].get_X();
 					double diffY = this.get_Y() - game.sub[j].get_Y();
 					if (diffX > -60 && diffX <= 120 && diffY > 5 && diffY < 25) {
+						// 爆炸setLocation
+
 						// handle 爆炸後
 						// remove LABEL
 						game.remove(game.sub[j]);
 						game.sub[j].setCrash();
 						game.sub[j] = null;
 						game.remove(this);
-
 						// Create new Sub
 						game.addSubmarine(j);
 
 						// 爆炸
-						// 爆炸setLocation
 						ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
 						explode = new JLabel(icon2);
 						explode.setSize(325, 275);
@@ -80,7 +78,6 @@ public class Bomb extends Vehicle implements Runnable {
 						game.getScore();
 						game.remove(explode);
 						break LOOP;
-
 					}
 				}
 				// Check 碰到toxic bomb
@@ -94,7 +91,6 @@ public class Bomb extends Vehicle implements Runnable {
 					game.remove(game.seaBomb);
 					game.seaBomb.setCrash();
 					game.remove(this);
-
 					// Create new Sub
 					game.addToxicBomb();
 
@@ -106,38 +102,33 @@ public class Bomb extends Vehicle implements Runnable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					game.remove(explode2);
 					// 動畫
-					explo_anmi.setLocation(game.getWidth() / 2 - 200, game.getWidth() / 2 - 200);
+					explo_anmi.setLocation(0, 0);
 					game.add(explo_anmi);
 					try {
-						Thread.sleep(1500);
+						Thread.sleep(2100);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					// 扣health
 					game.sub_health(40);
-
-					game.remove(explode2);
 					game.remove(explo_anmi);
 
 					break LOOP;
-
 				}
 
 			} else if (get_Y() > 700) {
 				game.remove(this);
 				break LOOP;
-
 			}
 			try {
 				Thread.sleep(5);
-
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
-
 }
