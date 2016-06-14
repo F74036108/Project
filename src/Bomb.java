@@ -23,9 +23,9 @@ public class Bomb extends Vehicle implements Runnable {
 		ImageIcon icon = new ImageIcon(".\\image\\bomb.png");	
 		setIcon(icon);
 		//EXPLOSION
-		ImageIcon icon2 = new ImageIcon(".\\image\\explosion.gif");
+		ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
 		explode = new JLabel(icon2);
-		explode.setSize(313, 308);
+		explode.setSize(325, 275);
 		//EXPLOSION2
 		ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
 		explode2 = new JLabel(icon3);
@@ -74,10 +74,7 @@ LOOP:	while (true) {
 							}
 							//分數累加
 							game.getScore();
-							
 							game.remove(explode);
-							
-							
 							break LOOP;
 
 						}
