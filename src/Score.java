@@ -19,7 +19,7 @@ public class Score extends JLabel {
 	public void addScore() {
 		score = score + 10;
 		this.setText("Score:" + score);
-		//加血量
+		// 加血量
 		if ((score - health_sign) / 50 == 1) {
 			health_sign = score;
 			game.add_health();
