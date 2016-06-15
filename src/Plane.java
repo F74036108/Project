@@ -3,10 +3,12 @@ import javax.swing.*;
 public class Plane extends Vehicle implements Runnable {
 	private SubmarineMain game;
 	PlaneBomb bomb;
+	private static boolean reset;
 
 	public Plane(double x, double y, double speed, SubmarineMain game) {
 		ImageIcon icon = new ImageIcon(".\\image\\plane.png");// SET image
 		setIcon(icon);
+		reset = false;
 		this.speed = speed;
 		this.game = game;
 		this.x = x;
@@ -20,10 +22,12 @@ public class Plane extends Vehicle implements Runnable {
 	public void run() {
 		int count = 0;
 		while (true) {
+			if(reset)
+				break;
 			setX(get_X() - speed);
 			setY(get_Y() + (Math.random() - 0.51));
 			// 按照機率放出炸彈
-			if ((int) (Math.random() * 2000) == 1.0 && get_X() < 1000) {
+			if ((int) (Math.random() * 1700) == 1.0 && get_X() < 1000) {
 				bomb.addBomb((int) get_X(), (int) get_Y() + 70);
 			}
 
@@ -39,5 +43,9 @@ public class Plane extends Vehicle implements Runnable {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static void resetPlane() {
+		reset = true;
 	}
 }

@@ -17,7 +17,7 @@ public class Ship extends Vehicle {
 		setIcon(icon2);
 	}
 
-	public void reset_broke() {
+	public void resetIcon() {
 		setIcon(icon);
 	}
 
