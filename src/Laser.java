@@ -7,7 +7,7 @@ public class Laser extends JLabel implements Runnable {
 	private ImageIcon icon = new ImageIcon(".\\image\\bullet.png");
 	private SubmarineMain game;
 	private static boolean reset;
-
+	private static int speed=0;
 	
 
 	public Laser(int x, int y, SubmarineMain game) {
@@ -22,15 +22,18 @@ public class Laser extends JLabel implements Runnable {
 
 	public void run() {
 		while (true) {
-			setLocation(x, y -= 2);
+			speed++;
+			setLocation(x, y-=speed);
 			double diffX = x - game.ship.get_X();
 			double diffY = y - game.ship.get_Y();
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 110)) {
+				speed=0;
 				game.sub_health(10);
 				game.remove(this);
 				break;
 			}
 			if (reset || y < 250) {
+				speed=0;
 				game.remove(this);
 				break;
 			}

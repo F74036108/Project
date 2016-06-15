@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
-	SubmarineUser subUser = new SubmarineUser(0,500);//User控制潛艦
+	SubmarineUser subUser; //User控制潛艦
 	private HealthBar healthBar = new HealthBar();
 	Bomb bomb = new Bomb(0, 0, this);
 	Laser laser = new Laser(0,0, this);
@@ -264,7 +264,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addUserSub(){
-		subUser = new SubmarineUser(-50,530);
+		subUser = new SubmarineUser(-50,550);
 		this.add(subUser);
 	}
 	public void resetAll() {
