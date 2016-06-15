@@ -9,20 +9,21 @@ import java.awt.event.*;
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
-	SubmarineUser subUser = new SubmarineUser(0,500);//User控制潛艦
+	SubmarineUser subUser; //User控制潛艦
 	private HealthBar healthBar = new HealthBar();
 	Bomb bomb = new Bomb(0, 0, this);
+	Laser laser = new Laser(0,0, this);
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
 	ToxicSeaBomb seaBomb;
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score(this);
-	String userName;
-	
+	GameOver gameOver;
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
 	private static final int NUM_OF_PLANES = 3;
+	String userName;
 
 	public static int get_width() {
 		return WIDTH;
@@ -51,6 +52,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		input.setText("<Input your name here>");
 		frame2.add(input);
 		frame2.setVisible(true);
+		
 		/*------------------------------------------------------------------------*/
 		while (true) {
 			// Check START signal every 2 seconds
@@ -63,8 +65,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
 				userName = input.getText();
-//				score.newUser(name);
-//				System.out.println(input.getText());
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD
 																				// image
 				startButton.setIcon(icon2);
@@ -140,6 +140,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 				// 截圖
 				this.add(screenShot);
+				//GAMEOVER
+				gameOver = new GameOver(WIDTH, HEIGHT, this);
+				gameOver.setVisible(false);
+				gameOver.setEnabled(false);
 
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
@@ -150,7 +154,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	// 鍵盤控制
 	long lastShoot = System.currentTimeMillis();
+	long lastShoot2 = System.currentTimeMillis();
 	final long threshold = 800;
+	final long threshold2 = 1800;
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -166,7 +172,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			// new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
 			long now = System.currentTimeMillis();
 			if (now - lastShoot > threshold) {
-				bomb.addBomb((int) ship.get_X() + 80, (int) ship.get_Y() + 80);
+				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
 				lastShoot = now;
 			}
 			
@@ -188,6 +194,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	    	}
 	    }else if (key == KeyEvent.VK_ENTER) {
 	    	
+	    	long now = System.currentTimeMillis();
+			if (now - lastShoot2 > threshold2) {
+				laser.addLaser((int) subUser.get_X()+40, (int) subUser.get_Y()-50);
+				lastShoot2 = now;
+			}
 	    }
 	}
 
@@ -224,9 +235,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		healthBar.minusHealth(a);
 		// GameOver Signal
 		if (healthBar.getHealth() <= 0) {
+		
 			this.setVisible(false);
 			this.setEnabled(false);
-			GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
+			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
+			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
 			score.save_score(userName);
 		}
@@ -260,7 +273,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addUserSub(){
-		subUser = new SubmarineUser(-50,530);
+		subUser = new SubmarineUser(-50,550);
 		this.add(subUser);
 	}
 	public void resetAll() {

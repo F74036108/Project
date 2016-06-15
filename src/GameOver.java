@@ -55,6 +55,7 @@ public class GameOver extends JFrame {
 		this.add(health);
 		this.add(word);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public void pressed() {
