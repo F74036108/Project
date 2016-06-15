@@ -256,6 +256,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		// FOR RESTART reset all components & datas
 		ship.setX(420);
 		ship.setY(170);
+		PlaneBomb.resetPlaneBomb();
+		Plane.resetPlane();
 		for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
 			this.remove(sub[i]);
 			sub[i].setCrash();
@@ -266,7 +268,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			addPlane(i);
 		}
 		healthBar.reset();
-		PlaneBomb.resetPlaneBomb();
 		score.reset_score();
 		ship.resetIcon();
 	}

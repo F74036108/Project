@@ -4,7 +4,7 @@ public class PlaneBomb extends JLabel implements Runnable {
 	private int x, y;
 	private ImageIcon icon = new ImageIcon(".\\image\\planebomb.png");
 	private static SubmarineMain game;
-	private static boolean exist;
+	private static boolean reset;
 
 	public PlaneBomb(SubmarineMain game) {
 		PlaneBomb.game = game;
@@ -13,7 +13,7 @@ public class PlaneBomb extends JLabel implements Runnable {
 	public PlaneBomb(int x, int y) {
 		this.x = x;
 		this.y = y;
-		exist = true;
+		reset = false;
 		setIcon(icon);
 		setLocation((int) x, (int) y);
 		setSize(30, 51);
@@ -29,7 +29,7 @@ public class PlaneBomb extends JLabel implements Runnable {
 				game.remove(this);
 				break;
 			}
-			if (!exist || y > 250) {
+			if (reset || y > 250) {
 				game.remove(this);
 				break;
 			}
@@ -50,6 +50,6 @@ public class PlaneBomb extends JLabel implements Runnable {
 	}
 
 	public static void resetPlaneBomb() {
-		exist = false;
+		reset = true;
 	}
 }
