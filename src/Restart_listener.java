@@ -7,7 +7,7 @@ public class Restart_listener implements ActionListener {
 	public Restart_listener(GameOver gameover) {
 		this.gameover = gameover;
 	}
-
+ 
 	public void actionPerformed(ActionEvent e) {
 		gameover.pressed();
 	}
