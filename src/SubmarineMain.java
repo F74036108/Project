@@ -12,6 +12,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	SubmarineUser subUser = new SubmarineUser(0,500);//User控制潛艦
 	private HealthBar healthBar = new HealthBar();
 	Bomb bomb = new Bomb(0, 0, this);
+	Laser laser = new Laser(0,0, this);
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
 	ToxicSeaBomb seaBomb;
 	private ScreenShot screenShot = new ScreenShot(this);
@@ -134,6 +135,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				//GAMEOVER
 				gameOver = new GameOver(WIDTH, HEIGHT, this);
 				gameOver.setVisible(false);
+				gameOver.setEnabled(false);
 
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
@@ -144,7 +146,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	// 鍵盤控制
 	long lastShoot = System.currentTimeMillis();
+	long lastShoot2 = System.currentTimeMillis();
 	final long threshold = 800;
+	final long threshold2 = 1800;
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -160,7 +164,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			// new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
 			long now = System.currentTimeMillis();
 			if (now - lastShoot > threshold) {
-				bomb.addBomb((int) ship.get_X() + 80, (int) ship.get_Y() + 80);
+				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
 				lastShoot = now;
 			}
 			
@@ -182,6 +186,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	    	}
 	    }else if (key == KeyEvent.VK_ENTER) {
 	    	
+	    	long now = System.currentTimeMillis();
+			if (now - lastShoot2 > threshold2) {
+				laser.addLaser((int) subUser.get_X()+40, (int) subUser.get_Y()-50);
+				lastShoot2 = now;
+			}
 	    }
 	}
 
@@ -221,6 +230,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			this.setVisible(false);
 			this.setEnabled(false);
 			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
+			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
 			score.save_score();
 		}

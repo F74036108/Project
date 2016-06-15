@@ -2,4 +2,4 @@ Top1:100
 Top2:90
 Top3:80
 Top4:60
-Top5:40
+Top5:50
