@@ -1,4 +1,5 @@
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /****
  * Bomb thrown from Ship
@@ -73,7 +74,7 @@ public class Bomb extends Vehicle implements Runnable {
 							e.printStackTrace();
 						}
 						// 分數累加
-						game.getScore();
+						game.addScore();
 						game.remove(explode);
 						break LOOP;
 					}
@@ -114,6 +115,38 @@ public class Bomb extends Vehicle implements Runnable {
 					game.sub_health(40);
 					game.remove(explo_anmi);
 
+					break LOOP;
+				}
+				// Check 碰到User
+				diffX = this.get_X() - game.subUser.get_X();
+				diffY = this.get_Y() - game.subUser.get_Y();
+				if (diffX > -60 && diffX <= 110 && diffY > 5 && diffY < 25) {
+					
+					
+					// handle 爆炸後
+					game.remove(game.subUser);
+					//game.subUser.setCrash();
+					game.subUser = null;
+					game.remove(this);
+					// Create new Sub
+					game.addUserSub();
+
+					// 爆炸動畫
+					ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
+					explode = new JLabel(icon2);
+					explode.setSize(325, 275);
+					explode.setLocation((int) this.get_X() - 130, (int) this.get_Y() - 120);
+					icon2.getImage().flush();
+					game.add(explode);
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// 分數累加
+					game.addScore();
+					game.remove(explode);
 					break LOOP;
 				}
 
