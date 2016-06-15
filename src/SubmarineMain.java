@@ -17,6 +17,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score(this);
+	GameOver gameOver;
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
@@ -130,6 +131,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 				// 截圖
 				this.add(screenShot);
+				//GAMEOVER
+				gameOver = new GameOver(WIDTH, HEIGHT, this);
+				gameOver.setVisible(false);
 
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
@@ -216,7 +220,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		if (healthBar.getHealth() <= 0) {
 			this.setVisible(false);
 			this.setEnabled(false);
-			GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
+			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setVisible(true);
 			score.save_score();
 		}
