@@ -1,0 +1,5 @@
+Top1 name:aascore:100
+Top2 name:abcedscore:80
+Top3 name:bbscore:80
+Top4 name:ccscore:60
+Top5 name:ddscore:40
