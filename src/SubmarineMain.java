@@ -125,7 +125,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				    
 				// 置入Octopus
 				add(dragOctopus);
-				dragOctopus.setBounds(mouseX, mouseY, 250,250);//166, 131
+				dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
 				addMouseMotionListener(this);
 
 				// 截圖
@@ -273,14 +273,14 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	/*********************************************************************************/
 	// Octopus moving with mouse
-	private JLabel dragOctopus = new JLabel(new ImageIcon(".\\image\\cat1.gif"));
+	private JLabel dragOctopus = new JLabel(new ImageIcon(".\\image\\mouse.gif"));
 	private int mouseX = 500;
 	private int mouseY = 500;
 
 	public void mouseDragged(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
-		dragOctopus.setBounds(mouseX, mouseY, 250, 250);//166, 131
+		dragOctopus.setBounds(mouseX, mouseY, 100, 132);//166, 131
 	}
 
 	public void mouseMoved(MouseEvent e) {
