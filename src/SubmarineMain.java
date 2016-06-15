@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
-	SubmarineUser subUser = new SubmarineUser(0,500);//User控制潛艦
+	SubmarineUser subUser; //User控制潛艦
 	private HealthBar healthBar = new HealthBar();
 	Bomb bomb = new Bomb(0, 0, this);
 	Laser laser = new Laser(0,0, this);
@@ -23,6 +23,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
 	private static final int NUM_OF_PLANES = 3;
+	String userName;
 
 	public static int get_width() {
 		return WIDTH;
@@ -44,6 +45,12 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		startButton.setLocation(WIDTH / 2 - 180, 350);
 		startButton.setSize(350, 60);
 		frame2.add(startButton);
+		//名字輸入
+		JTextField input = new JTextField(30);
+		input.setLocation(WIDTH / 2 - 180,450);
+		input.setSize(input.getPreferredSize());
+		input.setText("<Input your name here>");
+		frame2.add(input);
 		frame2.setVisible(true);
 		
 		/*------------------------------------------------------------------------*/
@@ -57,6 +64,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
+				userName = input.getText();
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD
 																				// image
 				startButton.setIcon(icon2);
@@ -227,12 +235,13 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		healthBar.minusHealth(a);
 		// GameOver Signal
 		if (healthBar.getHealth() <= 0) {
+		
 			this.setVisible(false);
 			this.setEnabled(false);
 			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
-			score.save_score();
+			score.save_score(userName);
 		}
 		if (healthBar.getHealth() <= 50) {
 			ship.change_picture();
@@ -264,7 +273,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addUserSub(){
-		subUser = new SubmarineUser(-50,530);
+		subUser = new SubmarineUser(-50,550);
 		this.add(subUser);
 	}
 	public void resetAll() {
