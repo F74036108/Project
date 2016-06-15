@@ -17,6 +17,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
 	private Score score = new Score(this);
+	String userName;
+	
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
@@ -42,8 +44,13 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		startButton.setLocation(WIDTH / 2 - 180, 350);
 		startButton.setSize(350, 60);
 		frame2.add(startButton);
+		//名字輸入
+		JTextField input = new JTextField(30);
+		input.setLocation(WIDTH / 2 - 180,450);
+		input.setSize(input.getPreferredSize());
+		input.setText("<Input your name here>");
+		frame2.add(input);
 		frame2.setVisible(true);
-		
 		/*------------------------------------------------------------------------*/
 		while (true) {
 			// Check START signal every 2 seconds
@@ -55,6 +62,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
+				userName = input.getText();
+//				score.newUser(name);
+//				System.out.println(input.getText());
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD
 																				// image
 				startButton.setIcon(icon2);
@@ -218,7 +228,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			this.setEnabled(false);
 			GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setVisible(true);
-			score.save_score();
+			score.save_score(userName);
 		}
 		if (healthBar.getHealth() <= 50) {
 			ship.change_picture();

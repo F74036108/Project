@@ -28,6 +28,7 @@ public class Frontpage extends JFrame{
 	    state = State.Front;
 	    
 	}
+	
 	public void action(){
 	}
 	

@@ -1,5 +1,5 @@
-Top1:100
-Top2:90
-Top3:80
-Top4:60
-Top5:40
+Top1 name:ascore:90
+Top2 name:ascore:90
+Top3 name:ascore:90
+Top4 name:ascore:90
+Top5 name:ascore:90

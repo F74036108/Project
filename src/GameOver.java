@@ -15,7 +15,7 @@ public class GameOver extends JFrame {
 	public GameOver(int x, int y, SubmarineMain game) {
 		this.game = game;
 		this.setSize(x, y);
-		this.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+		this.setContentPane(new JLabel(new ImageIcon(".\\image\\scoreBoard.png")));
 		// gameover圖片
 		JLabel gameover = new JLabel();
 		ImageIcon icon = new ImageIcon(".\\image\\game over.png");
