@@ -5,6 +5,7 @@
  ********************/
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.*;
 
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
@@ -17,8 +18,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	ToxicSeaBomb seaBomb;
 	private ScreenShot screenShot = new ScreenShot(this);
 	private Plane[] plane = new Plane[NUM_OF_PLANES];
-	private Score score = new Score(this);
-	GameOver gameOver;
+	
+	GameOver gameOver;// = new GameOver(WIDTH, HEIGHT, this);
+	private Score score ;//= new Score(this,gameOver);
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
@@ -51,6 +53,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		input.setSize(input.getPreferredSize());
 		input.setText("<Input your name here>");
 		frame2.add(input);
+		frame2.setTitle("Submarine War");
+		Image img = Toolkit.getDefaultToolkit().getImage(".\\image\\submarine2.png");
+		frame2.setIconImage(img);
 		frame2.setVisible(true);
 		
 		/*------------------------------------------------------------------------*/
@@ -68,6 +73,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD
 																				// image
 				startButton.setIcon(icon2);
+				
 				frame2.setVisible(true);
 				try {
 					Thread.sleep(200);
@@ -103,7 +109,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				frame2.setVisible(false);
+				this.setTitle("Submarine War");
 				
+				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
 				// 載入背景圖片
 				setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
@@ -125,15 +133,15 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					addPlane(i);
 				}
 
+				//綠色炸彈
 				addToxicBomb();
 
-				// 計分
-				this.add(score);
+				
 				// KeyListener (class KeyInput)
 				addKeyListener(new KeyInput(this));
 				//InputMap im = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
 				    
-				// 置入Octopus
+				// 置入鼠標
 				add(dragOctopus);
 				dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
 				addMouseMotionListener(this);
@@ -144,7 +152,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				gameOver = new GameOver(WIDTH, HEIGHT, this);
 				gameOver.setVisible(false);
 				gameOver.setEnabled(false);
-
+				score = new Score(this);
+				
+				// 計分
+				this.add(score);
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
 				break;
 			}
@@ -243,7 +254,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
-			score.save_score(userName);
+			if(score.scoreSaved==false)score.save_score(userName);
 		}
 		if (healthBar.getHealth() <= 50) {
 			ship.change_picture();
@@ -293,8 +304,12 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			this.remove(plane[i]);
 			addPlane(i);
 		}
+		this.remove(subUser);
+		subUser.setEnabled(false);
+		addUserSub();
 		healthBar.reset();
 		score.reset_score();
+		
 		ship.resetIcon();
 	}
 

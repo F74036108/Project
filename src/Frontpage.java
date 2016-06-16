@@ -26,6 +26,7 @@ public class Frontpage extends JFrame{
 		.setVisible(true);*/
 		this.addMouseListener(new MouseInput(this));
 	    state = State.Front;
+	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    
 	}
 	

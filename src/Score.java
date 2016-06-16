@@ -9,9 +9,23 @@ public class Score extends JLabel {
 	public int[] x = new int[5];
 	String[] userNameArr = new String[5];
 	SubmarineMain game;
-	
+	//GameOver gameOver;
+	boolean scoreSaved;
+	JLabel a = new JLabel();
+	JLabel b = new JLabel();
+	JLabel c = new JLabel();
+	JLabel d = new JLabel();
+	JLabel e = new JLabel();
+	JLabel f = new JLabel();
+	JLabel g = new JLabel();
+	JLabel h = new JLabel();
+	JLabel i = new JLabel();
+	JLabel j = new JLabel();
+	JLabel k = new JLabel();
 	public Score(SubmarineMain game) {
 		this.game = game;
+		//this.gameOver = gameOver;
+		
 		
 		setLocation(800, 0);
 		setSize(300, 150);
@@ -34,6 +48,84 @@ public class Score extends JLabel {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		a.setLocation(300, -38);
+		a.setSize(300, 150);
+		a.setText(Integer.toString(score));
+		a.setFont(new Font("Broadway", Font.PLAIN, 50));
+		a.setForeground(Color.YELLOW);
+
+		b.setLocation(300, 160);
+		b.setSize(300, 150);
+		b.setText(Integer.toString(x[0]));
+		b.setFont(new Font("Broadway", Font.PLAIN, 50));
+		b.setForeground(Color.YELLOW);
+
+		c.setLocation(300, 250);
+		c.setSize(300, 150);
+		c.setText(Integer.toString(x[1]));
+		c.setFont(new Font("Broadway", Font.PLAIN, 50));
+		c.setForeground(Color.YELLOW);
+
+		d.setLocation(300, 345);
+		d.setSize(300, 150);
+		d.setText(Integer.toString(x[2]));
+		d.setFont(new Font("Broadway", Font.PLAIN, 50));
+		d.setForeground(Color.YELLOW);
+
+		e.setLocation(300, 430);
+		e.setSize(300, 150);
+		e.setText(Integer.toString(x[3]));
+		e.setFont(new Font("Broadway", Font.PLAIN, 50));
+		e.setForeground(Color.YELLOW);
+
+		f.setLocation(300, 520);
+		f.setSize(300, 150);
+		f.setText(Integer.toString(x[4]));
+		f.setFont(new Font("Broadway", Font.PLAIN, 50));
+		f.setForeground(Color.YELLOW);
+
+		g.setLocation(100, 180);
+		g.setSize(300, 150);
+		g.setText(userNameArr[0]);
+		g.setFont(new Font("Broadway", Font.PLAIN, 50));
+		g.setForeground(Color.YELLOW);
+
+		h.setLocation(100, 270);
+		h.setSize(300, 150);
+		h.setText(userNameArr[1]);
+		h.setFont(new Font("Broadway", Font.PLAIN, 50));
+		h.setForeground(Color.YELLOW);
+
+		i.setLocation(100, 360);
+		i.setSize(300, 150);
+		i.setText(userNameArr[2]);
+		i.setFont(new Font("Broadway", Font.PLAIN, 50));
+		i.setForeground(Color.YELLOW);
+
+		j.setLocation(100, 450);
+		j.setSize(300, 150);
+		j.setText(userNameArr[3]);
+		j.setFont(new Font("Broadway", Font.PLAIN, 50));
+		j.setForeground(Color.YELLOW);
+
+		k.setLocation(100, 520);
+		k.setSize(300, 150);
+		k.setText(userNameArr[4]);
+		k.setFont(new Font("Broadway", Font.PLAIN, 50));
+		k.setForeground(Color.YELLOW);
+		
+		
+		game.gameOver.add(a);
+		game.gameOver.add(b);
+		game.gameOver.add(c);
+		game.gameOver.add(d);
+		game.gameOver.add(e);
+		game.gameOver.add(f);
+		game.gameOver.add(g);
+		game.gameOver.add(h);
+		game.gameOver.add(i);
+		game.gameOver.add(j);
+		game.gameOver.add(k);
 	}
 
 	public void addScore() {
@@ -49,33 +141,13 @@ public class Score extends JLabel {
 	public void reset_score() {
 		score = 0;
 		setText("Score:00");
+		scoreSaved=false;
 	}
 	public void save_score(String userName){
+		if(!scoreSaved){
+			scoreSaved=true;
 		try{
-			JLabel a = new JLabel();
-			JLabel b = new JLabel();
-			JLabel c = new JLabel();
-			JLabel d = new JLabel();
-			JLabel e = new JLabel();
-			JLabel f = new JLabel();
-			JLabel g = new JLabel();
-			JLabel h = new JLabel();
-			JLabel i = new JLabel();
-			JLabel j = new JLabel();
-			JLabel k = new JLabel();
-
 			
-			game.gameOver.add(a);
-			game.gameOver.add(b);
-			game.gameOver.add(c);
-			game.gameOver.add(d);
-			game.gameOver.add(e);
-			game.gameOver.add(f);
-			game.gameOver.add(g);
-			game.gameOver.add(h);
-			game.gameOver.add(i);
-			game.gameOver.add(j);
-			game.gameOver.add(k);
 			
 			
 		
@@ -103,7 +175,7 @@ public class Score extends JLabel {
 			else if(score<x[3]&&score>=x[4]){
 				x[4]=score;userNameArr[4]=userName;
 				}
-			else{score=score;
+			else{//score=score;
 				}
 
 			fw.append("Top1 name:"+userNameArr[0]+"score:"+x[0]+"\r\n");
@@ -185,6 +257,7 @@ public class Score extends JLabel {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
 
 /*		System.out.print(x[0]);
 		System.out.print(userNameArr[0]+"\n");

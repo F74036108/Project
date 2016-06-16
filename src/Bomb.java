@@ -125,7 +125,7 @@ public class Bomb extends Vehicle implements Runnable {
 					
 					// handle 爆炸後
 					game.remove(game.subUser);
-					//game.subUser.setCrash();
+					game.subUser.setCrash();
 					game.subUser = null;
 					game.remove(this);
 					// Create new Sub
