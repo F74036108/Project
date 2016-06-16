@@ -113,6 +113,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				frame2.setVisible(false);
 				
 			/*--MAIN Game Window------------------------------------------------*/
+				
 				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
