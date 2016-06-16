@@ -80,7 +80,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			if (frame2.get_state() == Frontpage.State.Start) {
 				startPageMusic.pause();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(15);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

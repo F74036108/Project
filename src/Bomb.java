@@ -17,6 +17,7 @@ public class Bomb extends Vehicle implements Runnable {
 	JLabel explo_anmi;
 	private static SoundBase bombMusic = new SoundBase(".\\audio\\bomb.wav");
 	private static SoundBase bombPathMusic = new SoundBase(".\\audio\\bomb_path.wav");
+	private static SoundBase bigBombMusic = new SoundBase(".\\audio\\explode.wav");
 
 	public Bomb(double x, double y, SubmarineMain game) {
 		this.game = game;
@@ -98,11 +99,10 @@ public class Bomb extends Vehicle implements Runnable {
 					game.remove(game.seaBomb);
 					game.seaBomb.setCrash();
 					game.remove(this);
+					game.backGroundMusic.pause();
 					bombPathMusic.pause();
-					bombMusic.play();
 					// Create new Sub
 					game.addToxicBomb();
-					
 					// 爆炸
 					game.add(explode2);
 					try {
@@ -114,6 +114,7 @@ public class Bomb extends Vehicle implements Runnable {
 					game.remove(explode2);
 					// 動畫
 					explo_anmi.setLocation(0, 0);
+					bigBombMusic.play();
 					game.add(explo_anmi);
 					try {
 						Thread.sleep(2100);
@@ -125,6 +126,7 @@ public class Bomb extends Vehicle implements Runnable {
 					game.sub_health(40);
 					game.remove(explo_anmi);
 					bombPathMusic.stop();
+					game.backGroundMusic.resume();
 					break LOOP;
 				}
 				// Check 碰到User
