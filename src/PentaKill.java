@@ -8,6 +8,8 @@ public class PentaKill {
 	private final int NUM_OF_PENTAKILL=3;
 	private int killCount;
 
+	ImageIcon icon2 = new ImageIcon(".\\image\\big-kill2.gif");
+			
 	public PentaKill(SubmarineMain game) {
 		this.game = game;
 		JLabel pentaKill = new JLabel();
@@ -19,10 +21,14 @@ public class PentaKill {
 	}
 	public void bombFromSky(){
 		if(killCount<NUM_OF_PENTAKILL){
-			for(int i=0;i<=11;i++){
-				game.bomb.addBomb(90*i, (int)(Math.random()*150));
+			game.ship.setIcon(icon2);
+			
+			for(int i=0;i<=8;i++){
+				game.bomb.addBomb(110*i+10, (int)(Math.random()*150));
 			}
 			killCount++;
+			
+			//game.ship.resetIcon();
 			reset();
 		}
 		

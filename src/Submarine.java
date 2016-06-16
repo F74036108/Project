@@ -26,7 +26,7 @@ public class Submarine extends Vehicle implements Runnable {
 		setSize(142, 49);
 	}
 
-	// ���宏���
+
 	public void run() {
 		while (true) {
 			if (crash == true)
