@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class Ship extends Vehicle {
-	ImageIcon icon = new ImageIcon(".\\image\\Troop_Ship2.png");// LOAD image
+	ImageIcon icon = new ImageIcon(".\\image\\Troop_Ship.png");// LOAD image
 
 	public Ship(double x, double y) {
 
