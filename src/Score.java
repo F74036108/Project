@@ -166,7 +166,7 @@ public class Score extends JLabel {
 		try{
 			
 			if(userName.equals("<Input your name here>")){
-				userName="Iamsohandsome";
+				userName="User";
 			}
 			
 		
