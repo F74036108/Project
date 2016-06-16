@@ -3,9 +3,11 @@
  * Main Game Window
  * 
  ********************/
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+
 
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
@@ -114,6 +116,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				
 			/*--MAIN Game Window------------------------------------------------*/
 				
+				//Backgrond Music>> only .wav accepted
+				Music mus = new Music(".\\audio\\test.wav");
+				mus.start();
+				/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+				
 				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
@@ -167,6 +174,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	}
 
+	
 	// 鍵盤控制 signal from KeyInput class
 	long lastShoot = System.currentTimeMillis();
 	long lastShoot2 = System.currentTimeMillis();
