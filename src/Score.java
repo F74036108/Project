@@ -1,5 +1,7 @@
 /******************************
  * Score Record along with ScoreBoard
+ * 
+ * @author 鞠之浩
  *****************************/
 import java.awt.Color;
 import java.awt.Font;

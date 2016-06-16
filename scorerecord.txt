@@ -1,5 +1,5 @@
-Top1 name:psascore:190
-Top2 name:Lscore:180
-Top3 name:Billscore:100
-Top4 name:JJscore:80
-Top5 name:QQscore:70
+Top1 name:嗨score:300
+Top2 name:嗨score:270
+Top3 name:psascore:190
+Top4 name:Lscore:180
+Top5 name:棒score:170
