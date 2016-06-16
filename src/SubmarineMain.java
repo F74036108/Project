@@ -187,7 +187,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	// 鍵盤控制 signal from KeyInput class
 	long lastShoot = System.currentTimeMillis();
 	long lastShoot2 = System.currentTimeMillis();
-	final long threshold = 800;
+	
 	final long threshold2 = 1800;
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -202,6 +202,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			// Create BOMB from SHIP
 			// new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
 			long now = System.currentTimeMillis();
+			long threshold = 800-(score.LV-1)*50;
 			if (now - lastShoot > threshold) {
 				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
 				bombMusic.play();
@@ -236,7 +237,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addScore(int i) {
-		score.addScore(i);
+		score.addScore(i);			
 	}
 
 	public void add_health() {

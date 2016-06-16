@@ -1,5 +1,5 @@
-Top1 name:Brianscore:300
-Top2 name:GGscore:130
-Top3 name:Jeffscore:100
-Top4 name:psascore:90
-Top5 name:Lscore:80
+Top1 name:<Input your name here>score:440
+Top2 name:<Input your name here>score:370
+Top3 name:Iamsohandsomescore:320
+Top4 name:Brianscore:300
+Top5 name:userNamescore:180
