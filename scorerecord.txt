@@ -1,5 +1,0 @@
-Top1 name:<Input your name here>score:440
-Top2 name:<Input your name here>score:370
-Top3 name:Iamsohandsomescore:320
-Top4 name:Brianscore:300
-Top5 name:userNamescore:180
