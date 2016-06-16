@@ -19,6 +19,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	Laser laser = new Laser(0,0, this);//User艦雷射
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];//Auto潛艦
 	ToxicSeaBomb seaBomb;//深海綠色炸藥
+	PentaKill pentaKill = new PentaKill(this);//大絕招
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	//音樂建立
@@ -233,11 +234,19 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 		//Special Action
 	    }else if(key == KeyEvent.VK_Q){
-	    	
-	    }else if(key == KeyEvent.VK_W){
-	    	
-	    }else if(key == KeyEvent.VK_W){
-	    	
+	    	if(!pentaKill.Q){
+		    	pentaKill.Q = true;
+		    	if(pentaKill.Q && pentaKill.E){
+	    		pentaKill.bombFromSky();
+		    	}
+	    	}
+	    }else if(key == KeyEvent.VK_E){
+	    	if(!pentaKill.E){
+	    	pentaKill.E = true;
+	    	if(pentaKill.Q && pentaKill.E){
+	    		pentaKill.bombFromSky();
+	    	}
+	    	}
 	    }
 	}
 
