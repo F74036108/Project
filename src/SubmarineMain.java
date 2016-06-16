@@ -2,6 +2,7 @@
 /********************
  * Main Game Window
  * 
+ * @author GROUP
  ********************/
 
 import javax.swing.*;

@@ -1,5 +1,5 @@
-Top1 name:嗨score:300
-Top2 name:嗨score:270
-Top3 name:psascore:190
-Top4 name:Lscore:180
-Top5 name:棒score:170
+Top1 name:Brianscore:300
+Top2 name:GGscore:130
+Top3 name:Jeffscore:100
+Top4 name:psascore:90
+Top5 name:Lscore:80

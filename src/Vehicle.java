@@ -3,7 +3,7 @@
  * 
  * Direct Known Subclasses:
  *  Submarine, Ship, Plane, Bomb, ToxicSeaBomb, Laser
- */
+ **********************************/
 import javax.swing.*;
 public class Vehicle extends JLabel{
 

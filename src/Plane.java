@@ -1,3 +1,8 @@
+/*****************
+ * Plane object
+ * 
+ * @author 翁介誠
+ *****************/
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable {
@@ -18,7 +23,7 @@ public class Plane extends Vehicle implements Runnable {
 		bomb = new PlaneBomb(game);
 	}
 
-	// 自動移動
+	// Automove
 	public void run() {
 		int count = 0;
 		while (true) {
@@ -26,7 +31,7 @@ public class Plane extends Vehicle implements Runnable {
 				break;
 			setX(get_X() - speed);
 			setY(get_Y() + (Math.random() - 0.51));
-			// 按照機率放出炸彈
+			//Randomly dropped Bomb
 			if ((int) (Math.random() * 1700) == 1.0 && get_X() < 1000) {
 				bomb.addBomb((int) get_X(), (int) get_Y() + 70);
 			}

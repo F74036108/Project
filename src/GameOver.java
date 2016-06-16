@@ -2,6 +2,7 @@
  * Game Over PAGE
  * 
  * Enabbled by SubmarineMain class method - sub_health()
+ * @author 許熙浩
  **********************************************************/
 
 import javax.swing.ImageIcon;

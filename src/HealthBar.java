@@ -1,3 +1,8 @@
+/**********************
+ *Health bar with artwork
+ *
+ *@author ³\º³¯E
+ **********************/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 

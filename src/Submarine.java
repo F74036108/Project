@@ -1,3 +1,8 @@
+/****************
+ * Submarine Object class
+ * 
+ * @author 王冠鈞
+ ****************/
 import javax.swing.*;
 
 public class Submarine extends Vehicle implements Runnable {
@@ -21,7 +26,7 @@ public class Submarine extends Vehicle implements Runnable {
 		setSize(142, 49);
 	}
 
-	// 自動移動
+	// ���宏���
 	public void run() {
 		while (true) {
 			if (crash == true)

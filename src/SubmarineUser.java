@@ -1,5 +1,7 @@
 /**************************
  * User Control Submarine
+ * 
+ * @author ¤ý«a¶v
  **************************/
 import javax.swing.ImageIcon;
 public class SubmarineUser extends Vehicle {

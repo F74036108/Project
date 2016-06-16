@@ -1,12 +1,14 @@
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /****
  * Bomb thrown from Ship
  * 
  * Created in SubmarineMain class method - keyPressed()
  *
+ *@author 王冠鈞
  ****/
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class Bomb extends Vehicle implements Runnable {
 	Bomb tempBomb;
 	SubmarineMain game;

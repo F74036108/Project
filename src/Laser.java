@@ -3,6 +3,7 @@
  * 
  * Created in SubmarineMain class method - keyPressed()
  *
+ *@author ¤ý«a¶v
  ****/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -60,7 +61,4 @@ public class Laser extends Vehicle implements Runnable {
 		thread.start();
 	}
 
-	public static void resetPlaneBomb() {
-		reset = true;
-	}
 }
