@@ -199,6 +199,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				laser.addLaser((int) subUser.get_X()+40, (int) subUser.get_Y()-50);
 				lastShoot2 = now;
 			}
+	    }else if (key == KeyEvent.VK_0) {
+	    	this.sub_health(100);
 	    }
 	}
 
