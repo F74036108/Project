@@ -193,10 +193,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 		if (key == KeyEvent.VK_D) {// Right shift
 			if(ship.get_X()<850)
-			ship.setX(ship.get_X() + 5);
+			ship.setX(ship.get_X() + 5+(score.LV-1)*2);
 		} else if (key == KeyEvent.VK_A) {// Left shift
 			if(ship.get_X()>-50)
-			ship.setX(ship.get_X() - 5);
+			ship.setX(ship.get_X() - (5+(score.LV-1)*2));
 		} else if (key == KeyEvent.VK_SPACE) {
 			// Create BOMB from SHIP
 			// new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);

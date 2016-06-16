@@ -60,7 +60,7 @@ public class Score extends JLabel {
 				i++;
 			}
 		}catch(Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		a.setLocation(300, -38);
 		a.setSize(300, 150);
@@ -166,7 +166,7 @@ public class Score extends JLabel {
 		try{
 			
 			if(userName.equals("<Input your name here>")){
-				userName="Iamsohandsome";
+				userName="User";
 			}
 			
 		
