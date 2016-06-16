@@ -20,11 +20,12 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	ToxicSeaBomb seaBomb;//深海綠色炸藥
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
-	
+	//音樂建立
+	SoundBase backGroundMusic = new SoundBase(".\\audio\\background.wav");
+	SoundBase loadingMusic = new SoundBase(".\\audio\\start button.wav");
 	GameOver gameOver;//結束畫面
 	Score score ;//計分
-	String userName;//使用者NAME
-	
+	String userName;//使用者NAME	
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
@@ -42,6 +43,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public SubmarineMain() {
 
 		/* 開始頁面-------------------------------------------------------------- */
+		backGroundMusic.play();
 		Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
 		frame2.setSize(WIDTH, HEIGHT);
 		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
@@ -73,11 +75,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
+				loadingMusic.play();
 				userName = input.getText();
-				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD
-																				// image
+				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD																// image
 				startButton.setIcon(icon2);
-				
 				frame2.setVisible(true);
 				try {
 					Thread.sleep(200);
@@ -87,27 +88,28 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				}
 				ImageIcon icon3 = new ImageIcon(".\\image\\LOAD1.png");// LOAD
 																		// image
+			
 				startButton.setIcon(icon3);
 				try {
-					Thread.sleep(500);
+					Thread.sleep(300);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				ImageIcon icon4 = new ImageIcon(".\\image\\LOAD2.png");// LOAD
-																		// image
+												// image
 				startButton.setIcon(icon4);
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(1150);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				ImageIcon icon5 = new ImageIcon(".\\image\\LOAD3.png");// LOAD
-																		// image
+												// image
 				startButton.setIcon(icon5);
 				try {
-					Thread.sleep(500);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -115,12 +117,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				frame2.setVisible(false);
 				
 			/*--MAIN Game Window------------------------------------------------*/
-				
-				//Backgrond Music>> only .wav accepted
-				Music mus = new Music(".\\audio\\test.wav");
-				mus.start();
-				/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-				
 				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
