@@ -25,7 +25,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	SoundBase startPageMusic = new SoundBase(".\\audio\\startpage.wav");
 	SoundBase backGroundMusic = new SoundBase(".\\audio\\background.wav");
 	SoundBase loadingMusic = new SoundBase(".\\audio\\startbutton.wav");
-	SoundBase bombMusic = new SoundBase(".\\audio\\bomb.wav");
 	SoundBase lazerMusic = new SoundBase(".\\audio\\lazer.wav");
 	GameOver gameOver;//結束畫面
 	Score score ;//計分
@@ -79,7 +78,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
-				startPageMusic.stop();
+				startPageMusic.pause();
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
@@ -204,7 +203,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			long now = System.currentTimeMillis();
 			if (now - lastShoot > threshold) {
 				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
-				bombMusic.play();
 				lastShoot = now;
 			}
 			
@@ -274,7 +272,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
-			if(score.scoreSaved==false)score.save_score(userName);
+			if(score.scoreSaved==false){
+				score.save_score(userName);
+				backGroundMusic.stop();
+			}
 		}
 		if (healthBar.getHealth() <= 50) {
 			ship.change_picture();
@@ -314,6 +315,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		ship.setX(420);
 		ship.setY(170);
 		ship.resetIcon();
+		backGroundMusic.play();
 		
 		PlaneBomb.resetPlaneBomb();
 		Plane.resetPlane();

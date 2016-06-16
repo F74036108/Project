@@ -1,7 +1,7 @@
 /*****************
  * Plane Bomb object
  * 
- * @author ¯Î¤¶¸Û
+ * @author ï¿½Î¤ï¿½ï¿½ï¿½
  *****************/
 import javax.swing.*;
 
@@ -10,7 +10,7 @@ public class PlaneBomb extends JLabel implements Runnable {
 	private ImageIcon icon = new ImageIcon(".\\image\\planebomb.png");
 	private static SubmarineMain game;
 	private static boolean reset;
-
+	
 	public PlaneBomb(SubmarineMain game) {
 		PlaneBomb.game = game;
 	}
@@ -32,6 +32,8 @@ public class PlaneBomb extends JLabel implements Runnable {
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)) {
 				game.sub_health(10);
 				game.remove(this);
+
+				
 				break;
 			}
 			if (reset || y > 250) {
@@ -52,6 +54,7 @@ public class PlaneBomb extends JLabel implements Runnable {
 		game.add(bomb);
 		Thread thread = new Thread(bomb);
 		thread.start();
+
 	}
 
 	public static void resetPlaneBomb() {
