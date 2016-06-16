@@ -28,7 +28,8 @@ public class PentaKill {
 	public void bombFromSky(){
 		if(killCount<NUM_OF_PENTAKILL){
 		//	game.ship.setIcon(iconShipPenta);
-			//penta.setLocation((int)game.ship.get_X(), (int)game.ship.get_Y());
+			penta.setLocation((int)game.ship.get_X(), (int)game.ship.get_Y());
+
 			for(int i=0;i<=8;i++){
 				game.bomb.addBomb(110*i+10, (int)(Math.random()*150));
 			}
@@ -36,10 +37,6 @@ public class PentaKill {
 			if(killCount==1)pentaKill.setIcon(icon2);
 			if(killCount==2)pentaKill.setIcon(icon1);
 			if(killCount==3)pentaKill.setVisible(false);
-
-
-
-
 			//game.ship.resetIcon();
 			reset();
 		}
@@ -53,5 +50,4 @@ public class PentaKill {
 	public void resetKillCnt(){
 		killCount=0;
 	}
-	
 }

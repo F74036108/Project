@@ -59,7 +59,7 @@ public class Bomb extends Vehicle implements Runnable {
 						continue;
 					double diffX = this.get_X() - game.sub[j].get_X();
 					double diffY = this.get_Y() - game.sub[j].get_Y();
-					if (diffX > -60 && diffX <= 120 && diffY > 5 && diffY < 25) {
+					if (diffX > -60 && diffX <= 120 && diffY > -10 && diffY < 15) {
 						// handle 爆炸後
 						// remove 被炸掉的submarine
 						game.remove(game.sub[j]);
@@ -140,8 +140,8 @@ public class Bomb extends Vehicle implements Runnable {
 					
 					// handle 爆炸後
 					game.remove(game.subUser);
-					game.subUser.setCrash();
-					game.subUser = null;
+				//	game.subUser.setCrash();
+				//	game.subUser = null;
 					game.remove(this);
 					// Create new Sub
 					game.addUserSub();
