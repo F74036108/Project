@@ -19,7 +19,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	Laser laser = new Laser(0,0, this);//User艦雷射
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];//Auto潛艦
 	ToxicSeaBomb seaBomb;//深海綠色炸藥
-	PentaKill pentaKill = new PentaKill(this);//大絕招
+	PentaKill pentaKill;//大絕招
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	//音樂建立
@@ -86,6 +86,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
 				loadingMusic.play();
 				userName = input.getText();
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD																// image
@@ -155,7 +156,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 				//綠色炸彈
 				addToxicBomb();
-
+				//大絕招
+				pentaKill = new PentaKill(this);
 				
 				// KeyListener (for KeyInput class)
 				addKeyListener(new KeyInput(this));

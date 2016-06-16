@@ -1,5 +1,5 @@
-Top1 name:Iamsohandsomescore:0
-Top2 name:nullscore:0
-Top3 name:nullscore:0
+Top1 name:Userscore:0
+Top2 name:Userscore:0
+Top3 name:Iamsohandsomescore:0
 Top4 name:nullscore:0
 Top5 name:nullscore:0

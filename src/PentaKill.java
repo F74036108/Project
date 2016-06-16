@@ -1,3 +1,5 @@
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class PentaKill {
 	SubmarineMain game;
@@ -6,7 +8,13 @@ public class PentaKill {
 	boolean E;
 
 	public PentaKill(SubmarineMain game) {
-		this.game = game;	
+		this.game = game;
+		JLabel pentaKill = new JLabel();
+		ImageIcon icon = new ImageIcon(".\\image\\submarine2.png");// SET image;
+		pentaKill.setIcon(icon);
+		pentaKill.setLocation(0, 600);
+		pentaKill.setSize(142, 49);
+		this.game.add(pentaKill);
 	}
 	public void bombFromSky(){
 		
