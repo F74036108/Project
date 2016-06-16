@@ -16,7 +16,8 @@ public class Score extends JLabel {
 	String[] userNameArr = new String[5];
 	SubmarineMain game;
 	boolean scoreSaved;
-	
+	JLabel lv = new JLabel();
+	int LV=1;
 	//Name&score labels for scoreboard
 	JLabel a = new JLabel();
 	JLabel b = new JLabel();
@@ -34,11 +35,17 @@ public class Score extends JLabel {
 		//this.gameOver = gameOver;
 		
 		
-		setLocation(800, 0);
+		setLocation(800, -50);
 		setSize(300, 150);
 		setText("Score:00");
 		setFont(new Font("Arial Black", Font.PLAIN, 30));
 		setForeground(Color.YELLOW);
+		lv.setLocation(1,1);
+		lv.setSize(300,20);
+		lv.setText("LV:1");
+		lv.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lv.setForeground(Color.RED);
+		game.add(lv);
 		try{
 			FileReader fr = new FileReader("scorerecord.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -138,13 +145,16 @@ public class Score extends JLabel {
 	public void addScore(int i) {
 		score = score + i;
 		this.setText("Score:" + score);
+		LV=score/100+1;
+		lv.setText("LV:"+LV);
 		// 加血量
 		if ((score - health_sign) / 50 == 1) {
 			health_sign = score;
 			game.add_health();
 		}
+		
 	}
-
+	
 	public void reset_score() {
 		score = 0;
 		setText("Score:00");
@@ -155,7 +165,9 @@ public class Score extends JLabel {
 			scoreSaved=true;
 		try{
 			
-			
+			if(userName.equals("<Input your name here>")){
+				userName="Iamsohandsome";
+			}
 			
 		
 			FileWriter fw = new FileWriter("scorerecord.txt");

@@ -24,7 +24,7 @@ public class HealthBar extends JLabel {
 
 	public HealthBar() {
 		setIcon(icon1);
-		setLocation(0, 0);
+		setLocation(90, 0);
 		setSize(400, 22);
 	}
 

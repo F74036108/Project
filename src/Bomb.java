@@ -15,6 +15,8 @@ public class Bomb extends Vehicle implements Runnable {
 	JLabel explode;
 	JLabel explode2;
 	JLabel explo_anmi;
+	private static SoundBase bombMusic = new SoundBase(".\\audio\\bomb.wav");
+	private static SoundBase bombPathMusic = new SoundBase(".\\audio\\bomb_path.wav");
 
 	public Bomb(double x, double y, SubmarineMain game) {
 		this.game = game;
@@ -39,6 +41,7 @@ public class Bomb extends Vehicle implements Runnable {
 	public void addBomb(int x, int y) {
 		Bomb bomb = new Bomb(x, y, game);
 		game.add(bomb);
+		bombPathMusic.play();
 		Thread thread = new Thread(bomb);
 		thread.start();
 	}
@@ -61,7 +64,9 @@ public class Bomb extends Vehicle implements Runnable {
 						game.remove(this);
 						// Create new Sub
 						game.addSubmarine(j);
-
+						//播放音效
+						bombPathMusic.pause();
+						bombMusic.play();
 						// 爆炸動畫
 						ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
 						explode = new JLabel(icon2);
@@ -78,6 +83,7 @@ public class Bomb extends Vehicle implements Runnable {
 						// 分數累加
 						game.addScore(10);
 						game.remove(explode);
+						bombPathMusic.stop();
 						break LOOP;
 					}
 				}
@@ -92,9 +98,11 @@ public class Bomb extends Vehicle implements Runnable {
 					game.remove(game.seaBomb);
 					game.seaBomb.setCrash();
 					game.remove(this);
+					bombPathMusic.pause();
+					bombMusic.play();
 					// Create new Sub
 					game.addToxicBomb();
-
+					
 					// 爆炸
 					game.add(explode2);
 					try {
@@ -116,7 +124,7 @@ public class Bomb extends Vehicle implements Runnable {
 					// 扣health
 					game.sub_health(40);
 					game.remove(explo_anmi);
-
+					bombPathMusic.stop();
 					break LOOP;
 				}
 				// Check 碰到User
@@ -132,7 +140,8 @@ public class Bomb extends Vehicle implements Runnable {
 					game.remove(this);
 					// Create new Sub
 					game.addUserSub();
-
+					bombPathMusic.pause();
+					bombMusic.play();
 					// 爆炸動畫
 					ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
 					explode = new JLabel(icon2);
@@ -149,10 +158,12 @@ public class Bomb extends Vehicle implements Runnable {
 					// 分數累加
 					game.addScore(50);
 					game.remove(explode);
+					bombPathMusic.stop();
 					break LOOP;
 				}
 
 			} else if (get_Y() > 700) {
+				bombPathMusic.stop();
 				game.remove(this);
 				break LOOP;
 			}
