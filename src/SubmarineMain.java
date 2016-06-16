@@ -21,8 +21,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	//音樂建立
+	SoundBase startPageMusic = new SoundBase(".\\audio\\startpage.wav");
 	SoundBase backGroundMusic = new SoundBase(".\\audio\\background.wav");
-	SoundBase loadingMusic = new SoundBase(".\\audio\\start button.wav");
+	SoundBase loadingMusic = new SoundBase(".\\audio\\startbutton.wav");
+	SoundBase bombMusic = new SoundBase(".\\audio\\bomb.wav");
+	SoundBase lazerMusic = new SoundBase(".\\audio\\lazer.wav");
 	GameOver gameOver;//結束畫面
 	Score score ;//計分
 	String userName;//使用者NAME	
@@ -43,7 +46,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public SubmarineMain() {
 
 		/* 開始頁面-------------------------------------------------------------- */
-		backGroundMusic.play();
+		startPageMusic.play();
 		Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
 		frame2.setSize(WIDTH, HEIGHT);
 		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
@@ -75,6 +78,13 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			}
 			// Action after click START
 			if (frame2.get_state() == Frontpage.State.Start) {
+				startPageMusic.stop();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				loadingMusic.play();
 				userName = input.getText();
 				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD																// image
@@ -120,6 +130,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
+				
+				backGroundMusic.play();
 				// 載入背景圖片
 				setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
 				// 主艦
@@ -191,6 +203,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			long now = System.currentTimeMillis();
 			if (now - lastShoot > threshold) {
 				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
+				bombMusic.play();
 				lastShoot = now;
 			}
 			
@@ -214,6 +227,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	    	
 	    	long now = System.currentTimeMillis();
 			if (now - lastShoot2 > threshold2) {
+				lazerMusic.play();
 				laser.addLaser((int) subUser.get_X()+40, (int) subUser.get_Y()-50);
 				lastShoot2 = now;
 			}

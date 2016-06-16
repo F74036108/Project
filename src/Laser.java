@@ -14,6 +14,7 @@ public class Laser extends Vehicle implements Runnable {
 	private static boolean reset;
 	private static int speed=0;
 	
+	
 
 	public Laser(int x, int y, SubmarineMain game) {
 		this.game = game;
@@ -26,6 +27,7 @@ public class Laser extends Vehicle implements Runnable {
 	}
 
 	public void run() {
+		
 		while (true) {
 			speed++;
 			setLocation(x, y-=speed);

@@ -11,12 +11,12 @@ public class SoundBase implements Runnable {
 	private static final int BUFFER_SIZE = 1024;
 	private String fileToPlay = null;
 //定義執行緒中通訊用的變數
-	private static boolean threadExit = false;
-	private static boolean stopped = true;
-	private static boolean paused = false;
-	private static boolean playing = false;
+	private boolean threadExit = false;
+	private boolean stopped = true;
+	private boolean paused = false;
+	private boolean playing = false;
 //用於執行緒的同步管理
-	public static Object synch = new Object();
+	public  Object synch = new Object();
 	private Thread playerThread = null;
 
 	public SoundBase(String filename) {

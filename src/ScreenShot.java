@@ -14,6 +14,7 @@ public class ScreenShot extends JButton implements ActionListener {
 	SubmarineMain game;
 	private int photoCount = 0;
 
+	SoundBase cam = new SoundBase(".\\audio\\camera.wav");
 	public ScreenShot(SubmarineMain game) {
 		this.game = game;
 		setIcon(new ImageIcon(".\\image\\photo-camera.png"));
@@ -27,7 +28,9 @@ public class ScreenShot extends JButton implements ActionListener {
 
 	public void pressed() {
 		try {
+			
 			saveScreenShot(game, ".\\screenshot\\" + (++photoCount) + ".png");
+			cam.play();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
