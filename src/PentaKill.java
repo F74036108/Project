@@ -4,8 +4,9 @@ import javax.swing.JLabel;
 public class PentaKill {
 	SubmarineMain game;
 	boolean Q;
-	
 	boolean E;
+	private final int NUM_OF_PENTAKILL=3;
+	private int killCount;
 
 	public PentaKill(SubmarineMain game) {
 		this.game = game;
@@ -17,17 +18,22 @@ public class PentaKill {
 		this.game.add(pentaKill);
 	}
 	public void bombFromSky(){
-		
-		for(int i=0;i<=11;i++){
-			game.bomb.addBomb(90*i, (int)(Math.random()*150));
+		if(killCount<NUM_OF_PENTAKILL){
+			for(int i=0;i<=11;i++){
+				game.bomb.addBomb(90*i, (int)(Math.random()*150));
+			}
+			killCount++;
+			reset();
 		}
-		reset();
 		
 	}
 	public void reset(){
 		Q = false;
 		
 		E = false;
+	}
+	public void resetKillCnt(){
+		killCount=0;
 	}
 	
 }

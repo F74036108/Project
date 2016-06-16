@@ -43,5 +43,8 @@ public class KeyInput extends KeyAdapter {
 		}
 			
 	}
+	public void reset(){
+		pressed.clear();
+	}
 
 }

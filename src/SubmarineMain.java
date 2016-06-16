@@ -20,6 +20,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];//Auto潛艦
 	ToxicSeaBomb seaBomb;//深海綠色炸藥
 	PentaKill pentaKill;//大絕招
+	KeyInput keyInput;
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	//音樂建立
@@ -160,7 +161,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				pentaKill = new PentaKill(this);
 				
 				// KeyListener (for KeyInput class)
-				addKeyListener(new KeyInput(this));
+				addKeyListener(keyInput=new KeyInput(this));
 				
 				    
 				// 置入鼠標
@@ -356,6 +357,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		healthBar.reset();
 		
 		score.reset_score();
+		
+		pentaKill.reset();
+		pentaKill.resetKillCnt();
+		
+		keyInput.reset();
 		
 		
 	}
