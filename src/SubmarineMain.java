@@ -28,6 +28,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	SoundBase backGroundMusic = new SoundBase(".\\audio\\background.wav");
 	SoundBase loadingMusic = new SoundBase(".\\audio\\startbutton.wav");
 	SoundBase lazerMusic = new SoundBase(".\\audio\\lazer.wav");
+	SoundBase overMusic = new SoundBase(".\\audio\\Game Over.wav");
 	GameOver gameOver;//結束畫面
 	Score score ;//計分
 	String userName;//使用者NAME	
@@ -294,6 +295,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			gameOver.setVisible(true);
 			if(score.scoreSaved==false){
 				score.save_score(userName);
+				backGroundMusic.pause();
+				overMusic.play();
 				backGroundMusic.stop();
 			}
 		}
