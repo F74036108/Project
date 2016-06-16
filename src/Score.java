@@ -1,3 +1,6 @@
+/******************************
+ * Score Record along with ScoreBoard
+ *****************************/
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
@@ -9,8 +12,9 @@ public class Score extends JLabel {
 	public int[] x = new int[5];
 	String[] userNameArr = new String[5];
 	SubmarineMain game;
-	//GameOver gameOver;
 	boolean scoreSaved;
+	
+	//Name&score labels for scoreboard
 	JLabel a = new JLabel();
 	JLabel b = new JLabel();
 	JLabel c = new JLabel();
@@ -128,8 +132,8 @@ public class Score extends JLabel {
 		game.gameOver.add(k);
 	}
 
-	public void addScore() {
-		score = score + 10;
+	public void addScore(int i) {
+		score = score + i;
 		this.setText("Score:" + score);
 		// 加血量
 		if ((score - health_sign) / 50 == 1) {

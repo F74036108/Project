@@ -11,21 +11,23 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	Ship ship = new Ship(420, 170);// 主艦
 	SubmarineUser subUser; //User控制潛艦
-	private HealthBar healthBar = new HealthBar();
-	Bomb bomb = new Bomb(0, 0, this);
-	Laser laser = new Laser(0,0, this);
-	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];
-	ToxicSeaBomb seaBomb;
-	private ScreenShot screenShot = new ScreenShot(this);
-	private Plane[] plane = new Plane[NUM_OF_PLANES];
+	HealthBar healthBar = new HealthBar();//血量條
+	Bomb bomb = new Bomb(0, 0, this);//主艦炸彈
+	Laser laser = new Laser(0,0, this);//User艦雷射
+	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];//Auto潛艦
+	ToxicSeaBomb seaBomb;//深海綠色炸藥
+	ScreenShot screenShot = new ScreenShot(this);//截圖
+	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	
-	GameOver gameOver;// = new GameOver(WIDTH, HEIGHT, this);
-	private Score score ;//= new Score(this,gameOver);
+	GameOver gameOver;//結束畫面
+	Score score ;//計分
+	String userName;//使用者NAME
+	
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
 	private static final int NUM_OF_PLANES = 3;
-	String userName;
+	
 
 	public static int get_width() {
 		return WIDTH;
@@ -109,8 +111,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				frame2.setVisible(false);
-				this.setTitle("Submarine War");
 				
+			/*--MAIN Game Window------------------------------------------------*/
+				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
 				// 載入背景圖片
@@ -137,9 +140,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				addToxicBomb();
 
 				
-				// KeyListener (class KeyInput)
+				// KeyListener (for KeyInput class)
 				addKeyListener(new KeyInput(this));
-				//InputMap im = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
+				
 				    
 				// 置入鼠標
 				add(dragOctopus);
@@ -152,23 +155,22 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				gameOver = new GameOver(WIDTH, HEIGHT, this);
 				gameOver.setVisible(false);
 				gameOver.setEnabled(false);
-				score = new Score(this);
-				
 				// 計分
+				score = new Score(this);
 				this.add(score);
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
+			/*------------------------------------------------------------*/
 				break;
 			}
 		}
 
 	}
 
-	// 鍵盤控制
+	// 鍵盤控制 signal from KeyInput class
 	long lastShoot = System.currentTimeMillis();
 	long lastShoot2 = System.currentTimeMillis();
 	final long threshold = 800;
 	final long threshold2 = 1800;
-
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
@@ -215,8 +217,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	    }
 	}
 
-	public void addScore() {
-		score.addScore();
+	public void addScore(int i) {
+		score.addScore(i);
 	}
 
 	public void add_health() {
@@ -293,8 +295,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		// FOR RESTART reset all components & datas
 		ship.setX(420);
 		ship.setY(170);
+		ship.resetIcon();
+		
 		PlaneBomb.resetPlaneBomb();
 		Plane.resetPlane();
+		
 		for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
 			this.remove(sub[i]);
 			sub[i].setCrash();
@@ -304,13 +309,16 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			this.remove(plane[i]);
 			addPlane(i);
 		}
+		
 		this.remove(subUser);
 		subUser.setEnabled(false);
 		addUserSub();
+		
 		healthBar.reset();
+		
 		score.reset_score();
 		
-		ship.resetIcon();
+		
 	}
 
 	/*********************************************************************************/

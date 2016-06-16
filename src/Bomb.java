@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 /****
  * Bomb thrown from Ship
  * 
- * @author Jeff
+ * Created in SubmarineMain class method - keyPressed()
  *
  ****/
 public class Bomb extends Vehicle implements Runnable {
@@ -74,7 +74,7 @@ public class Bomb extends Vehicle implements Runnable {
 							e.printStackTrace();
 						}
 						// 分數累加
-						game.addScore();
+						game.addScore(10);
 						game.remove(explode);
 						break LOOP;
 					}
@@ -145,7 +145,7 @@ public class Bomb extends Vehicle implements Runnable {
 						e.printStackTrace();
 					}
 					// 分數累加
-					game.addScore();
+					game.addScore(50);
 					game.remove(explode);
 					break LOOP;
 				}

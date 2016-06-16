@@ -1,8 +1,13 @@
-
+/****
+ * Laser  from User Submarine
+ * 
+ * Created in SubmarineMain class method - keyPressed()
+ *
+ ****/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Laser extends JLabel implements Runnable {
+public class Laser extends Vehicle implements Runnable {
 	private int x, y;
 	private ImageIcon icon = new ImageIcon(".\\image\\bullet.png");
 	private SubmarineMain game;
