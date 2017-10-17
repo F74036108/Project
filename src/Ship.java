@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class Ship extends Vehicle {
-	ImageIcon icon = new ImageIcon(".\\image\\Troop_Ship.png");// LOAD image
+	ImageIcon icon = new ImageIcon("./image/Troop_Ship.png");// LOAD image
 
 	public Ship(double x, double y) {
 
@@ -13,7 +13,7 @@ public class Ship extends Vehicle {
 	}
 
 	public void change_picture() {
-		ImageIcon icon2 = new ImageIcon(".\\image\\broken-ship.gif");
+		ImageIcon icon2 = new ImageIcon("./image/broken-ship.gif");
 		setIcon(icon2);
 	}
 

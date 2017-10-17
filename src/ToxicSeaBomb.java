@@ -2,7 +2,7 @@
 /****
  * Special green bomb down in the sea
  *
- *@author ¤ý«a¶v
+ *@author ï¿½ï¿½ï¿½aï¿½v
  ****/
 import javax.swing.ImageIcon;
 
@@ -14,9 +14,9 @@ public class ToxicSeaBomb extends Vehicle implements Runnable{
 		this.game = game;
 		ImageIcon icon;
 		if(speed>0){
-			icon = new ImageIcon(".\\image\\Toxic_bill2.png");//SET image
+			icon = new ImageIcon("./image/Toxic_bill2.png");//SET image
 		}else{
-			icon = new ImageIcon(".\\image\\Toxic_bill3.png");//SET image
+			icon = new ImageIcon("./image/Toxic_bill3.png");//SET image
 			setX(1300);
 		}
 	    
@@ -27,7 +27,7 @@ public class ToxicSeaBomb extends Vehicle implements Runnable{
 	    setLocation((int)x, (int)y);
 		setSize(100,100);
 	} 
-	//¦Û°Ê²¾°Ê
+	//ï¿½Û°Ê²ï¿½ï¿½ï¿½
 	public void run(){
 		while(true){
 			if(crash==true)

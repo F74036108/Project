@@ -24,11 +24,11 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	ScreenShot screenShot = new ScreenShot(this);//截圖
 	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
 	//音樂建立
-	SoundBase startPageMusic = new SoundBase(".\\audio\\startpage.wav");
-	SoundBase backGroundMusic = new SoundBase(".\\audio\\background.wav");
-	SoundBase loadingMusic = new SoundBase(".\\audio\\startbutton.wav");
-	SoundBase lazerMusic = new SoundBase(".\\audio\\lazer.wav");
-	SoundBase overMusic = new SoundBase(".\\audio\\Game Over.wav");
+	SoundBase startPageMusic = new SoundBase("./audio/startpage.wav");
+	SoundBase backGroundMusic = new SoundBase("./audio/background.wav");
+	SoundBase loadingMusic = new SoundBase("./audio/startbutton.wav");
+	SoundBase lazerMusic = new SoundBase("./audio/lazer.wav");
+	SoundBase overMusic = new SoundBase("./audio/Game Over.wav");
 	GameOver gameOver;//結束畫面
 	Score score ;//計分
 	String userName;//使用者NAME	
@@ -52,9 +52,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		startPageMusic.play();
 		Frontpage frame2 = new Frontpage(HEIGHT, WIDTH);
 		frame2.setSize(WIDTH, HEIGHT);
-		frame2.setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+		frame2.setContentPane(new JLabel(new ImageIcon("./image/seabg.jpg")));
 		JLabel startButton = new JLabel();
-		ImageIcon icon = new ImageIcon(".\\image\\START.png");// LOAD image
+		ImageIcon icon = new ImageIcon("./image/START.png");// LOAD image
 		startButton.setIcon(icon);
 		startButton.setLocation(WIDTH / 2 - 180, 350);
 		startButton.setSize(350, 60);
@@ -66,7 +66,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		input.setText("<Input your name here>");
 		frame2.add(input);
 		frame2.setTitle("Submarine War");
-		Image img = Toolkit.getDefaultToolkit().getImage(".\\image\\submarine2.png");
+		Image img = Toolkit.getDefaultToolkit().getImage("./image/submarine2.png");
 		frame2.setIconImage(img);
 		frame2.setVisible(true);
 		
@@ -91,7 +91,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				
 				loadingMusic.play();
 				userName = input.getText();
-				ImageIcon icon2 = new ImageIcon(".\\image\\START PRESS.png");// LOAD																// image
+				ImageIcon icon2 = new ImageIcon("./image/START PRESS.png");// LOAD																// image
 				startButton.setIcon(icon2);
 				frame2.setVisible(true);
 				try {
@@ -100,7 +100,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				ImageIcon icon3 = new ImageIcon(".\\image\\LOAD1.png");// LOAD
+				ImageIcon icon3 = new ImageIcon("./image/LOAD1.png");// LOAD
 																		// image
 			
 				startButton.setIcon(icon3);
@@ -110,7 +110,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				ImageIcon icon4 = new ImageIcon(".\\image\\LOAD2.png");// LOAD
+				ImageIcon icon4 = new ImageIcon("./image/LOAD2.png");// LOAD
 												// image
 				startButton.setIcon(icon4);
 				try {
@@ -119,7 +119,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				ImageIcon icon5 = new ImageIcon(".\\image\\LOAD3.png");// LOAD
+				ImageIcon icon5 = new ImageIcon("./image/LOAD3.png");// LOAD
 												// image
 				startButton.setIcon(icon5);
 				try {
@@ -137,7 +137,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				
 				backGroundMusic.play();
 				// 載入背景圖片
-				setContentPane(new JLabel(new ImageIcon(".\\image\\seabg.jpg")));
+				setContentPane(new JLabel(new ImageIcon("./image/seabg.jpg")));
 				// 主艦
 				this.add(ship);
 				
@@ -263,7 +263,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		if (healthBar.get_health() > 50) {
 			ship.resetIcon();
 		}
-		ImageIcon icon = new ImageIcon(".\\image\\+10.png");
+		ImageIcon icon = new ImageIcon("./image/+10.png");
 		JLabel picture = new JLabel();
 		picture.setIcon(icon);
 		picture.setLocation(WIDTH / 2 - 150, HEIGHT / 2 - 30);
@@ -371,7 +371,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 
 	/*********************************************************************************/
 	// Octopus moving with mouse
-	private JLabel dragOctopus = new JLabel(new ImageIcon(".\\image\\mouse.gif"));
+	private JLabel dragOctopus = new JLabel(new ImageIcon("./image/mouse.gif"));
 	private int mouseX = 500;
 	private int mouseY = 500;
 

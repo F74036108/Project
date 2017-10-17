@@ -11,7 +11,7 @@ public class Plane extends Vehicle implements Runnable {
 	private static boolean reset;
 
 	public Plane(double x, double y, double speed, SubmarineMain game) {
-		ImageIcon icon = new ImageIcon(".\\image\\plane.png");// SET image
+		ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
 		setIcon(icon);
 		reset = false;
 		this.speed = speed;

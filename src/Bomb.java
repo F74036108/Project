@@ -12,15 +12,15 @@ import javax.swing.JLabel;
 public class Bomb extends Vehicle implements Runnable {
 	Bomb tempBomb;
 	SubmarineMain game;
-	static ImageIcon icon = new ImageIcon(".\\image\\bomb.png");
-	static ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
-	static ImageIcon icon4 = new ImageIcon(".\\image\\explore.gif");
+	static ImageIcon icon = new ImageIcon("./image/bomb.png");
+	static ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
+	static ImageIcon icon4 = new ImageIcon("./image/explore.gif");
 	JLabel explode;
 	JLabel explode2;
 	static JLabel explo_anmi;
-	private static SoundBase bombMusic = new SoundBase(".\\audio\\bomb.wav");
-	private static SoundBase bombPathMusic = new SoundBase(".\\audio\\bomb_path.wav");
-	private static SoundBase bigBombMusic = new SoundBase(".\\audio\\explode.wav");
+	private static SoundBase bombMusic = new SoundBase("./audio/bomb.wav");
+	private static SoundBase bombPathMusic = new SoundBase("./audio/bomb_path.wav");
+	private static SoundBase bigBombMusic = new SoundBase("./audio/explode.wav");
 
 	public Bomb(double x, double y, SubmarineMain game) {
 		this.game = game;
@@ -30,13 +30,13 @@ public class Bomb extends Vehicle implements Runnable {
 		setSize(60, 60);
 
 		// SET BOMB image
-		//ImageIcon icon = new ImageIcon(".\\image\\bomb.png");
+		//ImageIcon icon = new ImageIcon("./image/bomb.png");
 		setIcon(icon);
 		// EXPLOSION2
-		//ImageIcon icon3 = new ImageIcon(".\\image\\explo2.gif");
+		//ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
 		explode2 = new JLabel(icon3);
 		explode2.setSize(450, 255);
-		//ImageIcon icon4 = new ImageIcon(".\\image\\explore.gif");
+		//ImageIcon icon4 = new ImageIcon("./image/explore.gif");
 		explo_anmi = new JLabel(icon4);
 		explo_anmi.setSize(1000, 700);
 
@@ -72,7 +72,7 @@ public class Bomb extends Vehicle implements Runnable {
 						bombPathMusic.pause();
 						bombMusic.play();
 						// 爆炸動畫
-						ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
+						ImageIcon icon2 = new ImageIcon("./image/Nuclear_explosion1.gif");
 						explode = new JLabel(icon2);
 						explode.setSize(325, 275);
 						explode.setLocation((int) this.get_X() - 130, (int) this.get_Y() - 120);
@@ -148,7 +148,7 @@ public class Bomb extends Vehicle implements Runnable {
 					bombPathMusic.pause();
 					bombMusic.play();
 					// 爆炸動畫
-					ImageIcon icon2 = new ImageIcon(".\\image\\Nuclear_explosion1.gif");
+					ImageIcon icon2 = new ImageIcon("./image/Nuclear_explosion1.gif");
 					explode = new JLabel(icon2);
 					explode.setSize(325, 275);
 					explode.setLocation((int) this.get_X() - 130, (int) this.get_Y() - 120);

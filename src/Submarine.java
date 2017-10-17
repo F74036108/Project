@@ -13,9 +13,9 @@ public class Submarine extends Vehicle implements Runnable {
 
 		ImageIcon icon;
 		if (speed > 0) {
-			icon = new ImageIcon(".\\image\\submarine2.png");// SET image
+			icon = new ImageIcon("./image/submarine2.png");// SET image
 		} else {
-			icon = new ImageIcon(".\\image\\submarine3.png");// SET image
+			icon = new ImageIcon("./image/submarine3.png");// SET image
 		}
 
 		setIcon(icon);

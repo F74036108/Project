@@ -10,15 +10,15 @@ public class PentaKill {
 	private final int NUM_OF_PENTAKILL=3;
 	private int killCount;
 	JLabel pentaKill = new JLabel();
-	ImageIcon icon1 = new ImageIcon(".\\image\\many bombs1.png");
-	ImageIcon icon2 = new ImageIcon(".\\image\\many bombs2.png");
-	ImageIcon icon3 = new ImageIcon(".\\image\\many bombs3.png");
-	ImageIcon iconPenta = new ImageIcon(".\\image\\big kill2.gif");
+	ImageIcon icon1 = new ImageIcon("./image/many bombs1.png");
+	ImageIcon icon2 = new ImageIcon("./image/many bombs2.png");
+	ImageIcon icon3 = new ImageIcon("./image/many bombs3.png");
+	ImageIcon iconPenta = new ImageIcon("./image/big kill2.gif");
 	JLabel penta = new JLabel(iconPenta);
 			
 	public PentaKill(SubmarineMain game) {
 		this.game = game;
-		ImageIcon icon = new ImageIcon(".\\image\\submarine2.png");// SET image;
+		ImageIcon icon = new ImageIcon("./image/submarine2.png");// SET image;
 		pentaKill.setIcon(icon3);
 		pentaKill.setLocation(850, 100);
 		pentaKill.setSize(80, 110);

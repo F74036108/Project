@@ -1,7 +1,7 @@
 /**********************
  *Health bar with artwork
  *
- *@author ³\º³¯E
+ *@author ï¿½\ï¿½ï¿½ï¿½E
  **********************/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -10,17 +10,17 @@ public class HealthBar extends JLabel {
 	private int health = 100;
 	private int max_health = 100;
 	// SubmarineMain game;
-	ImageIcon icon1 = new ImageIcon(".\\image\\100.png");
-	ImageIcon icon2 = new ImageIcon(".\\image\\90.png");
-	ImageIcon icon3 = new ImageIcon(".\\image\\80.png");
-	ImageIcon icon4 = new ImageIcon(".\\image\\70.png");
-	ImageIcon icon5 = new ImageIcon(".\\image\\60.png");
-	ImageIcon icon6 = new ImageIcon(".\\image\\50.png");
-	ImageIcon icon7 = new ImageIcon(".\\image\\40.png");
-	ImageIcon icon8 = new ImageIcon(".\\image\\30.png");
-	ImageIcon icon9 = new ImageIcon(".\\image\\20.png");
-	ImageIcon icon10 = new ImageIcon(".\\image\\10.png");
-	ImageIcon icon11 = new ImageIcon(".\\image\\0.png");
+	ImageIcon icon1 = new ImageIcon("./image/100.png");
+	ImageIcon icon2 = new ImageIcon("./image/90.png");
+	ImageIcon icon3 = new ImageIcon("./image/80.png");
+	ImageIcon icon4 = new ImageIcon("./image/70.png");
+	ImageIcon icon5 = new ImageIcon("./image/60.png");
+	ImageIcon icon6 = new ImageIcon("./image/50.png");
+	ImageIcon icon7 = new ImageIcon("./image/40.png");
+	ImageIcon icon8 = new ImageIcon("./image/30.png");
+	ImageIcon icon9 = new ImageIcon("./image/20.png");
+	ImageIcon icon10 = new ImageIcon("./image/10.png");
+	ImageIcon icon11 = new ImageIcon("./image/0.png");
 
 	public HealthBar() {
 		setIcon(icon1);

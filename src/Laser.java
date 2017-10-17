@@ -3,14 +3,14 @@
  * 
  * Created in SubmarineMain class method - keyPressed()
  *
- *@author ¤ý«a¶v
+ *@author ï¿½ï¿½ï¿½aï¿½v
  ****/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Laser extends Vehicle implements Runnable {
 	private int x, y;
-	private ImageIcon icon = new ImageIcon(".\\image\\bullet.png");
+	private ImageIcon icon = new ImageIcon("./image/bullet.png");
 	private SubmarineMain game;
 	private static boolean reset;
 	private static int speed=0;

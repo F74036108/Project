@@ -19,37 +19,37 @@ public class GameOver extends JFrame {
 	public GameOver(int x, int y, SubmarineMain game) {
 		this.game = game;
 		this.setSize(x, y);
-		this.setContentPane(new JLabel(new ImageIcon(".\\image\\scoreBoard.png")));
+		this.setContentPane(new JLabel(new ImageIcon("./image/scoreBoard.png")));
 		this.setTitle("Submarine War");
-		Image img = Toolkit.getDefaultToolkit().getImage(".\\image\\submarine2.png");
+		Image img = Toolkit.getDefaultToolkit().getImage("./image/submarine2.png");
 		this.setIconImage(img);
 		// gameover圖片
 		JLabel gameover = new JLabel();
-		ImageIcon icon = new ImageIcon(".\\image\\game over.png");
+		ImageIcon icon = new ImageIcon("./image/game over.png");
 		gameover.setIcon(icon);
 		gameover.setSize(547, 245);
 		gameover.setLocation(x / 2 -20, y / 2 - 300);
 		// 增加0血條
 		JLabel health = new JLabel();
-		ImageIcon icon4 = new ImageIcon(".\\image\\0.png");
+		ImageIcon icon4 = new ImageIcon("./image/0.png");
 		health.setIcon(icon4);
 		health.setLocation(0, 0);
 		health.setSize(400, 22);
 		// 增加again文字
 		JLabel word = new JLabel();
-		ImageIcon icon5 = new ImageIcon(".\\image\\again.png");
+		ImageIcon icon5 = new ImageIcon("./image/again.png");
 		word.setIcon(icon5);
 		word.setLocation(x / 2 - 70, y / 2 + 20);
 		word.setSize(547, 80);
 		// 增加重啟按鈕
-		ImageIcon icon2 = new ImageIcon(".\\image\\YES.png");
+		ImageIcon icon2 = new ImageIcon("./image/YES.png");
 		JButton restart = new JButton(icon2);
 		Restart_listener mblistener = new Restart_listener(this);
 		restart.addActionListener(mblistener);
 		restart.setLocation(x / 2 - 50, y / 2 + 150);
 		restart.setSize(234, 58);
 		// 增加離開按鈕
-		ImageIcon icon3 = new ImageIcon(".\\image\\NO.png");
+		ImageIcon icon3 = new ImageIcon("./image/NO.png");
 		JButton exitbtn = new JButton(icon3);
 		ExitListener exitlistener = new ExitListener(this);
 		exitbtn.addActionListener(exitlistener);

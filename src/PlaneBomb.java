@@ -7,10 +7,10 @@ import javax.swing.*;
 
 public class PlaneBomb extends JLabel implements Runnable {
 	private int x, y;
-	private ImageIcon icon = new ImageIcon(".\\image\\planebomb.png");
+	private ImageIcon icon = new ImageIcon("./image/planebomb.png");
 	private static SubmarineMain game;
 	private static boolean reset;
-	static JLabel hit=new JLabel(new ImageIcon(".\\image\\hittted-n.gif"));
+	static JLabel hit=new JLabel(new ImageIcon("./image/hittted-n.gif"));
 	
 	public PlaneBomb(SubmarineMain game) {
 		PlaneBomb.game = game;
