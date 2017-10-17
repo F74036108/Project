@@ -1,8 +1,3 @@
-/*****************
- * Plane Bomb object
- * 
- * @author �Τ���
- *****************/
 import javax.swing.*;
 
 public class PlaneBomb extends JLabel implements Runnable {

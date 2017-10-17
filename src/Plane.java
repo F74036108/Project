@@ -1,8 +1,3 @@
-/*****************
- * Plane object
- * 
- * @author 翁介誠
- *****************/
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable {

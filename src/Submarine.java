@@ -1,8 +1,3 @@
-/****************
- * Submarine Object class
- * 
- * @author 王冠鈞
- ****************/
 import javax.swing.*;
 
 public class Submarine extends Vehicle implements Runnable {

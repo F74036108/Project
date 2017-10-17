@@ -1,10 +1,3 @@
-/****
- * Laser  from User Submarine
- * 
- * Created in SubmarineMain class method - keyPressed()
- *
- *@author ���a�v
- ****/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 

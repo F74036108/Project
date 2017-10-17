@@ -1,9 +1,3 @@
-
-/****
- * Special green bomb down in the sea
- *
- *@author ���a�v
- ****/
 import javax.swing.ImageIcon;
 
 public class ToxicSeaBomb extends Vehicle implements Runnable{
