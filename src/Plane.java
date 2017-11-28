@@ -6,28 +6,23 @@
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable {
-	private ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
-	private SubmarineMain game;
+	private static ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
 	PlaneBomb bomb;
 	private static boolean reset;
 
 	public Plane(int x, int y, double speed, SubmarineMain game) {
-		super(x, y, speed);
-		
-	
-		this.game = game;
+		super(x, y, speed);	
 		setSize(200, 200);
 		bomb = new PlaneBomb(game);
 		
 		reset = false;
+		setIcon(icon);
 	}
 
-	
 	public void run() {
 		
 		while (true) {
-			if(reset)
-				break;
+			if(reset) break;
 			setX(get_X() - (int)getSpeed());
 			setY(get_Y() + (int)(Math.random() - 0.51));
 			//Randomly dropped Bomb
@@ -53,9 +48,4 @@ public class Plane extends Vehicle implements Runnable {
 		reset = true;
 	}
 
-	@Override
-	public void setInitialIcon() {
-		// TODO Auto-generated method stub
-		setIcon(icon);
-	}
 }

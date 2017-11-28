@@ -6,6 +6,7 @@ public class Ship extends Vehicle {
 	public Ship(int x, int y) {
 		super(x, y, 0.0);
 		setSize(189, 129);
+		resetIcon();
 	}
 
 	public void change_picture() {
@@ -14,12 +15,6 @@ public class Ship extends Vehicle {
 
 	public void resetIcon() {
 		setIcon(icon);
-	}
-
-	@Override
-	public void setInitialIcon() {
-		// TODO Auto-generated method stub
-		resetIcon();
 	}
 
 }

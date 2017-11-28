@@ -12,9 +12,9 @@ public class ToxicSeaBomb extends Vehicle implements Runnable{
 	private boolean crash;
 	public ToxicSeaBomb(int x, int y, double speed, SubmarineMain game){
 		super(x, y, speed);
-		this.game = game;
-	   
-		setSize(100,100);
+		this.game = game;   
+		setSize(100,100);	
+		setInitialIcon();
 	} 
 	
 	public void run(){
@@ -45,7 +45,6 @@ public class ToxicSeaBomb extends Vehicle implements Runnable{
 		crash=true;
 	}
 
-	@Override
 	public void setInitialIcon() {
 		// TODO Auto-generated method stub
 		if(getSpeed() > 0){

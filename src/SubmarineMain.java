@@ -160,9 +160,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				
 				    
 				// 置入鼠標
-				add(dragOctopus);
-				dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
-				addMouseMotionListener(this);
+				//add(dragOctopus);
+				//dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
+				//addMouseMotionListener(this);
 
 				// 截圖
 				this.add(screenShot);

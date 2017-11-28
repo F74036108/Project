@@ -27,17 +27,13 @@ public class Bomb extends Vehicle implements Runnable {
 		this.game = game;
 		
 		setSize(60, 60);
-
-		// SET BOMB image
-		//ImageIcon icon = new ImageIcon("./image/bomb.png");
-		
-		// EXPLOSION2
-		//ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
 		explode2 = new JLabel(icon3);
 		explode2.setSize(450, 255);
 		//ImageIcon icon4 = new ImageIcon("./image/explore.gif");
 		explo_anmi = new JLabel(icon4);
 		explo_anmi.setSize(1000, 700);
+		
+		setIcon(icon);
 
 	}
 
@@ -178,11 +174,5 @@ public class Bomb extends Vehicle implements Runnable {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	public void setInitialIcon() {
-		// TODO Auto-generated method stub
-		setIcon(icon);
 	}
 }

@@ -5,7 +5,7 @@
  *  Submarine, Ship, Plane, Bomb, ToxicSeaBomb, Laser
  **********************************/
 import javax.swing.*;
-public abstract class Vehicle extends JLabel{
+public class Vehicle extends JLabel{
 
 	private int x;
 	private int y;
@@ -14,22 +14,22 @@ public abstract class Vehicle extends JLabel{
 	private boolean crashed;
 	
 	public Vehicle(int x, int y, double speed) {
-		
-		setX(x);
-		setY(y);
-		setInitialIcon();
+		setLocation(x, y);
+		this.x = x;
+		this.y = y;
 		this.speed=speed;
+		this.crashed = false;
 	}
 	//重設LABEL位置
 	private void resetLocation(){
 		setLocation(x, y);
 	}
 	public void setX(int xx){
-		x = xx;
+		this.x = xx;
 		resetLocation();
 	}
 	public void setY(int yy){
-		y = yy;
+		this.y = yy;
 		resetLocation();
 	}
 	public int get_X(){
@@ -51,5 +51,4 @@ public abstract class Vehicle extends JLabel{
 		return crashed;
 	}
 	
-	public abstract void setInitialIcon();
 }

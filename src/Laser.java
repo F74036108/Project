@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Laser extends Vehicle implements Runnable {
-	private int x, y;
+	
 	private ImageIcon icon = new ImageIcon("./image/bullet.png");
 	private SubmarineMain game;
 	private static boolean reset;
@@ -22,22 +22,23 @@ public class Laser extends Vehicle implements Runnable {
 		this.game = game;		
 		reset = false;
 		setSize(86, 100);
+		setIcon(icon);
 	}
 
 	public void run() {
 		
 		while (true) {
 			speed++;
-			setLocation(x, y-=speed);
-			double diffX = x - game.ship.get_X();
-			double diffY = y - game.ship.get_Y();
+			setY(get_Y()-speed);
+			double diffX = get_X() - game.ship.get_X();
+			double diffY = get_Y() - game.ship.get_Y();
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 110)) {
 				speed=0;
 				game.sub_health(10);
 				game.remove(this);
 				break;
 			}
-			if (reset || y < 250) {
+			if (reset || get_Y() < 250) {
 				speed=0;
 				game.remove(this);
 				break;
@@ -57,11 +58,4 @@ public class Laser extends Vehicle implements Runnable {
 		Thread thread = new Thread(laser);
 		thread.start();
 	}
-
-	@Override
-	public void setInitialIcon() {
-		// TODO Auto-generated method stub
-		setIcon(icon);
-	}
-
 }

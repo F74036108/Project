@@ -10,8 +10,9 @@ public class SubmarineUser extends Vehicle {
 	private ImageIcon icon2 = new ImageIcon("./image/Submarine5.png");// LOAD image
 	
 	public SubmarineUser(int x, int y) {
-		super(x, y, 0);
+		super(x, y, 0.0);
 		setSize(142, 49);
+		reset();
 	}
 
 	public void changeDirection(String dir) {
@@ -23,12 +24,6 @@ public class SubmarineUser extends Vehicle {
 	}
 
 	public void reset() {
-		setIcon(icon);
-	}
-
-	@Override
-	public void setInitialIcon() {
-		// TODO Auto-generated method stub
 		setIcon(icon);
 	}
 

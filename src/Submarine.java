@@ -11,6 +11,7 @@ public class Submarine extends Vehicle implements Runnable {
 		super(x, y, speed);
 		setLocation(x, y);
 		setSize(142, 49);
+		setInitialIcon();
 	}
 
 	public void run() {
@@ -32,7 +33,6 @@ public class Submarine extends Vehicle implements Runnable {
 		}
 	}
 
-	@Override
 	public void setInitialIcon() {
 		// TODO Auto-generated method stub
 		if (getSpeed() > 0) {
