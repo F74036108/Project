@@ -18,12 +18,9 @@ public class Laser extends Vehicle implements Runnable {
 	
 
 	public Laser(int x, int y, SubmarineMain game) {
-		this.game = game;
-		this.x = x;
-		this.y = y;
+		super(x, y, 0);
+		this.game = game;		
 		reset = false;
-		setIcon(icon);
-		setLocation((int) x, (int) y);
 		setSize(86, 100);
 	}
 
@@ -59,6 +56,12 @@ public class Laser extends Vehicle implements Runnable {
 		game.add(laser);
 		Thread thread = new Thread(laser);
 		thread.start();
+	}
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		setIcon(icon);
 	}
 
 }

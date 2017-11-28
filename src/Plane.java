@@ -6,34 +6,33 @@
 import javax.swing.*;
 
 public class Plane extends Vehicle implements Runnable {
+	private ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
 	private SubmarineMain game;
 	PlaneBomb bomb;
 	private static boolean reset;
 
-	public Plane(double x, double y, double speed, SubmarineMain game) {
-		ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
-		setIcon(icon);
-		reset = false;
-		this.speed = speed;
+	public Plane(int x, int y, double speed, SubmarineMain game) {
+		super(x, y, speed);
+		
+	
 		this.game = game;
-		this.x = x;
-		this.y = y;
-		setLocation((int) x, (int) y);
 		setSize(200, 200);
 		bomb = new PlaneBomb(game);
+		
+		reset = false;
 	}
 
-	// Automove
+	
 	public void run() {
-		int count = 0;
+		
 		while (true) {
 			if(reset)
 				break;
-			setX(get_X() - speed);
-			setY(get_Y() + (Math.random() - 0.51));
+			setX(get_X() - (int)getSpeed());
+			setY(get_Y() + (int)(Math.random() - 0.51));
 			//Randomly dropped Bomb
 			if ((int) (Math.random() * 1700) == 1.0 && get_X() < 1000) {
-				bomb.addBomb((int) get_X(), (int) get_Y() + 70);
+				bomb.addBomb(get_X(), get_Y() + 70);
 			}
 
 			if (get_X() <= -100) {
@@ -52,5 +51,11 @@ public class Plane extends Vehicle implements Runnable {
 	
 	public static void resetPlane() {
 		reset = true;
+	}
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		setIcon(icon);
 	}
 }

@@ -1,10 +1,13 @@
 
+<<<<<<< Updated upstream
 /********************
  * Main Game Window
  * 
  * @author GROUP
  ********************/
 
+=======
+>>>>>>> Stashed changes
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -323,7 +326,8 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addToxicBomb() {
-		seaBomb = new ToxicSeaBomb(-200, 400 + Math.random() * 200, Math.random() * 10 - 5.25, this);
+		seaBomb = new ToxicSeaBomb(-200, (int)(400 + Math.random() * 200), Math.random() * 10 - 5.25, this);
+		
 		this.add(seaBomb);
 		Thread thread = new Thread(seaBomb);
 		thread.start();
@@ -334,7 +338,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		this.add(subUser);
 	}
 	public void resetAll() {
-		// FOR RESTART reset all components & datas
+
 		ship.setX(420);
 		ship.setY(170);
 		ship.resetIcon();

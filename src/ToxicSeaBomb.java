@@ -8,37 +8,26 @@ import javax.swing.ImageIcon;
 
 public class ToxicSeaBomb extends Vehicle implements Runnable{
 
-	SubmarineMain game;
+	private SubmarineMain game;
 	private boolean crash;
-	public ToxicSeaBomb(double x, double y, double speed, SubmarineMain game){
+	public ToxicSeaBomb(int x, int y, double speed, SubmarineMain game){
+		super(x, y, speed);
 		this.game = game;
-		ImageIcon icon;
-		if(speed>0){
-			icon = new ImageIcon("./image/Toxic_bill2.png");//SET image
-		}else{
-			icon = new ImageIcon("./image/Toxic_bill3.png");//SET image
-			setX(1300);
-		}
-	    
-	    setIcon(icon);
-	    this.speed = speed;
-	    this.x = x;
-	    this.y=y;
-	    setLocation((int)x, (int)y);
+	   
 		setSize(100,100);
 	} 
-	//�۰ʲ���
+	
 	public void run(){
 		while(true){
 			if(crash==true)
 				break;
-			setX(get_X()+1*speed);
-			if(get_X()>=1500&&speed>=0) {
+			setX(get_X()+(int)getSpeed());
+			if(get_X()>=1500&&getSpeed()>=0) {
 				game.addToxicBomb();
 				game.remove(this);
 				break;
 			}
-			if(get_X()<=-400&&speed<0) {
+			if(get_X()<=-400&&getSpeed()<0) {
 				game.addToxicBomb();
 				game.remove(this);
 				break;
@@ -54,6 +43,17 @@ public class ToxicSeaBomb extends Vehicle implements Runnable{
 	}
 	public void setCrash(){
 		crash=true;
+	}
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		if(getSpeed() > 0){
+			setIcon(new ImageIcon("./image/Toxic_bill2.png"));//SET image
+		}else{
+			setIcon(new ImageIcon("./image/Toxic_bill3.png"));//SET image
+			setX(1300);
+		}
 	}
 
 

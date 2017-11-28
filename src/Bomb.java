@@ -12,9 +12,9 @@ import javax.swing.JLabel;
 public class Bomb extends Vehicle implements Runnable {
 	Bomb tempBomb;
 	SubmarineMain game;
-	static ImageIcon icon = new ImageIcon("./image/bomb.png");
-	static ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
-	static ImageIcon icon4 = new ImageIcon("./image/explore.gif");
+	private static ImageIcon icon = new ImageIcon("./image/bomb.png");
+	private static ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
+	private static ImageIcon icon4 = new ImageIcon("./image/explore.gif");
 	JLabel explode;
 	JLabel explode2;
 	static JLabel explo_anmi;
@@ -22,16 +22,15 @@ public class Bomb extends Vehicle implements Runnable {
 	private static SoundBase bombPathMusic = new SoundBase("./audio/bomb_path.wav");
 	private static SoundBase bigBombMusic = new SoundBase("./audio/explode.wav");
 
-	public Bomb(double x, double y, SubmarineMain game) {
+	public Bomb(int x, int y, SubmarineMain game) {
+		super(x, y, 0);
 		this.game = game;
-		this.x = x;
-		this.y = y;
-		setLocation((int) x, (int) y);
+		
 		setSize(60, 60);
 
 		// SET BOMB image
 		//ImageIcon icon = new ImageIcon("./image/bomb.png");
-		setIcon(icon);
+		
 		// EXPLOSION2
 		//ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
 		explode2 = new JLabel(icon3);
@@ -179,5 +178,11 @@ public class Bomb extends Vehicle implements Runnable {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		setIcon(icon);
 	}
 }

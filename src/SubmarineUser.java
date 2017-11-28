@@ -5,16 +5,12 @@
  **************************/
 import javax.swing.ImageIcon;
 public class SubmarineUser extends Vehicle {
-	ImageIcon icon = new ImageIcon("./image/Submarine4.png");// LOAD image
+	private ImageIcon icon = new ImageIcon("./image/Submarine4.png");// LOAD image
 
-	ImageIcon icon2 = new ImageIcon("./image/Submarine5.png");// LOAD image
+	private ImageIcon icon2 = new ImageIcon("./image/Submarine5.png");// LOAD image
 	
-	public SubmarineUser(double x, double y) {
-
-		setIcon(icon);
-		this.x = x;
-		this.y = y;
-		setLocation((int) x, (int) y);
+	public SubmarineUser(int x, int y) {
+		super(x, y, 0);
 		setSize(142, 49);
 	}
 
@@ -29,9 +25,11 @@ public class SubmarineUser extends Vehicle {
 	public void reset() {
 		setIcon(icon);
 	}
-	public void setCrash() {
-		
-		this.setEnabled(false);
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		setIcon(icon);
 	}
 
 }

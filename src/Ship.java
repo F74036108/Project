@@ -1,24 +1,25 @@
 import javax.swing.*;
 
 public class Ship extends Vehicle {
-	ImageIcon icon = new ImageIcon("./image/Troop_Ship.png");// LOAD image
-
-	public Ship(double x, double y) {
-
-		setIcon(icon);
-		this.x = x;
-		this.y = y;
-		setLocation((int) x, (int) y);
+	private ImageIcon icon = new ImageIcon("./image/Troop_Ship.png");// LOAD image
+	private ImageIcon icon2 = new ImageIcon("./image/broken-ship.gif");
+	public Ship(int x, int y) {
+		super(x, y, 0);
 		setSize(189, 129);
 	}
 
 	public void change_picture() {
-		ImageIcon icon2 = new ImageIcon("./image/broken-ship.gif");
 		setIcon(icon2);
 	}
 
 	public void resetIcon() {
 		setIcon(icon);
+	}
+
+	@Override
+	public void setInitialIcon() {
+		// TODO Auto-generated method stub
+		resetIcon();
 	}
 
 }
