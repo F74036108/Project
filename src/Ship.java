@@ -4,7 +4,7 @@ public class Ship extends Vehicle {
 	private ImageIcon icon = new ImageIcon("./image/Troop_Ship.png");// LOAD image
 	private ImageIcon icon2 = new ImageIcon("./image/broken-ship.gif");
 	public Ship(int x, int y) {
-		super(x, y, 0);
+		super(x, y, 0.0);
 		setSize(189, 129);
 	}
 

@@ -14,7 +14,9 @@ public abstract class Vehicle extends JLabel{
 	private boolean crashed;
 	
 	public Vehicle(int x, int y, double speed) {
-		setLocation(x, y);
+		
+		setX(x);
+		setY(y);
 		setInitialIcon();
 		this.speed=speed;
 	}

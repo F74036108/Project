@@ -1,13 +1,4 @@
 
-<<<<<<< Updated upstream
-/********************
- * Main Game Window
- * 
- * @author GROUP
- ********************/
-
-=======
->>>>>>> Stashed changes
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
