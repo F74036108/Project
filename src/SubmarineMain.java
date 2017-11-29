@@ -3,34 +3,35 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-
 public class SubmarineMain extends JFrame implements MouseMotionListener {
 
-	Ship ship = new Ship(420, 170);// 主艦
-	SubmarineUser subUser; //User控制潛艦
-	HealthBar healthBar = new HealthBar();//血量條
-	Bomb bomb = new Bomb(0, 0, this);//主艦炸彈
-	Laser laser = new Laser(0,0, this);//User艦雷射
-	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];//Auto潛艦
-	ToxicSeaBomb seaBomb;//深海綠色炸藥
-	PentaKill pentaKill;//大絕招
+
+	
+	
+	Ship ship = new Ship(420, 170, this);// 主艦
+	SubmarineUser subUser; // User控制潛艦
+	HealthBar healthBar = new HealthBar();// 血量條
+	
+//	Laser laser = new Laser(0, 0, this);// User艦雷射
+	Submarine[] sub = new Submarine[NUM_OF_SUBMARINES];// Auto潛艦
+	ToxicSeaBomb seaBomb;// 深海綠色炸藥
+	PentaKill pentaKill;// 大絕招
 	KeyInput keyInput;
-	ScreenShot screenShot = new ScreenShot(this);//截圖
-	Plane[] plane = new Plane[NUM_OF_PLANES];//飛機
-	//音樂建立
+	ScreenShot screenShot = new ScreenShot(this);// 截圖
+	Plane[] plane = new Plane[NUM_OF_PLANES];// 飛機
+	// 音樂建立
 	SoundBase startPageMusic = new SoundBase("./audio/startpage.wav");
 	SoundBase backGroundMusic = new SoundBase("./audio/background.wav");
 	SoundBase loadingMusic = new SoundBase("./audio/startbutton.wav");
-	SoundBase lazerMusic = new SoundBase("./audio/lazer.wav");
+//	SoundBase lazerMusic = new SoundBase("./audio/lazer.wav");
 	SoundBase overMusic = new SoundBase("./audio/Game Over.wav");
-	GameOver gameOver;//結束畫面
-	Score score ;//計分
-	String userName;//使用者NAME	
+	GameOver gameOver;// 結束畫面
+	Score score;// 計分
+	String userName;// 使用者NAME
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 700;
 	private static final int NUM_OF_SUBMARINES = 6;
 	private static final int NUM_OF_PLANES = 3;
-	
 
 	public static int get_width() {
 		return WIDTH;
@@ -41,6 +42,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public SubmarineMain() {
+		
 
 		/* 開始頁面-------------------------------------------------------------- */
 		startPageMusic.play();
@@ -53,9 +55,9 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		startButton.setLocation(WIDTH / 2 - 180, 350);
 		startButton.setSize(350, 60);
 		frame2.add(startButton);
-		//名字輸入
+		// 名字輸入
 		JTextField input = new JTextField(30);
-		input.setLocation(WIDTH / 2 - 180,450);
+		input.setLocation(WIDTH / 2 - 180, 450);
 		input.setSize(input.getPreferredSize());
 		input.setText("<Input your name here>");
 		frame2.add(input);
@@ -63,7 +65,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		Image img = Toolkit.getDefaultToolkit().getImage("./image/submarine2.png");
 		frame2.setIconImage(img);
 		frame2.setVisible(true);
-		
+
 		/*------------------------------------------------------------------------*/
 		while (true) {
 			// Check START signal every 2 seconds
@@ -82,10 +84,10 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				loadingMusic.play();
 				userName = input.getText();
-				ImageIcon icon2 = new ImageIcon("./image/START PRESS.png");// LOAD																// image
+				ImageIcon icon2 = new ImageIcon("./image/START PRESS.png");// LOAD // image
 				startButton.setIcon(icon2);
 				frame2.setVisible(true);
 				try {
@@ -96,7 +98,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				}
 				ImageIcon icon3 = new ImageIcon("./image/LOAD1.png");// LOAD
 																		// image
-			
+
 				startButton.setIcon(icon3);
 				try {
 					Thread.sleep(300);
@@ -105,7 +107,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				ImageIcon icon4 = new ImageIcon("./image/LOAD2.png");// LOAD
-												// image
+				// image
 				startButton.setIcon(icon4);
 				try {
 					Thread.sleep(1150);
@@ -114,7 +116,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				ImageIcon icon5 = new ImageIcon("./image/LOAD3.png");// LOAD
-												// image
+				// image
 				startButton.setIcon(icon5);
 				try {
 					Thread.sleep(100);
@@ -123,22 +125,21 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					e.printStackTrace();
 				}
 				frame2.setVisible(false);
-				
-			/*--MAIN Game Window------------------------------------------------*/
+
+				/*--MAIN Game Window------------------------------------------------*/
 				this.setTitle("Submarine War");
 				this.setIconImage(img);
 				setSize(WIDTH, HEIGHT);
-				
+
 				backGroundMusic.play();
 				// 載入背景圖片
 				setContentPane(new JLabel(new ImageIcon("./image/seabg.jpg")));
 				// 主艦
 				this.add(ship);
-				
-				
-				//User潛艦
+
+				// User潛艦
 				addUserSub();
-				
+
 				// 血條
 				this.add(healthBar);
 				// 創 NUM_OF_SUBMARINES個潛艇
@@ -150,23 +151,22 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 					addPlane(i);
 				}
 
-				//綠色炸彈
+				// 綠色炸彈
 				addToxicBomb();
-				//大絕招
-				pentaKill = new PentaKill(this);
-				
+				// 大絕招
+				pentaKill = new PentaKill(850, 100, this);
+				this.add(pentaKill);
 				// KeyListener (for KeyInput class)
-				addKeyListener(keyInput=new KeyInput(this));
-				
-				    
+				addKeyListener(keyInput = new KeyInput(this));
+
 				// 置入鼠標
-				//add(dragOctopus);
-				//dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
-				//addMouseMotionListener(this);
+				// add(dragOctopus);
+				// dragOctopus.setBounds(mouseX, mouseY, 100,132);//166, 131
+				// addMouseMotionListener(this);
 
 				// 截圖
 				this.add(screenShot);
-				//GAMEOVER
+				// GAMEOVER
 				gameOver = new GameOver(WIDTH, HEIGHT, this);
 				gameOver.setVisible(false);
 				gameOver.setEnabled(false);
@@ -174,82 +174,22 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 				score = new Score(this);
 				this.add(score);
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
-			/*------------------------------------------------------------*/
+				/*------------------------------------------------------------*/
 				break;
 			}
 		}
 
 	}
 
-	
-	// 鍵盤控制 signal from KeyInput class
-	long lastShoot = System.currentTimeMillis();
-	long lastShoot2 = System.currentTimeMillis();
-	
-	final long threshold2 = 1800;
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-
-		if (key == KeyEvent.VK_D) {// Right shift
-			if(ship.get_X()<850)
-			ship.setX(ship.get_X() + 5+(score.LV-1)*2);
-		} else if (key == KeyEvent.VK_A) {// Left shift
-			if(ship.get_X()>-50)
-			ship.setX(ship.get_X() - (5+(score.LV-1)*2));
-		} else if (key == KeyEvent.VK_SPACE) {
-			// Create BOMB from SHIP
-			// new Bomb(ship.get_X() + 80, ship.get_Y() + 80, this, ctrl);
-			long now = System.currentTimeMillis();
-			long threshold = 800-(score.LV-1)*50;
-			if (now - lastShoot > threshold) {
-				bomb.addBomb((int) ship.get_X()+80, (int) ship.get_Y()+80);
-				lastShoot = now;
-			}
-			
-		}else if (key == KeyEvent.VK_UP) {
-			if(subUser.get_Y()>=300)
-				subUser.setY(subUser.get_Y() - 5);// Up shift
-		}else if (key == KeyEvent.VK_DOWN) {
-			if(subUser.get_Y()<=600)
-				subUser.setY(subUser.get_Y() + 5);// Down shift
-	    }else if (key == KeyEvent.VK_LEFT) {
-	    	if(subUser.get_X()>-25){
-				subUser.setX(subUser.get_X() - 10);// Left shift
-				subUser.changeDirection("left");
-	    	}
-	    }else if (key == KeyEvent.VK_RIGHT) {
-	    	if(subUser.get_X()<850){
-				subUser.setX(subUser.get_X() + 10);// Right shift
-				subUser.changeDirection("right");
-	    	}
-	    }else if (key == KeyEvent.VK_ENTER) {
-	    	
-	    	long now = System.currentTimeMillis();
-			if (now - lastShoot2 > threshold2) {
-				lazerMusic.play();
-				laser.addLaser((int) subUser.get_X()+40, (int) subUser.get_Y()-50);
-				lastShoot2 = now;
-			}
-		//Special Action
-	    }else if(key == KeyEvent.VK_Q){
-	    	if(!pentaKill.Q){
-		    	pentaKill.Q = true;
-		    	if(pentaKill.Q && pentaKill.E){
-	    		pentaKill.bombFromSky();
-		    	}
-	    	}
-	    }else if(key == KeyEvent.VK_E){
-	    	if(!pentaKill.E){
-	    	pentaKill.E = true;
-	    	if(pentaKill.Q && pentaKill.E){
-	    		pentaKill.bombFromSky();
-	    	}
-	    	}
-	    }
+		ship.keyPressedAction(key);
+		subUser.keyPressedAction(key);
+		pentaKill.keyPressedAction(key);
 	}
 
 	public void addScore(int i) {
-		score.addScore(i);			
+		score.addScore(i);
 	}
 
 	public void add_health() {
@@ -281,13 +221,13 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		healthBar.minusHealth(a);
 		// GameOver Signal
 		if (healthBar.getHealth() <= 0) {
-		
+
 			this.setVisible(false);
 			this.setEnabled(false);
-			//GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
+			// GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 			gameOver.setEnabled(true);
 			gameOver.setVisible(true);
-			if(score.scoreSaved==false){
+			if (score.scoreSaved == false) {
 				score.save_score(userName);
 				backGroundMusic.pause();
 				overMusic.play();
@@ -317,27 +257,28 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	}
 
 	public void addToxicBomb() {
-		seaBomb = new ToxicSeaBomb(-200, (int)(400 + Math.random() * 200), Math.random() * 10 - 5.25, this);
-		
+		seaBomb = new ToxicSeaBomb(-200, (int) (400 + Math.random() * 200), Math.random() * 10 - 5.25, this);
+
 		this.add(seaBomb);
 		Thread thread = new Thread(seaBomb);
 		thread.start();
 	}
 
-	public void addUserSub(){
-		subUser = new SubmarineUser(-50,550);
+	public void addUserSub() {
+		subUser = new SubmarineUser(-50, 550, this);
 		this.add(subUser);
 	}
+
 	public void resetAll() {
 
 		ship.setX(420);
 		ship.setY(170);
 		ship.resetIcon();
 		backGroundMusic.play();
-		
+
 		PlaneBomb.resetPlaneBomb();
 		Plane.resetPlane();
-		
+
 		for (int i = 0; i < NUM_OF_SUBMARINES; i++) {
 			this.remove(sub[i]);
 			sub[i].setCrash();
@@ -347,21 +288,19 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 			this.remove(plane[i]);
 			addPlane(i);
 		}
-		
+
 		this.remove(subUser);
 		subUser.setEnabled(false);
 		addUserSub();
-		
+
 		healthBar.reset();
-		
+
 		score.reset_score();
-		
-		pentaKill.reset();
-		pentaKill.resetKillCnt();
-		
+
+		AttackController.resetPentakillCnt();
+
 		keyInput.reset();
-		
-		
+
 	}
 
 	/*********************************************************************************/
@@ -373,7 +312,7 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 	public void mouseDragged(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
-		dragOctopus.setBounds(mouseX, mouseY, 100, 132);//166, 131
+		dragOctopus.setBounds(mouseX, mouseY, 100, 132);// 166, 131
 	}
 
 	public void mouseMoved(MouseEvent e) {
@@ -390,7 +329,6 @@ public class SubmarineMain extends JFrame implements MouseMotionListener {
 		SubmarineMain game = new SubmarineMain();
 		game.setLayout(null);
 		game.setVisible(true);
-	
 
 	}
 }

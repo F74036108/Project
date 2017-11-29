@@ -1,3 +1,4 @@
+
 /*************************
  * Listener for frontpage Btn
  * 
@@ -10,8 +11,7 @@ import javax.swing.JFrame;
 
 public class MouseInput implements MouseListener {
 	Frontpage game;
-	
-	
+
 	public MouseInput(Frontpage game) {
 		this.game = game;
 	}

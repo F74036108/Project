@@ -10,13 +10,13 @@ import javax.swing.*;
 public class SoundBase implements Runnable {
 	private static final int BUFFER_SIZE = 1024;
 	private String fileToPlay = null;
-//定義執行緒中通訊用的變數
+	// 定義執行緒中通訊用的變數
 	private boolean threadExit = false;
 	private boolean stopped = true;
 	private boolean paused = false;
 	private boolean playing = false;
-//用於執行緒的同步管理
-	public  Object synch = new Object();
+	// 用於執行緒的同步管理
+	public Object synch = new Object();
 	private Thread playerThread = null;
 
 	public SoundBase(String filename) {
@@ -28,55 +28,56 @@ public class SoundBase implements Runnable {
 	}
 
 	public void run() {
-		while (! threadExit) {
-				waitforSignal();
-				if (! stopped)
-					playMusic();
-				}
+		while (!threadExit) {
+			waitforSignal();
+			if (!stopped)
+				playMusic();
+		}
 	}
 
 	public void endThread() {
 		threadExit = true;
-		synchronized(synch) {
+		synchronized (synch) {
 			synch.notifyAll();
 		}
 		try {
 			Thread.sleep(500);
-		} catch (Exception ex) {}
+		} catch (Exception ex) {
+		}
 	}
 
 	public void waitforSignal() {
 		try {
-			synchronized(synch){
+			synchronized (synch) {
 				synch.wait();
 			}
-		}catch (Exception ex) { }
+		} catch (Exception ex) {
+		}
 	}
 
 	public void play() {
-		if ((!stopped) || (paused)) return;
-			if (playerThread == null) {
-				playerThread = new Thread(this);
-				playerThread.start();
-				try {
-					Thread.sleep(500);
-				} catch (Exception ex) {}
+		if ((!stopped) || (paused))
+			return;
+		if (playerThread == null) {
+			playerThread = new Thread(this);
+			playerThread.start();
+			try {
+				Thread.sleep(500);
+			} catch (Exception ex) {
 			}
-			synchronized(synch) {
-				stopped = false;
-				paused = false;
-				synch.notifyAll();
-			}
+		}
+		synchronized (synch) {
+			stopped = false;
+			paused = false;
+			synch.notifyAll();
+		}
 	}
 
-/*public void setFileToPlay(String fname) {
-		fileToPlay = fname;
-	}
-
-public void playFile(String fname) {
-setFileToPlay(fname);
-play();
-}*/
+	/*
+	 * public void setFileToPlay(String fname) { fileToPlay = fname; }
+	 * 
+	 * public void playFile(String fname) { setFileToPlay(fname); play(); }
+	 */
 
 	public void playMusic() {
 		byte[] audioData = new byte[BUFFER_SIZE];
@@ -84,22 +85,16 @@ play();
 		SourceDataLine line = null;
 		AudioFormat baseFormat = null;
 		try {
-			ais = AudioSystem.getAudioInputStream(new File (fileToPlay));
+			ais = AudioSystem.getAudioInputStream(new File(fileToPlay));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "打開檔失敗！");
 		}
 		if (ais != null) {
-			baseFormat = ais.getFormat(); //獲取檔案格式
-			line = getLine(baseFormat); //從檔中獲取資料
-			if (line == null) { //如果不是可解碼類型，測試能否獲取外部解碼器
-				AudioFormat decodedFormat = new AudioFormat(
-						AudioFormat.Encoding.PCM_SIGNED,
-						baseFormat.getSampleRate(),
-						16,
-						baseFormat.getChannels(),
-						baseFormat.getChannels() * 2,
-						baseFormat.getSampleRate(),
-						false );
+			baseFormat = ais.getFormat(); // 獲取檔案格式
+			line = getLine(baseFormat); // 從檔中獲取資料
+			if (line == null) { // 如果不是可解碼類型，測試能否獲取外部解碼器
+				AudioFormat decodedFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(),
+						16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
 				ais = AudioSystem.getAudioInputStream(decodedFormat, ais);
 				line = getLine(decodedFormat);
 			}
@@ -109,18 +104,18 @@ play();
 			return; // 不能播放此檔
 		}
 		playing = true;
-		line.start(); //準備播放檔
+		line.start(); // 準備播放檔
 		int inBytes = 0;
 		while ((inBytes != -1) && (!stopped) && (!threadExit)) {
 			try {
 				inBytes = ais.read(audioData, 0, BUFFER_SIZE);
-			}catch (IOException e) {
+			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "無法讀取檔中的內容！");
 			}
-			try{
+			try {
 				if (inBytes > 0)
 					line.write(audioData, 0, inBytes);
-			}catch(Exception e) {
+			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "無法輸出解碼資料到音訊裝置！");
 			}
 			if (paused)
@@ -141,26 +136,29 @@ play();
 	}
 
 	public void waitForPlayToStop() {
-		while( playing)
+		while (playing)
 			try {
 				Thread.sleep(500);
-				synchronized(synch) {
+				synchronized (synch) {
 					synch.notifyAll();
 				}
-			} catch (Exception ex) { }
+			} catch (Exception ex) {
+			}
 	}
 
 	public void pause() {
-		if (stopped) return;
-		synchronized(synch) {
+		if (stopped)
+			return;
+		synchronized (synch) {
 			paused = true;
 			synch.notifyAll();
 		}
 	}
 
-	public void resume(){
-		if (stopped) return;
-		synchronized(synch) {
+	public void resume() {
+		if (stopped)
+			return;
+		synchronized (synch) {
 			paused = false;
 			synch.notifyAll();
 		}
@@ -168,14 +166,14 @@ play();
 
 	private SourceDataLine getLine(AudioFormat audioFormat) {
 		SourceDataLine res = null;
-		DataLine.Info info = new DataLine.Info(SourceDataLine.class,audioFormat);
+		DataLine.Info info = new DataLine.Info(SourceDataLine.class, audioFormat);
 		try {
 			res = (SourceDataLine) AudioSystem.getLine(info);
 			res.open(audioFormat);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			res = null;
 		}
 		return res;
 	}
 
-	}
+}

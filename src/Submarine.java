@@ -1,3 +1,4 @@
+
 /****************
  * Submarine Object class
  * 
@@ -5,7 +6,7 @@
  ****************/
 import javax.swing.*;
 
-public class Submarine extends Vehicle implements Runnable {
+public class Submarine extends GameObject implements Runnable {
 
 	public Submarine(int x, int y, double speed) {
 		super(x, y, speed);
@@ -18,7 +19,7 @@ public class Submarine extends Vehicle implements Runnable {
 		while (true) {
 			if (getCrashedStatus() == true)
 				break;
-			setX(get_X() + (int)getSpeed());
+			setX(get_X() + (int) getSpeed());
 			if (get_X() >= 1200 && getSpeed() >= 0)
 				setX(-200);
 			if (get_X() <= -200 && getSpeed() < 0)

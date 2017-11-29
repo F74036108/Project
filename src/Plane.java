@@ -1,3 +1,4 @@
+
 /*****************
  * Plane object
  * 
@@ -5,29 +6,31 @@
  *****************/
 import javax.swing.*;
 
-public class Plane extends Vehicle implements Runnable {
+public class Plane extends GameObject implements Runnable {
+	private SubmarineMain game;
 	private static ImageIcon icon = new ImageIcon("./image/plane.png");// SET image
 	PlaneBomb bomb;
 	private static boolean reset;
 
 	public Plane(int x, int y, double speed, SubmarineMain game) {
-		super(x, y, speed);	
+		super(x, y, speed);
 		setSize(200, 200);
-		bomb = new PlaneBomb(game);
-		
+		this.game=game;
+
 		reset = false;
 		setIcon(icon);
 	}
 
 	public void run() {
-		
+
 		while (true) {
-			if(reset) break;
-			setX(get_X() - (int)getSpeed());
-			setY(get_Y() + (int)(Math.random() - 0.51));
-			//Randomly dropped Bomb
+			if (reset)
+				break;
+			setX(get_X() - (int) getSpeed());
+			setY(get_Y() + (int) (Math.random() - 0.51));
+			// Randomly dropped Bomb
 			if ((int) (Math.random() * 1700) == 1.0 && get_X() < 1000) {
-				bomb.addBomb(get_X(), get_Y() + 70);
+				AttackController.addPlaneBomb(game, get_X(), get_Y() + 70);
 			}
 
 			if (get_X() <= -100) {
@@ -43,7 +46,7 @@ public class Plane extends Vehicle implements Runnable {
 			}
 		}
 	}
-	
+
 	public static void resetPlane() {
 		reset = true;
 	}

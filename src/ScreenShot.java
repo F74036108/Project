@@ -1,7 +1,8 @@
+
 /************************
  * ScreenShot  & btn
  * 
- * @author ¯Î¤¶¸Û
+ * @author ï¿½Î¤ï¿½ï¿½ï¿½
  */
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ public class ScreenShot extends JButton implements ActionListener {
 	private int photoCount = 0;
 
 	SoundBase cam = new SoundBase(".\\audio\\camera.wav");
+
 	public ScreenShot(SubmarineMain game) {
 		this.game = game;
 		setIcon(new ImageIcon(".\\image\\photo-camera.png"));
@@ -33,7 +35,7 @@ public class ScreenShot extends JButton implements ActionListener {
 
 	public void pressed() {
 		try {
-			
+
 			saveScreenShot(game, ".\\screenshot\\" + (++photoCount) + ".png");
 			cam.play();
 		} catch (IOException e) {

@@ -1,15 +1,8 @@
 
-/****
- * Bomb thrown from Ship
- * 
- * Created in SubmarineMain class method - keyPressed()
- *
- *@author 王冠鈞
- ****/
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Bomb extends Vehicle implements Runnable {
+public class Bomb extends GameObject implements Runnable {
 	Bomb tempBomb;
 	SubmarineMain game;
 	private static ImageIcon icon = new ImageIcon("./image/bomb.png");
@@ -25,26 +18,30 @@ public class Bomb extends Vehicle implements Runnable {
 	public Bomb(int x, int y, SubmarineMain game) {
 		super(x, y, 0);
 		this.game = game;
-		
+
 		setSize(60, 60);
 		explode2 = new JLabel(icon3);
 		explode2.setSize(450, 255);
-		//ImageIcon icon4 = new ImageIcon("./image/explore.gif");
+		// ImageIcon icon4 = new ImageIcon("./image/explore.gif");
 		explo_anmi = new JLabel(icon4);
 		explo_anmi.setSize(1000, 700);
-		
+
 		setIcon(icon);
 
 	}
 
-	public void addBomb(int x, int y) {
-		Bomb bomb = new Bomb(x, y, game);
-		game.add(bomb);
-		bombPathMusic.play();
-		Thread thread = new Thread(bomb);
-		thread.start();
-	}
+//	public void addBomb(int x, int y) {
+//		Bomb bomb = new Bomb(x, y, game);
+//		game.add(bomb);
+//		bombPathMusic.play();
+//		Thread thread = new Thread(bomb);
+//		thread.start();
+//	}
 
+	public void playDroppingSound() {
+		bombPathMusic.play();
+	}
+	
 	public void run() {
 		LOOP: while (true) {
 			setY(get_Y() + 1);
@@ -63,7 +60,7 @@ public class Bomb extends Vehicle implements Runnable {
 						game.remove(this);
 						// Create new Sub
 						game.addSubmarine(j);
-						//播放音效
+						// 播放音效
 						bombPathMusic.pause();
 						bombMusic.play();
 						// 爆炸動畫
@@ -131,12 +128,11 @@ public class Bomb extends Vehicle implements Runnable {
 				diffX = this.get_X() - game.subUser.get_X();
 				diffY = this.get_Y() - game.subUser.get_Y();
 				if (diffX > -60 && diffX <= 110 && diffY > 5 && diffY < 25) {
-					
-					
+
 					// handle 爆炸後
 					game.remove(game.subUser);
-				//	game.subUser.setCrash();
-				//	game.subUser = null;
+					// game.subUser.setCrash();
+					// game.subUser = null;
 					game.remove(this);
 					// Create new Sub
 					game.addUserSub();

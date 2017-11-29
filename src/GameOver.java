@@ -1,3 +1,4 @@
+
 /**********************************************************
  * Game Over PAGE
  * 
@@ -28,7 +29,7 @@ public class GameOver extends JFrame {
 		ImageIcon icon = new ImageIcon("./image/game over.png");
 		gameover.setIcon(icon);
 		gameover.setSize(547, 245);
-		gameover.setLocation(x / 2 -20, y / 2 - 300);
+		gameover.setLocation(x / 2 - 20, y / 2 - 300);
 		// 增加0血條
 		JLabel health = new JLabel();
 		ImageIcon icon4 = new ImageIcon("./image/0.png");
@@ -59,7 +60,7 @@ public class GameOver extends JFrame {
 		this.add(exitbtn);
 		this.add(restart);
 		this.add(gameover);
-		//this.add(health);
+		// this.add(health);
 		this.add(word);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -78,7 +79,7 @@ public class GameOver extends JFrame {
 		}
 		game.setEnabled(true);
 		game.setVisible(true);
-		//this.dispose();
+		// this.dispose();
 	}
 
 	public void exit() {
