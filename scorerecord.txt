@@ -1,5 +1,5 @@
-Top1 name:Userscore:560
-Top2 name:collinscore:370
-Top3 name:Userscore:230
-Top4 name:Userscore:190
-Top5 name:Userscore:180
+Top1 name:ssscore:70
+Top2 name:Userscore:50
+Top3 name:Katscore:21
+Top4 name:Jeffscore:15
+Top5 name:Userscore:10

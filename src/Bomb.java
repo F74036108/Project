@@ -74,8 +74,6 @@ public class Bomb extends GameObject implements Runnable {
 		if (diffX > -60 && diffX <= 110 && diffY > 5 && diffY < 25) {
 			// 爆炸setLocation
 			explode2.setLocation((int) this.get_X() - 160, (int) this.get_Y() - 120);
-			// handle 爆炸後
-			// remove LABEL
 			game.remove(game.seaBomb);
 			game.seaBomb.setCrash();
 			game.remove(this);
