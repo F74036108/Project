@@ -56,11 +56,4 @@ public class Laser extends GameObject implements Runnable {
 			}
 		}
 	}
-
-//	public void addLaser(int x, int y) {
-//		Laser laser = new Laser(x, y, game);
-//		game.add(laser);
-//		Thread thread = new Thread(laser);
-//		thread.start();
-//	}
 }

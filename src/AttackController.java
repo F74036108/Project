@@ -73,4 +73,20 @@ public final class AttackController {
 	public static void resetPentakillCnt() {
 		pentakillTimes = 0;
 	}
+	
+	public static void showExplosion(SubmarineMain game, int x, int y) {
+		
+		try {
+			Explosion explosion = new Explosion(x, y, "./image/Nuclear_explosion1.gif");
+			explosion.playExplodeSound();
+			game.add(explosion);
+			Thread.sleep(500);
+			
+			game.remove(explosion);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
