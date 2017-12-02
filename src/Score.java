@@ -14,13 +14,13 @@ import java.io.*;
 public class Score extends JLabel {
 	private int score = 0;
 	private int health_sign = 0;
-	public int[] scores = new int[5+1];
-	String[] userNameArr = new String[5+1];
+	private int[] scores = new int[5+1];
+	private String[] userNameArr = new String[5+1];
 	
-	SubmarineMain game;
-	boolean scoreSaved;
-	JLabel lb_level= new JLabel();
-	int level = 1;
+	private SubmarineMain game;
+	private boolean scoreSaved;
+	private JLabel lb_level= new JLabel();
+	private int level = 1;
 
 	public Score(SubmarineMain game) {
 		this.game = game;
@@ -135,5 +135,9 @@ public class Score extends JLabel {
 			}
 		}
 
+	}
+	
+	public boolean checkIfScoreIsSaved() {
+		return scoreSaved;
 	}
 }

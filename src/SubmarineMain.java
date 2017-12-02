@@ -189,7 +189,7 @@ public void subHealth(int a) {
 		this.hideMainGameBoard();
 		// GameOver gameOver = new GameOver(WIDTH, HEIGHT, this);
 		gameOver.showGameOverPage();
-		if (score.scoreSaved == false) {
+		if (score.checkIfScoreIsSaved() == false) {
 			score.save_score(userName);
 			gameOver.refreshTable();
 			backGroundMusic.stop();
