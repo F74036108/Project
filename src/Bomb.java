@@ -2,15 +2,13 @@
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Bomb extends GameObject implements Runnable {
-	Bomb tempBomb;
-	SubmarineMain game;
+public class Bomb extends Weapon implements Runnable {
+	private SubmarineMain game;
 	private static ImageIcon icon = new ImageIcon("./image/bomb.png");
 	private static ImageIcon icon3 = new ImageIcon("./image/explo2.gif");
 	private static ImageIcon icon4 = new ImageIcon("./image/explore.gif");
-	JLabel explode;
-	JLabel explode2;
-	static JLabel explo_anmi;
+	private static JLabel explodeAnimation;
+	private static JLabel explodeAnimation2;
 	private static SoundBase bombPathMusic = new SoundBase("./audio/bomb_path.wav");
 	private static SoundBase bigBombMusic = new SoundBase("./audio/explode.wav");
 
@@ -19,11 +17,10 @@ public class Bomb extends GameObject implements Runnable {
 		this.game = game;
 
 		setSize(60, 60);
-		explode2 = new JLabel(icon3);
-		explode2.setSize(450, 255);
-		// ImageIcon icon4 = new ImageIcon("./image/explore.gif");
-		explo_anmi = new JLabel(icon4);
-		explo_anmi.setSize(1000, 700);
+		explodeAnimation = new JLabel(icon3);
+		explodeAnimation.setSize(450, 255);
+		explodeAnimation2 = new JLabel(icon4);
+		explodeAnimation2.setSize(1000, 700);
 
 		setIcon(icon);
 
@@ -73,27 +70,27 @@ public class Bomb extends GameObject implements Runnable {
 		double diffY = this.get_Y() - game.seaBomb.get_Y();
 		if (diffX > -60 && diffX <= 110 && diffY > 5 && diffY < 25) {
 			// 爆炸setLocation
-			explode2.setLocation((int) this.get_X() - 160, (int) this.get_Y() - 120);
+			explodeAnimation.setLocation((int) this.get_X() - 160, (int) this.get_Y() - 120);
 			game.remove(game.seaBomb);
 			game.seaBomb.setCrash();
 			game.remove(this);
-			game.backGroundMusic.pause();
+			game.pauseBackgroundMusic();
 			bombPathMusic.pause();
 			// Create new Sub
 			game.addToxicBomb();
 			// 爆炸
-			game.add(explode2);
+			game.add(explodeAnimation);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			game.remove(explode2);
+			game.remove(explodeAnimation);
 			// 動畫
-			explo_anmi.setLocation(0, 0);
+			explodeAnimation2.setLocation(0, 0);
 			bigBombMusic.play();
-			game.add(explo_anmi);
+			game.add(explodeAnimation2);
 			try {
 				Thread.sleep(2100);
 			} catch (InterruptedException e) {
@@ -101,10 +98,10 @@ public class Bomb extends GameObject implements Runnable {
 				e.printStackTrace();
 			}
 			// 扣health
-			game.sub_health(40);
-			game.remove(explo_anmi);
+			game.subHealth(40);
+			game.remove(explodeAnimation2);
 			bombPathMusic.stop();
-			game.backGroundMusic.resume();
+			game.resumeBackgroundMusic();
 			return true;
 		}
 		return false;
@@ -135,9 +132,7 @@ public class Bomb extends GameObject implements Runnable {
 		while (true) {
 			setY(get_Y() + 1);
 			if (get_Y() <= 700) { // check 炸彈碰到潛艇
-				if(handleCollisionWithSubmarine()) break;
-				if(handleCollisionWithToxicSeaBomb()) break;
-				if(handleCollisionWithSubmarineUser()) break;
+				if(handleCollision() == true) break;
 			} else if (get_Y() > 700) {
 				bombPathMusic.stop();
 				game.remove(this);
@@ -151,5 +146,16 @@ public class Bomb extends GameObject implements Runnable {
 			}
 			
 		}
+	}
+
+	@Override
+	public boolean handleCollision() {
+		// TODO Auto-generated method stub
+		if(handleCollisionWithSubmarine()) return true;
+		if(handleCollisionWithToxicSeaBomb()) return true;
+		if(handleCollisionWithSubmarineUser()) return true;
+		
+		return false;
+		
 	}
 }

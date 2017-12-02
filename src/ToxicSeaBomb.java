@@ -6,10 +6,9 @@
  ****/
 import javax.swing.ImageIcon;
 
-public class ToxicSeaBomb extends GameObject implements Runnable {
+public class ToxicSeaBomb extends Weapon implements Runnable {
 
 	private SubmarineMain game;
-	private boolean crash;
 
 	public ToxicSeaBomb(int x, int y, double speed, SubmarineMain game) {
 		super(x, y, speed);
@@ -20,19 +19,10 @@ public class ToxicSeaBomb extends GameObject implements Runnable {
 
 	public void run() {
 		while (true) {
-			if (crash == true)
+			if (getCrashedStatus() == true)
 				break;
 			setX(get_X() + (int) getSpeed());
-			if (get_X() >= 1500 && getSpeed() >= 0) {
-				game.addToxicBomb();
-				game.remove(this);
-				break;
-			}
-			if (get_X() <= -400 && getSpeed() < 0) {
-				game.addToxicBomb();
-				game.remove(this);
-				break;
-			}
+			if(handleCollision()) break;
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
@@ -43,9 +33,6 @@ public class ToxicSeaBomb extends GameObject implements Runnable {
 		}
 	}
 
-	public void setCrash() {
-		crash = true;
-	}
 
 	public void setInitialIcon() {
 		// TODO Auto-generated method stub
@@ -55,6 +42,17 @@ public class ToxicSeaBomb extends GameObject implements Runnable {
 			setIcon(new ImageIcon("./image/Toxic_bill3.png"));// SET image
 			setX(1300);
 		}
+	}
+
+	@Override
+	public boolean handleCollision() {
+		// TODO Auto-generated method stub
+		if ((get_X() >= 1500 && getSpeed() >= 0) || (get_X() <= -400 && getSpeed() < 0)) {
+			game.addToxicBomb();
+			game.remove(this);
+			return true;
+		}
+		return false;
 	}
 
 }

@@ -77,7 +77,7 @@ public final class AttackController {
 	public static void showExplosion(SubmarineMain game, int x, int y) {
 		
 		try {
-			Explosion explosion = new Explosion(x, y, "./image/Nuclear_explosion1.gif");
+			ExplodeAnimation explosion = new ExplodeAnimation(x, y, "./image/Nuclear_explosion1.gif");
 			explosion.playExplodeSound();
 			game.add(explosion);
 			Thread.sleep(500);

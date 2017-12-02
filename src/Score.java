@@ -7,20 +7,16 @@
  *****************************/
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Label;
-
 import javax.swing.*;
 import java.io.*;
-import java.util.Arrays;
-import java.util.SortedMap;
-import java.util.TreeMap;
+
 
 public class Score extends JLabel {
 	private int score = 0;
 	private int health_sign = 0;
 	public int[] scores = new int[5+1];
 	String[] userNameArr = new String[5+1];
-	private JLabel[] colLabels = new JLabel[12];
+	
 	SubmarineMain game;
 	boolean scoreSaved;
 	JLabel lb_level= new JLabel();
@@ -49,9 +45,6 @@ public class Score extends JLabel {
 			while ((line = br.readLine()) != null) {
 				scores[i] = Integer.parseInt(line.substring(line.indexOf("score:") + 6));
 				userNameArr[i] = line.substring(line.indexOf("name:") + 5, line.indexOf("score:"));
-
-				// System.out.print(scores[i]);
-				// System.out.print(userNameArr[i]+"\n");
 				i++;
 			}
 			br.close();
@@ -59,35 +52,21 @@ public class Score extends JLabel {
 			// e.printStackTrace();
 		}
 		
-		for (int i=0;i<colLabels.length;i++) {
-			colLabels[i] = new JLabel();
-			game.gameOver.add(colLabels[i]);
-		}
 		
-		refreshTable();
 
 	}
 
-	private void setLabelText(int index, String text, int x, int y, int width, int height) {
-		colLabels[index].setLocation(x, y);
-		colLabels[index].setSize(width, height);
-		colLabels[index].setText(text);
-		colLabels[index].setFont(new Font("Broadway", Font.PLAIN, 50));
-		colLabels[index].setForeground(Color.YELLOW);
+	public int getScore() {
+		return score;
+	}
+
+	public int[] getScoreRecords() {
+		return scores;
 	}
 	
-	private void refreshTable() {
-		setLabelText(0, Integer.toString(score), 300, -38, 300, 150);
-		
-		for (int i=scores.length-1;i>0;i--) {
-			setLabelText(scores.length-i, Integer.toString(scores[i]), 300, 160 + (scores.length-1-i)*90, 300, 150);
-		}
-		
-		for (int i=userNameArr.length-1;i>0;i--) {
-			setLabelText(userNameArr.length-1-i+6, userNameArr[i], 100, 180 + (userNameArr.length-1-i)*90, 300, 150);
-		}
+	public String[] getUsernameRecords() {
+		return userNameArr;
 	}
-	
 	public void addScore(int i) {
 		score = score + i;
 		this.setText("Score:" + score);
@@ -96,7 +75,7 @@ public class Score extends JLabel {
 		// 加血量
 		if ((score - health_sign) / 50 == 1) {
 			health_sign = score;
-			game.add_health();
+			game.addHealth();
 		}
 
 	}
@@ -151,7 +130,6 @@ public class Score extends JLabel {
 				fw.flush();
 				fw.close();
 
-				refreshTable();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

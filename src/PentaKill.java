@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class PentaKill extends GameObject implements KeyPressedControl{
+public class PentaKill extends Weapon implements KeyPressedControl{
 	
 	private SubmarineMain game;
 
@@ -56,5 +56,12 @@ public class PentaKill extends GameObject implements KeyPressedControl{
 				keyQPressed = false;
 			}
 		}
+	}
+
+
+	@Override
+	public boolean handleCollision() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

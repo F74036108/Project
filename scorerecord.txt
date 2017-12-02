@@ -1,5 +1,5 @@
 Top1 name:ssscore:70
 Top2 name:Userscore:50
-Top3 name:Katscore:21
-Top4 name:Jeffscore:15
-Top5 name:Userscore:10
+Top3 name:Userscore:30
+Top4 name:Katscore:21
+Top5 name:Jeffscore:15

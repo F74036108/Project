@@ -29,7 +29,7 @@ public class PlaneBomb extends GameObject implements Runnable {
 			double diffX = get_X() - game.ship.get_X();
 			double diffY = get_Y() - game.ship.get_Y();
 			if ((diffX > -30 && diffX <= 200 && diffY > 0 && diffY < 130)) {
-				game.sub_health(10);
+				game.subHealth(10);
 				game.remove(this);
 
 				hit.setLocation((int) game.ship.get_X() - 65, (int) game.ship.get_Y() - 70);

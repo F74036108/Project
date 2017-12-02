@@ -58,15 +58,6 @@ public class SubmarineUser extends GameObject implements KeyPressedControl{
 			}
 		} else if (key == KeyEvent.VK_ENTER) {
 			AttackController.addLaser(game, get_X() + 40, get_Y() - 50);
-
-//			final long threshold2 = 1800;
-//			long now = System.currentTimeMillis();
-//			if (now - lastShoot2 > threshold2) {
-////				lazerMusic.play();
-//				laser.addLaser((int) get_X() + 40, (int) get_Y() - 50);
-//				lastShoot2 = now;
-//			}
-			// Special Action
 		} 
 	}
 

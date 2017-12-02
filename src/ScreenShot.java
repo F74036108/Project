@@ -17,10 +17,10 @@ import javax.swing.JButton;
 
 public class ScreenShot extends JButton implements ActionListener {
 
-	SubmarineMain game;
+	private SubmarineMain game;
 	private int photoCount = 0;
 
-	SoundBase cam = new SoundBase("./audio/camera.wav");
+	private SoundBase cam = new SoundBase("./audio/camera.wav");
 
 	public ScreenShot(SubmarineMain game) {
 		this.game = game;

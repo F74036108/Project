@@ -1,18 +1,10 @@
-
-/*************************
- * Listener for frontpage Btn
- * 
- *************************/
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
 public class MouseInput implements MouseListener {
-	Frontpage game;
+	StartPage game;
 
-	public MouseInput(Frontpage game) {
+	public MouseInput(StartPage game) {
 		this.game = game;
 	}
 
@@ -21,7 +13,7 @@ public class MouseInput implements MouseListener {
 		// TODO Auto-generated method stub
 		int mx = e.getX();
 		int my = e.getY();
-		if (mx >= SubmarineMain.get_width() / 2 - 180 && mx <= SubmarineMain.get_width() / 2 + 170) {
+		if (mx >= game.getWidth() / 2 - 180 && mx <= game.getWidth() / 2 + 170) {
 			if (my >= 350 && my <= 450) {
 				game.set_start_state();
 			}

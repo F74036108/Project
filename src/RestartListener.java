@@ -1,14 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Restart_listener implements ActionListener {
+public class RestartListener implements ActionListener {
 	GameOver gameover;
 
-	public Restart_listener(GameOver gameover) {
+	public RestartListener(GameOver gameover) {
 		this.gameover = gameover;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		gameover.pressed();
+		gameover.restartButtonPressed();
 	}
 }
