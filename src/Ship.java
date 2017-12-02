@@ -3,8 +3,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class Ship extends GameObject implements KeyPressedControl{
-	private ImageIcon icon = new ImageIcon("./image/Troop_Ship.png");// LOAD image
-	private ImageIcon icon2 = new ImageIcon("./image/broken-ship.gif");
+	private ImageIcon icon_ship = new ImageIcon("./image/Troop_Ship.png");// LOAD image
+	private ImageIcon icon_broke = new ImageIcon("./image/broken-ship.gif");
 	private SubmarineMain game;
 	public Ship(int x, int y, SubmarineMain game) {
 		super(x, y, 5);
@@ -15,11 +15,11 @@ public class Ship extends GameObject implements KeyPressedControl{
 	}
 
 	public void change_picture() {
-		setIcon(icon2);
+		setIcon(icon_broke);
 	}
 
 	public void resetIcon() {
-		setIcon(icon);
+		setIcon(icon_ship);
 	}
 
 //	private long lastShoot = System.currentTimeMillis();

@@ -1,9 +1,3 @@
-
-/**************************
- * User Control Submarine
- * 
- * @author ���a�v
- **************************/
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;

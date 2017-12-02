@@ -1,13 +1,6 @@
-
-/*********************************
- * Ancestor of elements in SubMmarineMain
- * 
- * Direct Known Subclasses:
- *  Submarine, Ship, Plane, Bomb, ToxicSeaBomb, Laser
- **********************************/
 import javax.swing.*;
 
-public class GameObject extends JLabel {
+public abstract class GameObject extends JLabel {
 
 	private int x;
 	private int y;

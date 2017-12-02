@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="Ship" project="SubmarineWar" file="/SubmarineWar/src/Ship.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="478" y="523"/>    
+    <position height="-1" width="-1" x="630" y="515"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="Submarine" project="SubmarineWar" file="/SubmarineWar/src/Submarine.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="716" y="498"/>    
+    <position height="-1" width="-1" x="870" y="500"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="Laser" project="SubmarineWar" file="/SubmarineWar/src/Laser.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1471" y="833"/>    
+    <position height="-1" width="-1" x="1503" y="837"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="Plane" project="SubmarineWar" file="/SubmarineWar/src/Plane.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1267" y="515"/>    
+    <position height="-1" width="-1" x="1469" y="493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="SubmarineUser" project="SubmarineWar" file="/SubmarineWar/src/SubmarineUser.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="965" y="547"/>    
+    <position height="-1" width="-1" x="1123" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -100,16 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="PlaneBomb" project="SubmarineWar" file="/SubmarineWar/src/PlaneBomb.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1561" y="543"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="GameObject" project="SubmarineWar" file="/SubmarineWar/src/GameObject.java" 
+  <class id="12" language="java" name="GameObject" project="SubmarineWar" file="/SubmarineWar/src/GameObject.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1625" y="160"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,16 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="MouseInput" project="SubmarineWar" file="/SubmarineWar/src/MouseInput.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="228" y="480"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="ScreenShot" project="SubmarineWar" file="/SubmarineWar/src/ScreenShot.java" 
+  <class id="13" language="java" name="ScreenShot" project="SubmarineWar" file="/SubmarineWar/src/ScreenShot.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1860" y="1366"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="ToxicSeaBomb" project="SubmarineWar" file="/SubmarineWar/src/ToxicSeaBomb.java" 
+  <class id="14" language="java" name="ToxicSeaBomb" project="SubmarineWar" file="/SubmarineWar/src/ToxicSeaBomb.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2107" y="794"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="AttackController" project="SubmarineWar" 
+  <class id="15" language="java" name="AttackController" project="SubmarineWar" 
     file="/SubmarineWar/src/AttackController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2576" y="560"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,16 +136,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="StartPage" project="SubmarineWar" file="/SubmarineWar/src/StartPage.java" 
+  <class id="16" language="java" name="StartPage" project="SubmarineWar" file="/SubmarineWar/src/StartPage.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="232" y="754"/>    
+    <position height="-1" width="-1" x="272" y="808"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="PentaKill" project="SubmarineWar" file="/SubmarineWar/src/PentaKill.java" 
+  <class id="17" language="java" name="PentaKill" project="SubmarineWar" file="/SubmarineWar/src/PentaKill.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2448" y="880"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="Weapon" project="SubmarineWar" file="/SubmarineWar/src/Weapon.java" 
+  <class id="18" language="java" name="Weapon" project="SubmarineWar" file="/SubmarineWar/src/Weapon.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1944" y="470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -181,257 +163,354 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <class id="19" language="java" name="PlaneBomb" project="SubmarineWar" file="/SubmarineWar/src/PlaneBomb.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1238" y="796"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="20" language="java" name="KeyPressedControl" project="SubmarineWar" 
+    file="/SubmarineWar/src/KeyPressedControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="906" y="186"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
   <association id="21">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="22" name="healthBar"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
+      <attribute id="22" name="screenShot">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="24">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <association id="26">    
-    <bendpoint x="2022" y="1162"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="27" name="seaBomb"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="30" name="sub"/>      
-      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="33" name="plane"/>      
-      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="35">    
     <bendpoint x="930" y="294"/>    
     <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
+    <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="37">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="38" name="game"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+  <association id="25">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="26" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
-    <bendpoint x="2380" y="1182"/>    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="41" name="game"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="44">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="45" name="game"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="47">    
-    <bendpoint x="1636" y="320"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="48">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="49" name="screenShot"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="52" name="score"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <bendpoint x="2426" y="1216"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="55" name="pentaKill"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+  <association id="28">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="29" name="bomb"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="57">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <association id="58">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="59" name="game"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
+  <association id="31">    
+    <bendpoint x="1984" y="1136"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="32" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="61">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="13"/>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="62">    
+  <association id="35">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="36" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="40">    
+    <bendpoint x="1062" y="714"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="41" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="63" name="subUser"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
+      <attribute id="44" name="plane">        
+        <position height="0" width="0" x="202" y="-22"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="202" y="-22"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="47" name="game"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="50" name="score">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <association id="54">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="55" name="subUser">        
+        <position height="0" width="0" x="158" y="-22"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="158" y="-22"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="66">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="67" name="game"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
+  <association id="57">    
+    <bendpoint x="2426" y="1216"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="58" name="pentaKill">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="61" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="69">    
+  <association id="63">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="64" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="70" name="gameOver"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
+      <attribute id="67" name="gameOver">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="70" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="72">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="73" name="game"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="73" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="75">    
-    <bendpoint x="1984" y="1136"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="76" name="game"/>      
-      <multiplicity id="77" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="76" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="78">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="79" name="game"/>      
-      <multiplicity id="80" minimum="0" maximum="1"/>    
+    <bendpoint x="2022" y="1162"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="79" name="seaBomb">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="80" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="81">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="82" name="game"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="82" name="healthBar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="84">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="20"/>  
+  <association id="84">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="85" name="sub">        
+        <position height="0" width="0" x="154" y="2"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="154" y="2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="87">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
   </generalization>  
-  <association id="85">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="86" name="bomb"/>      
-      <multiplicity id="87" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="88">    
-    <bendpoint x="1062" y="714"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="89" name="game"/>      
-      <multiplicity id="90" minimum="0" maximum="1"/>    
+  <realization id="88">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <realization id="89">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <generalization id="90">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="91">    
+    <bendpoint x="2380" y="1182"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="92" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="93" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="91">    
+  <association id="94">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="95" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="96" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="98">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="99">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="100">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="101">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="92" name="ship"/>      
-      <multiplicity id="93" minimum="0" maximum="1"/>    
+      <attribute id="102" name="ship">        
+        <position height="0" width="0" x="152" y="-8"/>      
+      </attribute>      
+      <multiplicity id="103" minimum="0" maximum="1">        
+        <position height="0" width="0" x="152" y="-8"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="95" name="game"/>      
-      <multiplicity id="96" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="98" name="game"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="101" name="scores"/>      
-      <multiplicity id="102" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="103">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="104" name="game"/>      
-      <multiplicity id="105" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="106">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

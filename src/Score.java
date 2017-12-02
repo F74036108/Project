@@ -1,10 +1,3 @@
-
-/******************************
- * Score Record along with ScoreBoard
- * 
- * @author 鞠之浩
- * Scoreboard(GameOver) bg image design by 許熙浩
- *****************************/
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
