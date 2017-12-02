@@ -3,14 +3,11 @@ import java.util.*;
 
 public class KeyInput extends KeyAdapter {
 	SubmarineMain game;
-	Ship ship;
-	SubmarineUser subUser;
 	private final Set<KeyEvent> pressed = new HashSet<KeyEvent>();
 
 	public KeyInput(SubmarineMain game) {
 		this.game = game;
-		ship = game.ship;
-		subUser = game.subUser;
+
 	}
 
 	public synchronized void keyPressed(KeyEvent e) {
